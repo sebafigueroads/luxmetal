@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>LUX-METAL · Arriendo de grúas horquillas en Santiago · 24/7</title>
+<meta name="description" content="Arriendo de grúas horquillas de 3 y 7 toneladas en Santiago. Con o sin operador, spot o contrato largo plazo. 30 años de experiencia, servicio 24/7. Cotiza por WhatsApp.">
+<meta name="theme-color" content="#151516">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LUX-METAL · Arriendo de grúas horquillas 24/7 en Santiago">
+<meta property="og:description" content="Grúas horquillas de 3 y 7 toneladas, con o sin operador, spot o contrato. 30 años operando desde San Miguel.">
+<meta property="og:image" content="img/real/g34.jpg">
+<meta property="og:locale" content="es_CL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   LUX-METAL · OPCIÓN 4 · "LA MÁQUINA DE VENDER"
+   Landing tradicional de alta conversión con dirección de arte Digitals.
+   Ritmo editorial: hero oscuro (foto) → cuerpo claro (máxima legibilidad)
+   → prueba y cierre oscuros. Amarillo #FFBD59 = única señal de acción.
+   ========================================================================== */
+:root{
+  --dark:#151516;
+  --dark-2:#1c1c1e;
+  --dark-3:#232326;
+  --panel:#292929;
+  --hair-d:rgba(255,255,255,.14);
+  --amber:#FFBD59;
+  --amber-hi:#FFCD7E;
+  --fire:#F95738;
+  --fire-ink:#C4321E;      /* naranja legible sobre fondo claro (5.4:1) */
+  --ink:#1A1A1B;
+  --ink-2:#333539;
+  --muted:#5A5C60;         /* 6.7:1 sobre blanco */
+  --paper:#FFFFFF;
+  --paper-2:#F4F4F4;
+  --hair-l:#E2E2E4;
+  --nav:clamp(60px,6.2vw,76px);
+  --gut:clamp(20px,5vw,72px);
+  --maxw:1280px;
+  --ease:cubic-bezier(.2,.75,.25,1);
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink-2);
+  font-family:"Manrope",system-ui,-apple-system,sans-serif;font-weight:500;
+  font-size:clamp(1rem,1.05vw,1.075rem);line-height:1.62;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--amber);color:var(--ink)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- tipografía ---------- */
+.d{font-family:"Archivo",sans-serif;font-weight:800;font-stretch:108%;
+   line-height:1.01;letter-spacing:-.028em;color:var(--ink)}
+.d--inv{color:#fff}
+.kick{font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--fire-ink);display:flex;align-items:center;gap:10px}
+.kick::before{content:"";width:26px;height:2px;background:var(--fire);flex:0 0 auto}
+.kick--inv{color:var(--amber)}
+.kick--inv::before{background:var(--amber)}
+.lede{font-size:clamp(1.02rem,1.25vw,1.18rem);color:var(--muted);max-width:60ch}
+.lede--inv{color:rgba(255,255,255,.84)}
+.sect{padding-block:clamp(64px,8vw,124px)}
+.sect--tight{padding-block:clamp(52px,6vw,88px)}
+/* la sección termina en una banda a sangre: sin padding para que no quede
+   una franja blanca huérfana entre la banda oscura y la sección siguiente */
+.sect--band{padding-bottom:0}
+/* los anclajes internos no pueden aterrizar bajo la barra fija */
+[id]{scroll-margin-top:calc(var(--nav) + 20px)}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:56px;padding:0 26px;border:2px solid transparent;border-radius:999px;
+  font-weight:800;font-size:1rem;letter-spacing:-.01em;cursor:pointer;
+  transition:transform .25s var(--ease),background .25s,box-shadow .25s,border-color .25s;
+  text-align:center;line-height:1.2}
+.btn svg{flex:0 0 auto}
+.btn--wa{background:var(--amber);color:#1A1A1B;box-shadow:0 10px 26px -12px rgba(255,189,89,.75)}
+.btn--wa:hover{background:var(--amber-hi);transform:translateY(-2px);
+  box-shadow:0 16px 34px -12px rgba(255,189,89,.9)}
+.btn--tel{background:transparent;color:var(--ink);border-color:rgba(26,26,27,.28)}
+.btn--tel:hover{border-color:var(--ink);background:rgba(26,26,27,.05);transform:translateY(-2px)}
+.btn--tel-inv{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,255,255,.32)}
+.btn--tel-inv:hover{border-color:#fff;background:rgba(255,255,255,.13);transform:translateY(-2px)}
+.btn--block{width:100%}
+.btn--sm{min-height:48px;font-size:.94rem;padding:0 20px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ============================ 01 · BARRA FIJA ============================ */
+.nav{position:fixed;inset:0 0 auto 0;z-index:120;height:var(--nav);
+  display:flex;align-items:center;
+  background:rgba(21,21,22,.62);backdrop-filter:blur(14px) saturate(1.2);
+  -webkit-backdrop-filter:blur(14px) saturate(1.2);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  transition:background .35s ease,border-color .35s ease}
+.nav.solid{background:rgba(21,21,22,.97);border-bottom-color:rgba(255,255,255,.13)}
+.nav__in{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut);
+  display:flex;align-items:center;justify-content:space-between;gap:14px}
+.nav__logo{display:flex;align-items:center;gap:10px;min-width:0}
+.nav__logo img:first-child{height:clamp(26px,2.6vw,34px);width:auto}
+.nav__logo img:last-child{height:clamp(13px,1.35vw,17px);width:auto}
+.nav__right{display:flex;align-items:center;gap:clamp(8px,1vw,18px)}
+.nav__tel{display:flex;align-items:center;gap:9px;color:#fff;font-weight:700;
+  font-size:.95rem;white-space:nowrap;transition:color .25s}
+.nav__tel:hover{color:var(--amber)}
+.nav__tel b{display:block;font-weight:800;letter-spacing:-.01em}
+.nav__tel i{display:block;font-style:normal;font-size:.7rem;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--amber);line-height:1.45}
+.nav__tel .ic{width:36px;height:36px;border-radius:50%;flex:0 0 auto;
+  border:1px solid rgba(255,255,255,.28);display:grid;place-items:center}
+.nav__wa{min-height:44px;padding:0 20px;font-size:.94rem}
+
+/* ============================== 02 · HERO =============================== */
+.hero{position:relative;background:var(--dark);overflow:hidden;
+  padding-top:calc(var(--nav) + clamp(26px,4vw,54px));
+  padding-bottom:clamp(48px,6vw,88px)}
+.hero__bg{position:absolute;inset:0;z-index:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%;
+  filter:saturate(.85) contrast(1.06) brightness(.86);
+  animation:heroZoom 26s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1.02)}to{transform:scale(1.11)}}
+/* scrim en dos capas: fuerte donde vive el texto (izquierda), abierto a la derecha
+   para que la foto real se lea. Sobre el titular nunca baja de .86 de negro. */
+.hero__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(to right,rgba(15,15,16,.96) 0%,rgba(15,15,16,.93) 38%,rgba(15,15,16,.74) 56%,rgba(15,15,16,.4) 78%,rgba(15,15,16,.55) 100%),
+    linear-gradient(to bottom,rgba(15,15,16,.66) 0%,rgba(15,15,16,.2) 34%,rgba(15,15,16,.5) 78%,rgba(15,15,16,.8) 100%)}
+/* El logo del elefante es una silueta maciza: ampliada como marca de agua se lee
+   como un manchón rectangular. Se usa entonces NÍTIDO en el lockup, y la
+   profundidad del hero la da un halo ámbar, no una silueta reventada. */
+.hero__ele{position:absolute;left:-14%;bottom:-24%;width:min(74vw,780px);
+  aspect-ratio:1;z-index:2;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(255,189,89,.16) 0%,rgba(249,87,56,.08) 42%,rgba(255,189,89,0) 70%)}
+.hero__in{position:relative;z-index:3;display:grid;gap:clamp(30px,3.4vw,52px);
+  grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);align-items:center}
+.hero__copy{min-width:0}
+/* lockup de marca: elefante sólido + wordmark, escala protagonista (la barra
+   superior lleva la versión utilitaria, mucho más chica) */
+.hero__lock{display:flex;align-items:center;gap:clamp(12px,1.4vw,20px);
+  margin-bottom:clamp(18px,2.2vw,28px)}
+.hero__lock img:first-child{height:clamp(48px,5.4vw,76px);width:auto}
+.hero__lock span{width:1px;height:clamp(34px,3.8vw,52px);background:rgba(255,255,255,.28);
+  flex:0 0 auto}
+.hero__lock img:last-child{height:clamp(21px,2.6vw,34px);width:auto}
+.hero h1{font-size:clamp(2.05rem,4.3vw,3.7rem);margin:14px 0 16px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--amber);display:block}
+.hero__sub{font-size:clamp(1rem,1.2vw,1.14rem);color:rgba(255,255,255,.9);
+  max-width:52ch;font-weight:600}
+.hero__chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px;padding:0;list-style:none}
+.hero__chips li{font-size:.82rem;font-weight:800;letter-spacing:.02em;
+  padding:7px 14px;border-radius:999px;color:#fff;
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2)}
+.hero__chips li:first-child{background:rgba(255,189,89,.16);border-color:rgba(255,189,89,.5);color:var(--amber)}
+
+/* ---------- formulario del hero ---------- */
+.form{background:rgba(24,24,26,.96);border:1px solid var(--hair-d);
+  border-radius:var(--r);padding:clamp(20px,2.2vw,30px);
+  box-shadow:0 34px 80px -34px rgba(0,0,0,.95);position:relative;overflow:hidden}
+.form::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;
+  background:linear-gradient(90deg,var(--amber),var(--fire))}
+.form__hd{margin-bottom:18px}
+.form__hd h2{font-family:"Archivo",sans-serif;font-weight:800;font-stretch:106%;
+  font-size:clamp(1.28rem,1.7vw,1.6rem);color:#fff;line-height:1.1;letter-spacing:-.02em}
+.form__hd p{font-size:.9rem;color:rgba(255,255,255,.72);margin-top:7px}
+.form__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.f--full{grid-column:1/-1}
+.f label{font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.88)}
+.f input,.f select{width:100%;min-height:50px;padding:0 14px;border-radius:10px;
+  background:var(--dark-3);border:1px solid rgba(255,255,255,.16);color:#fff;
+  font-size:.98rem;font-weight:600;transition:border-color .2s,background .2s}
+.f select{appearance:none;-webkit-appearance:none;color-scheme:dark;cursor:pointer;
+  padding-right:40px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.4L6 6.4l5-5' fill='none' stroke='%23FFBD59' stroke-width='1.7' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:12px}
+.f input::placeholder{color:rgba(255,255,255,.5)}
+.f input:hover,.f select:hover{border-color:rgba(255,255,255,.3)}
+.f input:focus,.f select:focus{outline:none;border-color:var(--amber);
+  background:#2a2a2e;box-shadow:0 0 0 3px rgba(255,189,89,.22)}
+.f.bad input,.f.bad select{border-color:#FF8A6E;background:rgba(249,87,56,.12)}
+.f__err{font-size:.76rem;font-weight:700;color:#FFB3A0;display:none}
+.f.bad .f__err{display:block}
+.form .btn{margin-top:18px}
+.form__note{font-size:.84rem;color:rgba(255,255,255,.78);margin-top:14px;text-align:center;
+  line-height:1.5}
+.form__ok{display:none;align-items:flex-start;gap:11px;margin-top:16px;padding:14px 16px;
+  border-radius:10px;background:rgba(255,189,89,.14);border:1px solid rgba(255,189,89,.45);
+  color:var(--amber);font-size:.87rem;font-weight:700;line-height:1.5}
+.form__ok.show{display:flex}
+.form__ok svg{flex:0 0 auto;margin-top:2px}
+
+/* ======================= 03 · FRANJA DE CONFIANZA ======================= */
+.trust{background:var(--paper-2);border-bottom:1px solid var(--hair-l)}
+.trust__in{display:flex;flex-wrap:wrap}
+.trust__i{flex:1 1 190px;padding:clamp(22px,2.6vw,34px) clamp(14px,1.8vw,26px);
+  display:flex;flex-direction:column;gap:6px;position:relative}
+.trust__i+.trust__i::before{content:"";position:absolute;left:0;top:18%;bottom:18%;
+  width:1px;background:var(--hair-l)}
+.trust__i b{font-family:"Archivo",sans-serif;font-weight:800;font-stretch:110%;
+  font-size:clamp(1.5rem,2.3vw,2.15rem);line-height:1;color:var(--ink);letter-spacing:-.03em}
+.trust__i span{font-size:.86rem;font-weight:700;color:var(--muted);line-height:1.4}
+.trust__i i{display:block;width:22px;height:3px;background:var(--amber);margin-bottom:8px}
+
+/* ========================== 04 · LAS DOS MÁQUINAS ======================= */
+.mach__hd{max-width:64ch;margin-bottom:clamp(34px,4vw,58px)}
+.mach__hd h2{font-size:clamp(1.85rem,3.4vw,3rem);margin:14px 0 14px}
+.row{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:clamp(26px,3.4vw,56px);align-items:center}
+.row+.row{margin-top:clamp(48px,6vw,96px);padding-top:clamp(48px,6vw,96px);
+  border-top:1px solid var(--hair-l)}
+.row--flip .row__ph{order:2}
+.row__ph{position:relative;border-radius:var(--r);overflow:hidden;background:var(--panel)}
+.row__ph img{width:100%;aspect-ratio:16/11;object-fit:cover;
+  transition:transform .9s var(--ease);filter:saturate(.9) contrast(1.03)}
+.row__ph:hover img{transform:scale(1.045)}
+/* doble scrim: el tonelaje va sobre chapa amarilla brillante en algunas fotos,
+   así que se oscurece abajo-izquierda hasta garantizar blanco legible */
+.row__ph::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(to top,rgba(15,15,16,.93) 0%,rgba(15,15,16,.6) 26%,rgba(15,15,16,0) 62%),
+    linear-gradient(to right,rgba(15,15,16,.62) 0%,rgba(15,15,16,0) 48%)}
+.row__ton{position:absolute;z-index:2;left:clamp(16px,2vw,26px);bottom:clamp(14px,1.8vw,22px);
+  font-family:"Archivo",sans-serif;font-weight:800;font-stretch:118%;
+  font-size:clamp(3.1rem,6.4vw,5.4rem);line-height:.82;color:#fff;letter-spacing:-.05em;
+  text-shadow:0 3px 18px rgba(0,0,0,.95),0 1px 3px rgba(0,0,0,.9)}
+.row__ton sup{font-size:.28em;font-weight:800;letter-spacing:.12em;vertical-align:super;
+  color:var(--amber);margin-left:4px}
+.row__tag{position:absolute;z-index:2;right:clamp(14px,1.8vw,22px);top:clamp(14px,1.8vw,22px);
+  font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:8px 13px;border-radius:999px;background:var(--amber);color:#1A1A1B}
+.row__tx h3{font-size:clamp(1.5rem,2.5vw,2.2rem);margin:12px 0 12px}
+.row__list{list-style:none;padding:0;margin:20px 0 26px;display:grid;gap:11px}
+.row__list li{display:flex;gap:11px;align-items:flex-start;font-size:.98rem;
+  color:var(--ink-2);font-weight:600}
+.row__list li::before{content:"";flex:0 0 auto;width:9px;height:9px;margin-top:8px;
+  border-radius:2px;background:var(--amber);transform:rotate(45deg)}
+
+/* ---------- banda alianza ---------- */
+.ally{position:relative;background:var(--dark);overflow:hidden;
+  padding-block:clamp(58px,7vw,104px);margin-top:clamp(48px,6vw,96px)}
+.ally img.bgi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.62) brightness(.5);z-index:0}
+.ally__scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(95deg,rgba(15,15,16,.94) 0%,rgba(15,15,16,.8) 52%,rgba(15,15,16,.5) 100%)}
+.ally__in{position:relative;z-index:2;display:grid;
+  grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,3vw,48px);align-items:center}
+.ally h3{font-size:clamp(1.55rem,2.7vw,2.35rem);margin:14px 0 14px;max-width:22ch}
+
+/* =========================== 05 · TRES PASOS ============================ */
+.steps{background:var(--paper-2)}
+.steps__hd{max-width:60ch;margin-bottom:clamp(34px,4vw,56px)}
+.steps__hd h2{font-size:clamp(1.85rem,3.2vw,2.8rem);margin:14px 0 0}
+.steps__in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(20px,2.6vw,40px);position:relative;align-items:start}
+.steps__in::before{content:"";position:absolute;top:58px;left:8%;right:8%;height:2px;
+  background:repeating-linear-gradient(90deg,var(--hair-l) 0 10px,transparent 10px 20px);z-index:0}
+.step{position:relative;z-index:1;background:var(--paper);border:1px solid var(--hair-l);
+  border-radius:var(--r);padding:clamp(20px,2.2vw,30px);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+/* La escalera (34px y 68px de margin-top) dejaba el conector punteado —una sola línea
+   horizontal a top:58px— tocando únicamente el círculo del paso 01: sobre los pasos 02 y
+   03 quedaban dos guiones flotando en el aire. Los tres pasos comparten línea base, así
+   el conector cruza los tres círculos y la secuencia 01 → 02 → 03 se lee de corrido. */
+.step:hover{transform:translateY(-6px);border-color:rgba(26,26,27,.22);
+  box-shadow:0 22px 46px -26px rgba(0,0,0,.4)}
+.step b{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;
+  background:var(--amber);color:#1A1A1B;font-family:"Archivo",sans-serif;font-weight:800;
+  font-size:1.35rem;letter-spacing:-.03em;margin-bottom:16px}
+.step h3{font-family:"Archivo",sans-serif;font-weight:800;font-stretch:106%;
+  font-size:clamp(1.15rem,1.6vw,1.42rem);color:var(--ink);letter-spacing:-.02em;
+  line-height:1.12;margin-bottom:9px}
+.step p{font-size:.96rem;color:var(--muted)}
+
+/* ============================== 06 · FAQ ================================ */
+.faq__in{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
+  gap:clamp(28px,4vw,72px);align-items:start}
+.faq__hd{position:sticky;top:calc(var(--nav) + 28px)}
+.faq__hd h2{font-size:clamp(1.8rem,3vw,2.7rem);margin:14px 0 16px}
+.faq__list{border-top:1px solid var(--hair-l)}
+.q{border-bottom:1px solid var(--hair-l)}
+.q__b{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;
+  background:none;border:0;cursor:pointer;text-align:left;padding:clamp(18px,2vw,24px) 2px;
+  font-family:"Archivo",sans-serif;font-weight:800;font-stretch:104%;
+  font-size:clamp(1.02rem,1.45vw,1.24rem);color:var(--ink);line-height:1.24;
+  letter-spacing:-.015em;transition:color .25s}
+.q__b:hover{color:var(--fire-ink)}
+.q__ic{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--hair-l);
+  display:grid;place-items:center;position:relative;transition:background .3s,border-color .3s,transform .35s var(--ease)}
+.q__ic::before,.q__ic::after{content:"";position:absolute;background:var(--ink);border-radius:2px;
+  transition:transform .35s var(--ease),background .3s}
+.q__ic::before{width:13px;height:2px}
+.q__ic::after{width:2px;height:13px}
+.q__b:hover .q__ic{border-color:var(--amber);background:var(--amber)}
+.q.open .q__ic{background:var(--amber);border-color:var(--amber);transform:rotate(180deg)}
+.q.open .q__ic::after{transform:scaleY(0)}
+.q__a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.q__a>div{padding:0 clamp(46px,5vw,60px) clamp(20px,2.2vw,26px) 2px;font-size:.99rem;
+  color:var(--muted)}
+.q__a strong{color:var(--ink);font-weight:800}
+
+/* ======================= 07 · PRUEBA DE TRABAJO ========================= */
+.work{background:var(--dark);color:#fff;overflow:hidden}
+.work__hd{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+  flex-wrap:wrap;margin-bottom:clamp(26px,3vw,42px)}
+.work__hd h2{font-size:clamp(1.8rem,3vw,2.7rem);margin:14px 0 0;color:#fff}
+.work__nav{display:flex;gap:10px}
+.work__nav button{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.28);color:#fff;cursor:pointer;display:grid;
+  place-items:center;transition:background .25s,border-color .25s,transform .25s}
+.work__nav button:hover{background:var(--amber);border-color:var(--amber);color:#1A1A1B;
+  transform:translateY(-2px)}
+/* OJO: con scroll-snap mandatory el navegador engancha el primer slide contra el
+   borde del scrollport y se COME el padding-left, dejando la foto desalineada del
+   texto de la sección. Por eso la sangría va solo a la derecha. */
+.rail{display:flex;gap:clamp(12px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;-ms-overflow-style:none;padding:0 var(--gut) 6px 0;
+  margin-right:calc(var(--gut) * -1)}
+.rail::-webkit-scrollbar{display:none}
+.slide{flex:0 0 clamp(255px,33vw,420px);scroll-snap-align:start}
+.slide figure{margin:0;border-radius:var(--r);overflow:hidden;position:relative;
+  background:var(--panel)}
+.slide img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.86) contrast(1.04);
+  transition:transform .8s var(--ease)}
+.slide:hover img{transform:scale(1.05)}
+.slide figcaption{position:absolute;inset:auto 0 0 0;padding:34px 16px 14px;
+  font-size:.85rem;font-weight:700;color:#fff;
+  background:linear-gradient(to top,rgba(15,15,16,.94),rgba(15,15,16,0))}
+.rail__hint{display:none;font-size:.8rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(255,255,255,.66);margin-top:18px}
+
+/* ============================ 08 · CTA FINAL ============================ */
+.close{position:relative;background:var(--dark);overflow:hidden;
+  padding-block:clamp(66px,8.5vw,128px);text-align:center}
+.close img.bgi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.6) brightness(.52);z-index:0}
+.close__scrim{position:absolute;inset:0;z-index:1;
+  background:radial-gradient(120% 90% at 50% 40%,rgba(15,15,16,.72) 0%,rgba(15,15,16,.93) 62%,rgba(15,15,16,.98) 100%)}
+/* halo ámbar (no silueta ampliada) + elefante nítido en el remate */
+.close__ele{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(120vw,1200px);aspect-ratio:1;z-index:1;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(255,189,89,.13) 0%,rgba(249,87,56,.06) 40%,rgba(255,189,89,0) 68%)}
+.close__in{position:relative;z-index:2;max-width:820px;margin:0 auto}
+.close__ele-img{height:clamp(58px,7vw,92px);width:auto;margin:0 auto clamp(18px,2.2vw,26px)}
+.close h2{font-size:clamp(1.95rem,4vw,3.4rem);margin:16px 0 16px}
+.close .lede{margin:0 auto}
+.close .ctas{justify-content:center;margin-top:30px}
+.close__tel{display:inline-flex;align-items:center;gap:12px;margin-top:26px;
+  font-family:"Archivo",sans-serif;font-weight:800;font-stretch:108%;
+  font-size:clamp(1.3rem,2.4vw,2rem);color:#fff;letter-spacing:-.03em;transition:color .25s}
+.close__tel:hover{color:var(--amber)}
+.close__tel span{font-family:"Manrope",sans-serif;font-size:.7rem;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--amber);
+  border:1px solid rgba(255,189,89,.45);border-radius:999px;padding:6px 11px}
+
+/* ============================== FOOTER ================================== */
+.foot{background:#0F0F10;color:rgba(255,255,255,.72);
+  padding-block:clamp(44px,5vw,72px) clamp(24px,3vw,34px);font-size:.94rem}
+.foot__in{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(28px,3.4vw,56px)}
+.foot__logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.foot__logo img:first-child{height:40px;width:auto}
+.foot__logo img:last-child{height:18px;width:auto}
+.foot h4{font-family:"Manrope",sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+.foot ul{list-style:none;padding:0;display:grid;gap:10px}
+.foot a:hover{color:var(--amber)}
+.foot__bar{margin-top:clamp(30px,3.4vw,48px);padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.11);display:flex;flex-wrap:wrap;gap:10px 22px;
+  justify-content:space-between;font-size:.84rem;color:rgba(255,255,255,.62)}
+
+/* ============================ FAB WHATSAPP ============================== */
+/* compacto a propósito: es fijo, así que cada píxel extra tapa texto al hacer scroll */
+.fab{position:fixed;z-index:130;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));
+  width:56px;height:56px;border-radius:50%;background:var(--amber);color:#1A1A1B;
+  display:none;place-items:center;box-shadow:0 12px 30px -8px rgba(0,0,0,.6);
+  animation:fabPulse 2.8s ease-in-out infinite}
+@keyframes fabPulse{0%,100%{box-shadow:0 12px 30px -8px rgba(0,0,0,.6),0 0 0 0 rgba(255,189,89,.5)}
+  50%{box-shadow:0 12px 30px -8px rgba(0,0,0,.6),0 0 0 14px rgba(255,189,89,0)}}
+.fab:active{transform:scale(.94)}
+
+/* ============================== REVEALS ================================= */
+[data-rv]{opacity:0;transform:translateY(26px);
+  transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+[data-rv].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important}
+  [data-rv]{opacity:1!important;transform:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* ============================= RESPONSIVE =============================== */
+@media (max-width:1080px){
+  .hero__in{grid-template-columns:1fr;gap:34px}
+  .hero__copy{max-width:660px}
+  .form{max-width:660px}
+  .faq__in{grid-template-columns:1fr;gap:26px}
+  .faq__hd{position:static}
+}
+@media (max-width:900px){
+  .row,.row--flip{grid-template-columns:1fr;gap:22px}
+  .row--flip .row__ph{order:0}
+  .ally__in{grid-template-columns:1fr;gap:22px}
+  .steps__in{grid-template-columns:1fr;gap:16px}
+  .steps__in::before{display:none}
+  .foot__in{grid-template-columns:1fr 1fr}
+  .foot__in>div:first-child{grid-column:1/-1}
+}
+@media (max-width:820px){
+  .nav__tel b,.nav__tel i{display:none}
+  .nav__tel{gap:0}
+  .fab{display:grid}
+  .work__nav{display:none}
+  .rail__hint{display:block}
+}
+/* notebooks bajos (1366x768 y similares): el hero se comprime para que los dos CTA
+   y el botón del formulario queden sobre la línea de flote, no bajo ella */
+@media (min-width:1081px) and (max-height:800px){
+  .hero{padding-top:calc(var(--nav) + 20px);padding-bottom:34px}
+  .hero__lock{margin-bottom:14px}
+  .hero__lock img:first-child{height:52px}
+  .hero__lock img:last-child{height:23px}
+  .hero__lock span{height:36px}
+  .hero h1{font-size:clamp(1.9rem,2.9vw,2.7rem);margin:11px 0 13px}
+  .hero__sub{font-size:1rem}
+  .hero__chips{margin:15px 0 20px}
+  .form{padding:22px}
+  .form__hd{margin-bottom:14px}
+}
+@media (max-width:560px){
+  .hero{padding-top:calc(var(--nav) + 24px)}
+  .hero h1{font-size:clamp(1.95rem,8.4vw,2.5rem)}
+  .form__grid{grid-template-columns:1fr}
+  .trust__i{flex:1 1 100%;padding:18px 0;flex-direction:row;align-items:center;gap:14px}
+  .trust__i+.trust__i{border-top:1px solid var(--hair-l)}
+  .trust__i+.trust__i::before{display:none}
+  .trust__i i{display:none}
+  .trust__i b{flex:0 0 116px;font-size:1.32rem}
+  .trust__i span{font-size:.88rem}
+  .btn{width:100%}
+  .btn--sm{width:auto}
+  .nav__wa{width:auto;padding:0 16px}
+  .ctas{gap:10px}
+  .close .btn{max-width:340px}
+  .close__tel{flex-direction:column;gap:10px}
+  .foot__in{grid-template-columns:1fr}
+  .foot{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= 01 · BARRA SUPERIOR FIJA ======================= -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="nav__logo" href="#top" aria-label="LUX-METAL, inicio">
+      <img src="img/logo-blanco.png" alt="" width="1147" height="968">
+      <img src="img/logo-blanco2.png" alt="LUX-METAL" width="1168" height="224">
+    </a>
+    <div class="nav__right">
+      <a class="nav__tel" href="tel:+56225529212" aria-label="Llamar al +56 2 2552 9212">
+        <span class="ic" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFBD59" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        </span>
+        <span><b>+56 2 2552 9212</b><i>Atención 24/7</i></span>
+      </a>
+      <a class="btn btn--wa nav__wa" href="https://wa.me/56977458631?text=Hola%20LUX-METAL%2C%20quiero%20cotizar%20el%20arriendo%20de%20una%20gr%C3%BAa%20horquilla." target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a11.4 11.4 0 0 1-4.4-2.7 10.3 10.3 0 0 1-2.1-3.4c-.2-.7-.1-1.4.2-1.9.2-.3.6-.8.9-.9.2-.1.7-.1.9 0 .2 0 .3.3.4.5l.6 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6a8 8 0 0 0 1.4 1.7c.6.5 1.1.8 1.5.9.2.1.4 0 .5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4.1.2.1.6 0 .8Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== 02 · HERO ============================== -->
+<main id="top">
+<section class="hero">
+  <div class="hero__bg"><img src="img/real/g34.jpg" alt="Grúa horquilla LUX-METAL trabajando dentro de una bodega en Santiago" width="1700" height="1020"></div>
+  <div class="hero__scrim"></div>
+  <div class="hero__ele" aria-hidden="true"></div>
+
+  <div class="wrap hero__in">
+    <div class="hero__copy">
+      <div class="hero__lock" data-rv>
+        <img src="img/logo-blanco.png" alt="" width="1147" height="968">
+        <span aria-hidden="true"></span>
+        <img src="img/logo-blanco2.png" alt="LUX-METAL" width="1168" height="224">
+      </div>
+      <p class="kick kick--inv" data-rv style="--d:60ms">Arriendo de grúas horquillas · Santiago</p>
+      <h1 class="d d--inv" data-rv style="--d:120ms">Arriendo de grúas horquillas en Santiago, <em>disponible hoy</em></h1>
+      <p class="hero__sub" data-rv style="--d:180ms">Grúas de 3 y 7 toneladas, con o sin operador, atención 24/7 y 30 años moviendo carga en la Región Metropolitana. Nos dices qué necesitas mover y te confirmamos disponibilidad.</p>
+      <ul class="hero__chips" data-rv style="--d:240ms">
+        <li>3T y 7T</li><li>Con o sin operador</li><li>24/7</li><li>+30 años</li><li>Spot o contrato</li>
+      </ul>
+      <div class="ctas" data-rv style="--d:300ms">
+        <a class="btn btn--wa" href="https://wa.me/56977458631?text=Hola%20LUX-METAL%2C%20necesito%20arrendar%20una%20gr%C3%BAa%20horquilla.%20%C2%BFMe%20ayudan%20con%20la%20disponibilidad%3F" target="_blank" rel="noopener">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a11.4 11.4 0 0 1-4.4-2.7 10.3 10.3 0 0 1-2.1-3.4c-.2-.7-.1-1.4.2-1.9.2-.3.6-.8.9-.9.2-.1.7-.1.9 0 .2 0 .3.3.4.5l.6 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6a8 8 0 0 0 1.4 1.7c.6.5 1.1.8 1.5.9.2.1.4 0 .5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4.1.2.1.6 0 .8Z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+        <a class="btn btn--tel-inv" href="tel:+56225529212">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          Llamar ahora
+        </a>
+      </div>
+    </div>
+
+    <!-- FORMULARIO CORTO -->
+    <div class="form" data-rv style="--d:200ms">
+      <div class="form__hd">
+        <h2>Cotiza en 30 segundos</h2>
+        <p>Completa y te llega el mensaje armado por WhatsApp. Respondemos a toda hora.</p>
+      </div>
+      <form id="cotiza" novalidate>
+        <div class="form__grid">
+          <div class="f">
+            <label for="q-nombre">Nombre</label>
+            <input id="q-nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="name" required>
+            <span class="f__err">Escribe tu nombre.</span>
+          </div>
+          <div class="f">
+            <label for="q-fono">Teléfono</label>
+            <input id="q-fono" name="fono" type="tel" placeholder="+56 9 ..." autocomplete="tel" inputmode="tel" required>
+            <span class="f__err">Necesitamos un teléfono válido.</span>
+          </div>
+          <div class="f f--full">
+            <label for="q-carga">¿Qué necesitas mover?</label>
+            <input id="q-carga" name="carga" type="text" placeholder="Ej: pallets en bodega, perfiles de acero, maquinaria" required>
+            <span class="f__err">Cuéntanos brevemente qué vas a mover.</span>
+          </div>
+          <div class="f">
+            <label for="q-ton">Tonelaje</label>
+            <select id="q-ton" name="ton">
+              <option value="No estoy seguro, necesito asesoría">No estoy seguro</option>
+              <option value="3 toneladas">3 toneladas</option>
+              <option value="7 toneladas">7 toneladas</option>
+              <option value="Más de 7 toneladas / operación compleja">Más de 7 toneladas</option>
+            </select>
+          </div>
+          <div class="f">
+            <label for="q-dur">Duración</label>
+            <select id="q-dur" name="dur">
+              <option value="Por día (spot)">Por día (spot)</option>
+              <option value="Por semana">Por semana</option>
+              <option value="Por mes">Por mes</option>
+              <option value="Contrato de largo plazo">Contrato largo plazo</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn--wa btn--block" type="submit">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a11.4 11.4 0 0 1-4.4-2.7 10.3 10.3 0 0 1-2.1-3.4c-.2-.7-.1-1.4.2-1.9.2-.3.6-.8.9-.9.2-.1.7-.1.9 0 .2 0 .3.3.4.5l.6 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6a8 8 0 0 0 1.4 1.7c.6.5 1.1.8 1.5.9.2.1.4 0 .5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4.1.2.1.6 0 .8Z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <div class="form__ok" id="formOk" role="status">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>Listo, abrimos WhatsApp con tu solicitud escrita. Si no se abrió, llámanos al +56 2 2552 9212.</span>
+        </div>
+        <p class="form__note">O escríbenos directo a <a href="mailto:ventas@luxmetal.cl" style="color:var(--amber);font-weight:800">ventas@luxmetal.cl</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 03 · FRANJA DE CONFIANZA ======================= -->
+<section class="trust" aria-label="Por qué LUX-METAL">
+  <div class="wrap"><div class="trust__in">
+    <div class="trust__i" data-rv><i aria-hidden="true"></i><b>+30 años</b><span>De experiencia arrendando grúas horquillas</span></div>
+    <div class="trust__i" data-rv style="--d:70ms"><i aria-hidden="true"></i><b>24/7</b><span>Servicio y respuesta a cualquier hora</span></div>
+    <div class="trust__i" data-rv style="--d:140ms"><i aria-hidden="true"></i><b>Flota propia</b><span>Máquinas nuestras, no intermediamos</span></div>
+    <div class="trust__i" data-rv style="--d:210ms"><i aria-hidden="true"></i><b>Toda la RM</b><span>Base operativa en San Miguel, Santiago</span></div>
+    <div class="trust__i" data-rv style="--d:280ms"><i aria-hidden="true"></i><b>Con o sin operador</b><span>Tú decides quién opera la máquina</span></div>
+  </div></div>
+</section>
+
+<!-- ========================= 04 · LAS DOS MÁQUINAS ====================== -->
+<section class="sect sect--band" id="maquinas">
+  <div class="wrap">
+    <div class="mach__hd">
+      <p class="kick" data-rv>La flota</p>
+      <h2 class="d" data-rv style="--d:70ms">Dos máquinas que cubren el 95% de lo que hay que mover</h2>
+      <p class="lede" data-rv style="--d:140ms">No te vamos a ofrecer un catálogo infinito. Tenemos dos tonelajes bien elegidos y sabemos exactamente para qué sirve cada uno. Si tu operación es más compleja, la resolvemos con nuestra alianza estratégica.</p>
+    </div>
+
+    <!-- 3 TONELADAS -->
+    <article class="row">
+      <div class="row__ph" data-rv>
+        <img src="img/real/g25.jpg" alt="Grúa horquilla de 3 toneladas LUX-METAL con operador en el patio de operaciones" width="1700" height="1020">
+        <div class="row__ton" aria-hidden="true">3<sup>TON</sup></div>
+        <div class="row__tag">Más pedida</div>
+      </div>
+      <div class="row__tx" data-rv style="--d:100ms">
+        <p class="kick">Grúa horquilla · 3 toneladas</p>
+        <h3 class="d">Para bodega, centro logístico y retail</h3>
+        <p>Es la máquina del día a día: ágil en pasillos, precisa entre racks y suficiente para casi todo el movimiento de pallets. Si tu operación es interna y necesitas ritmo, esta es.</p>
+        <ul class="row__list">
+          <li>Carga y descarga de camiones en andén</li>
+          <li>Movimiento interno entre racks y zonas de picking</li>
+          <li>Pallets, cajas, sacos y bobinas de formato estándar</li>
+          <li>Disponible con operador nuestro o para tu personal</li>
+        </ul>
+        <a class="btn btn--wa btn--sm" href="https://wa.me/56977458631?text=Hola%20LUX-METAL%2C%20quiero%20cotizar%20el%20arriendo%20de%20una%20gr%C3%BAa%20horquilla%20de%203%20toneladas." target="_blank" rel="noopener">Consultar por la de 3 toneladas</a>
+      </div>
+    </article>
+
+    <!-- 7 TONELADAS -->
+    <article class="row row--flip">
+      <div class="row__ph" data-rv>
+        <img src="img/real/g12.jpg" alt="Grúa horquilla de mayor tonelaje LUX-METAL con operador en faena" width="1700" height="1020">
+        <div class="row__ton" aria-hidden="true">7<sup>TON</sup></div>
+        <div class="row__tag">Trabajo pesado</div>
+      </div>
+      <div class="row__tx" data-rv style="--d:100ms">
+        <p class="kick">Grúa horquilla · 7 toneladas</p>
+        <h3 class="d">Para construcción, metalmecánica y gran volumen</h3>
+        <p>Cuando el peso y el volumen dejan de ser normales, entra la de 7. Estructuras metálicas, materiales largos, bultos que ninguna máquina liviana debería levantar.</p>
+        <ul class="row__list">
+          <li>Faenas de construcción y obra en terreno</li>
+          <li>Perfiles, planchas y estructuras de metalmecánica</li>
+          <li>Materiales de gran volumen y carga concentrada</li>
+          <li>Operadores con experiencia real en faena pesada</li>
+        </ul>
+        <a class="btn btn--wa btn--sm" href="https://wa.me/56977458631?text=Hola%20LUX-METAL%2C%20quiero%20cotizar%20el%20arriendo%20de%20una%20gr%C3%BAa%20horquilla%20de%207%20toneladas." target="_blank" rel="noopener">Consultar por la de 7 toneladas</a>
+      </div>
+    </article>
+  </div>
+
+  <!-- ALIANZA ESTRATÉGICA -->
+  <div class="ally">
+    <img class="bgi" src="img/gal/patio-aereo.jpg" alt="" width="2000" height="1116">
+    <div class="ally__scrim"></div>
+    <div class="wrap ally__in">
+      <div>
+        <p class="kick kick--inv" data-rv>Alianza estratégica</p>
+        <h3 class="d d--inv" data-rv style="--d:70ms">¿Tu operación necesita más de una máquina?</h3>
+        <p class="lede lede--inv" data-rv style="--d:140ms">Para operaciones complejas trabajamos con una alianza estratégica que nos permite escalar equipos y tonelajes sin que tengas que buscar otro proveedor. Un solo interlocutor, una sola coordinación.</p>
+      </div>
+      <div data-rv style="--d:200ms">
+        <a class="btn btn--wa" href="https://wa.me/56977458631?text=Hola%20LUX-METAL%2C%20tengo%20una%20operaci%C3%B3n%20compleja%20y%20quiero%20saber%20c%C3%B3mo%20me%20pueden%20ayudar." target="_blank" rel="noopener">Plantear mi operación</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== 05 · TRES PASOS ========================== -->
+<section class="sect steps" id="como">
+  <div class="wrap">
+    <div class="steps__hd">
+      <p class="kick" data-rv>Cómo funciona</p>
+      <h2 class="d" data-rv style="--d:70ms">Arrendar una grúa con nosotros son tres pasos</h2>
+    </div>
+    <div class="steps__in">
+      <div class="step" data-rv>
+        <b>01</b>
+        <h3>Escribes o llamas</h3>
+        <p>Por WhatsApp al +56 9 7745 8631 o al +56 2 2552 9212. Nos cuentas qué necesitas mover, dónde y por cuánto tiempo. Atendemos 24/7, también fines de semana.</p>
+      </div>
+      <div class="step" data-rv style="--d:90ms">
+        <b>02</b>
+        <h3>Coordinamos la máquina</h3>
+        <p>Definimos el tonelaje correcto, si va con operador nuestro, la fecha y la modalidad: spot puntual o contrato de largo plazo. Te lo dejamos por escrito antes de mover nada.</p>
+      </div>
+      <div class="step" data-rv style="--d:180ms">
+        <b>03</b>
+        <h3>La grúa llega y trabaja</h3>
+        <p>La máquina llega operativa a tu faena o bodega en la Región Metropolitana y empieza a producir. Cualquier tema durante el arriendo se resuelve por el mismo WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 06 · FAQ ============================== -->
+<section class="sect" id="faq">
+  <div class="wrap faq__in">
+    <div class="faq__hd">
+      <p class="kick" data-rv>Preguntas frecuentes</p>
+      <h2 class="d" data-rv style="--d:70ms">Antes de que preguntes</h2>
+      <p class="lede" data-rv style="--d:140ms">Las seis dudas que nos llegan todas las semanas, respondidas sin vueltas. Si te queda otra, escríbenos: alguien contesta.</p>
+      <div class="ctas" data-rv style="margin-top:22px;--d:200ms">
+        <a class="btn btn--wa btn--sm" href="https://wa.me/56977458631?text=Hola%20LUX-METAL%2C%20tengo%20una%20consulta%20sobre%20el%20arriendo%20de%20gr%C3%BAas%20horquillas." target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="faq__list" id="faqList">
+      <div class="q">
+        <button class="q__b" type="button" aria-expanded="false">¿Puedo arrendar solo por un día o necesito firmar contrato?<span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__a"><div>Las dos cosas. Trabajamos <strong>arriendo spot</strong>, para un trabajo puntual de un día o unos pocos, y también <strong>contratos de largo plazo</strong> para empresas que necesitan la máquina permanente en su operación. Nos dices cuál te acomoda y armamos la propuesta.</div></div>
+      </div>
+      <div class="q">
+        <button class="q__b" type="button" aria-expanded="false">¿El arriendo incluye operador?<span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__a"><div>Como tú lo necesites: <strong>con o sin operador</strong>. Si no tienes personal certificado o prefieres no arriesgar la máquina ni la carga, va con operador nuestro. Si tu equipo ya opera grúas horquillas, te entregamos la máquina sola.</div></div>
+      </div>
+      <div class="q">
+        <button class="q__b" type="button" aria-expanded="false">¿Quién se hace cargo de la mantención de la grúa?<span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__a"><div>La flota es <strong>propia</strong>, así que la máquina es nuestra responsabilidad: llega operativa y en condiciones de trabajar. Si durante el arriendo aparece algo, lo coordinas por el mismo WhatsApp y lo resolvemos. Las condiciones exactas de cada arriendo quedan confirmadas por escrito antes de partir.</div></div>
+      </div>
+      <div class="q">
+        <button class="q__b" type="button" aria-expanded="false">¿Hasta dónde llegan con las máquinas?<span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__a"><div>Cubrimos <strong>toda la Región Metropolitana</strong> desde nuestra base en Brigadier de La Cruz 682, San Miguel. Si tu faena está fuera de la RM o requiere varios equipos a la vez, lo evaluamos con nuestra alianza estratégica antes de comprometer nada.</div></div>
+      </div>
+      <div class="q">
+        <button class="q__b" type="button" aria-expanded="false">¿Cuánto demoran en tener la grúa disponible?<span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__a"><div>Depende de la disponibilidad de flota y de la comuna, y por eso no te vamos a prometer un número al aire. Lo que sí garantizamos es que el canal está abierto <strong>24/7</strong>: escribes, te decimos con qué máquina contamos y para cuándo. Muchas veces es el mismo día.</div></div>
+      </div>
+      <div class="q">
+        <button class="q__b" type="button" aria-expanded="false">¿Cómo se paga y emiten factura?<span class="q__ic" aria-hidden="true"></span></button>
+        <div class="q__a"><div>Trabajamos con <strong>empresas y emitimos factura</strong>. La modalidad y los plazos se acuerdan según si es spot o contrato, y quedan escritos en la propuesta que te enviamos a tu correo antes de mover la máquina. Sin sorpresas al final del mes.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 07 · PRUEBA DE TRABAJO ======================= -->
+<section class="sect work" id="trabajo">
+  <div class="wrap">
+    <div class="work__hd">
+      <div>
+        <p class="kick kick--inv" data-rv>Prueba de trabajo</p>
+        <h2 class="d d--inv" data-rv style="--d:70ms">Nuestra flota y nuestra gente, sin filtros</h2>
+      </div>
+      <div class="work__nav" data-rv style="--d:140ms">
+        <button type="button" id="railPrev" aria-label="Foto anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button type="button" id="railNext" aria-label="Foto siguiente">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="rail" id="rail" tabindex="0" aria-label="Galería de fotos de la flota LUX-METAL">
+      <div class="slide"><figure><img src="img/real/g20.jpg" alt="Flota de grúas horquillas LUX-METAL en el patio de San Miguel" loading="lazy" width="1700" height="1020"><figcaption>Flota propia en patio · San Miguel</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/1.jpg" alt="Operadores de LUX-METAL en la cabina de una grúa horquilla" loading="lazy" width="1700" height="1018"><figcaption>Operadores con experiencia en faena</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/g35.jpg" alt="Grúa horquilla moviendo pallets dentro de una bodega" loading="lazy" width="1700" height="1020"><figcaption>Movimiento interno en bodega</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/g30.jpg" alt="Grúa horquilla con mástil elevado lista para trabajo pesado" loading="lazy" width="1700" height="1020"><figcaption>Mástil elevado para trabajo pesado</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/2.jpg" alt="Equipo de LUX-METAL revisando una grúa horquilla antes de salir" loading="lazy" width="1700" height="1018"><figcaption>Revisión antes de salir a terreno</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/g19.jpg" alt="Detalle del contrapeso de una grúa horquilla de 3 toneladas" loading="lazy" width="1700" height="1020"><figcaption>3 toneladas lista para despacho</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/g38.jpg" alt="Grúa horquilla cargando bultos en una nave industrial" loading="lazy" width="1700" height="1020"><figcaption>Carga y descarga en nave industrial</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/g28.jpg" alt="Detalle de las horquillas y el mástil de una grúa" loading="lazy" width="1700" height="1020"><figcaption>Mástil y horquillas · mantención al día</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/6.jpg" alt="Operador de LUX-METAL con casco junto a las grúas" loading="lazy" width="1700" height="1018"><figcaption>Gente que lleva años en esto</figcaption></figure></div>
+      <div class="slide"><figure><img src="img/real/g26.jpg" alt="Grúa horquilla saliendo del patio de operaciones" loading="lazy" width="1700" height="1020"><figcaption>Salida a faena en la Región Metropolitana</figcaption></figure></div>
+    </div>
+    <p class="rail__hint">Desliza para ver más →</p>
+  </div>
+</section>
+
+<!-- ============================ 08 · CIERRE ============================= -->
+<section class="close" id="contacto">
+  <img class="bgi" src="img/gal/nave-noche.jpg" alt="" width="2000" height="848">
+  <div class="close__scrim"></div>
+  <div class="close__ele" aria-hidden="true"></div>
+  <div class="wrap close__in">
+    <img class="close__ele-img" src="img/logo-blanco.png" alt="" width="1147" height="968" data-rv>
+    <p class="kick kick--inv" style="justify-content:center" data-rv>Última parada</p>
+    <h2 class="d d--inv" data-rv style="--d:70ms">Dinos qué hay que mover. Nosotros ponemos la máquina.</h2>
+    <p class="lede lede--inv" data-rv style="--d:140ms">Treinta años arrendando grúas horquillas en Santiago se resumen en algo simple: cuando llamas, contestamos, y la grúa llega. Escríbenos ahora y lo coordinamos hoy.</p>
+    <div class="ctas" data-rv style="--d:200ms">
+      <a class="btn btn--wa" href="https://wa.me/56977458631?text=Hola%20LUX-METAL%2C%20quiero%20arrendar%20una%20gr%C3%BAa%20horquilla.%20%C2%BFHablamos%3F" target="_blank" rel="noopener">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a11.4 11.4 0 0 1-4.4-2.7 10.3 10.3 0 0 1-2.1-3.4c-.2-.7-.1-1.4.2-1.9.2-.3.6-.8.9-.9.2-.1.7-.1.9 0 .2 0 .3.3.4.5l.6 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6a8 8 0 0 0 1.4 1.7c.6.5 1.1.8 1.5.9.2.1.4 0 .5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4.1.2.1.6 0 .8Z"/></svg>
+        WhatsApp +56 9 7745 8631
+      </a>
+      <a class="btn btn--tel-inv" href="mailto:ventas@luxmetal.cl">ventas@luxmetal.cl</a>
+    </div>
+    <a class="close__tel" href="tel:+56225529212" data-rv style="--d:260ms">
+      <span>Llámanos</span> +56 2 2552 9212
+    </a>
+  </div>
+</section>
+</main>
+
+<!-- ============================== FOOTER ================================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__in">
+      <div>
+        <div class="foot__logo">
+          <img src="img/logo-blanco.png" alt="" width="1147" height="968">
+          <img src="img/logo-blanco2.png" alt="LUX-METAL" width="1168" height="224">
+        </div>
+        <p style="max-width:34ch">Arriendo de grúas horquillas de 3 y 7 toneladas en Santiago. Carga, descarga y transporte interno, con o sin operador.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/56977458631" target="_blank" rel="noopener">WhatsApp +56 9 7745 8631</a></li>
+          <li><a href="tel:+56225529212">Teléfono +56 2 2552 9212</a></li>
+          <li><a href="mailto:ventas@luxmetal.cl">ventas@luxmetal.cl</a></li>
+          <li>Brigadier de La Cruz 682,<br>San Miguel, Santiago, RM</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servicio</h4>
+        <ul>
+          <li><a href="#maquinas">Grúas horquillas 3 toneladas</a></li>
+          <li><a href="#maquinas">Grúas horquillas 7 toneladas</a></li>
+          <li><a href="#faq">Arriendo spot o contrato</a></li>
+          <li><a href="#trabajo">Con o sin operador</a></li>
+          <li>Atención 24/7, toda la RM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 LUX-METAL · Arriendo de grúas horquillas · Santiago de Chile</span>
+      <span>+30 años de experiencia · Servicio 24/7</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/56977458631?text=Hola%20LUX-METAL%2C%20necesito%20arrendar%20una%20gr%C3%BAa%20horquilla." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp al +56 9 7745 8631">
+  <svg width="27" height="27" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a11.4 11.4 0 0 1-4.4-2.7 10.3 10.3 0 0 1-2.1-3.4c-.2-.7-.1-1.4.2-1.9.2-.3.6-.8.9-.9.2-.1.7-.1.9 0 .2 0 .3.3.4.5l.6 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6a8 8 0 0 0 1.4 1.7c.6.5 1.1.8 1.5.9.2.1.4 0 .5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.4.4.1.2.1.6 0 .8Z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var WA = "https://wa.me/56977458631";
+
+  /* --- barra fija: estado sólido al hacer scroll --- */
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('solid', window.scrollY > 40); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* --- reveals al scroll --- */
+  var rvs = document.querySelectorAll('[data-rv]');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.12});
+    rvs.forEach(function(el){ io.observe(el); });
+  } else { rvs.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* --- formulario: validación básica + mensaje de WhatsApp --- */
+  var form = document.getElementById('cotiza');
+  var ok = document.getElementById('formOk');
+
+  function field(input){ return input.closest('.f'); }
+  function clearErr(input){ field(input).classList.remove('bad'); }
+
+  ['q-nombre','q-fono','q-carga'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', function(){ clearErr(el); });
+  });
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var nombre = document.getElementById('q-nombre');
+    var fono   = document.getElementById('q-fono');
+    var carga  = document.getElementById('q-carga');
+    var ton    = document.getElementById('q-ton');
+    var dur    = document.getElementById('q-dur');
+    var bad = null;
+
+    function fail(input){ field(input).classList.add('bad'); if(!bad) bad = input; }
+
+    if(nombre.value.trim().length < 2) fail(nombre); else clearErr(nombre);
+    if((fono.value.match(/\d/g) || []).length < 8) fail(fono); else clearErr(fono);
+    if(carga.value.trim().length < 3) fail(carga); else clearErr(carga);
+
+    if(bad){ ok.classList.remove('show'); bad.focus(); return; }
+
+    var msg = "Hola LUX-METAL, soy " + nombre.value.trim() + " y necesito arrendar una grúa horquilla."
+      + "\n\n• Qué necesito mover: " + carga.value.trim()
+      + "\n• Tonelaje: " + ton.value
+      + "\n• Duración: " + dur.value
+      + "\n• Mi teléfono: " + fono.value.trim()
+      + "\n\nQuedo atento a la disponibilidad. ¡Gracias!";
+
+    window.open(WA + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+    ok.classList.add('show');
+  });
+
+  /* --- carrusel de prueba de trabajo --- */
+  var rail = document.getElementById('rail');
+  var prev = document.getElementById('railPrev');
+  var next = document.getElementById('railNext');
+  function step(){
+    var s = rail.querySelector('.slide');
+    var gap = parseFloat(getComputedStyle(rail).columnGap) || 16;
+    return s ? s.getBoundingClientRect().width + gap : 320;
+  }
+  if(prev && next){
+    prev.addEventListener('click', function(){ rail.scrollBy({left:-step(), behavior:'smooth'}); });
+    next.addEventListener('click', function(){ rail.scrollBy({left: step(), behavior:'smooth'}); });
+  }
+
+  /* --- acordeón FAQ (uno abierto a la vez) --- */
+  var qs = Array.prototype.slice.call(document.querySelectorAll('#faqList .q'));
+  qs.forEach(function(q){
+    var btn = q.querySelector('.q__b');
+    var pan = q.querySelector('.q__a');
+    btn.addEventListener('click', function(){
+      var isOpen = q.classList.contains('open');
+      qs.forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.q__a').style.maxHeight = '0px';
+        o.querySelector('.q__b').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        q.classList.add('open');
+        pan.style.maxHeight = pan.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+  /* recalcula la altura del acordeón abierto al redimensionar */
+  window.addEventListener('resize', function(){
+    var open = document.querySelector('#faqList .q.open .q__a');
+    if(open){ open.style.maxHeight = 'none'; var h = open.scrollHeight; open.style.maxHeight = h + 'px'; }
+  });
+  /* primera pregunta abierta: la página nunca se ve "vacía" */
+  if(qs.length) qs[0].querySelector('.q__b').click();
+})();
+</script>
+</body>
+</html>

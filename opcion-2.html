@@ -470,8 +470,13 @@ figure:hover .cap span,.cap.show span{transform:none}
   height:80vh;aspect-ratio:2388/2015;
   background:url(img/elefante.png) left bottom/contain no-repeat;
   transform:scale(.92);transform-origin:left bottom;
-  opacity:.6;
-  will-change:transform;z-index:0;
+  /* El cruce del elefante sobre el titular es el recurso que el cliente aprobó.
+     Va ENCIMA del texto (z-index:3) en multiply y bajo de tinta: multiply jamás
+     aclara un píxel, así que la tinta del titular queda intacta y legible, y
+     sobre el papel crema la silueta sí se dibuja. Antes iba detrás y el efecto
+     se perdía; antes de eso iba en difference y se comía las letras. */
+  opacity:.34;mix-blend-mode:multiply;
+  will-change:transform;z-index:3;pointer-events:none;
 }
 /* ahora el texto sí va por encima del elefante (z-index:2): antes el titular usaba
    mix-blend-mode:difference y su tono dependía del píxel del elefante, así que
@@ -483,10 +488,10 @@ figure:hover .cap span,.cap.show span{transform:none}
 .eleph h2{
   grid-column:1/13;color:var(--ink);
   font-size:clamp(1.9rem,8vw,7.4rem);font-variation-settings:'wdth' 100,'wght' 900;line-height:.84;
-  text-shadow:0 0 34px var(--paper),0 0 16px var(--paper),0 0 6px var(--paper);
+  text-shadow:none;
 }
 .eleph aside{grid-column:7/13;align-self:end;display:flex;flex-direction:column;gap:14px}
-.eleph aside p{font-size:clamp(.95rem,1.5vw,1.06rem);line-height:1.6;max-width:62ch;color:var(--ink);text-shadow:0 0 14px var(--paper),0 0 6px var(--paper)}
+.eleph aside p{font-size:clamp(.95rem,1.5vw,1.06rem);line-height:1.6;max-width:62ch;color:var(--ink)}
 .eleph aside .kicker{color:var(--gray)}
 .trunk{font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);border-top:1px solid var(--hair);padding-top:12px}
 @media (max-width:900px){

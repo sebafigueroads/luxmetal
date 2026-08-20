@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>BRUTO — LUX-METAL · Arriendo de grúas horquillas</title>
+<meta name="description" content="LUX-METAL. Arriendo de grúas horquillas de 3 y 7 toneladas en Santiago. 30 años, 24/7, con o sin operador.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BRUTO — revista suiza impresa en papel de bodega
+   Papel #F4F4F4 · Tinta #292929 · Amarillo maquinaria #FFBD59
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --paper:#F4F4F4;
+  --ink:#292929;
+  --ink2:#333539;
+  --yellow:#FFBD59;
+  --yellow-hot:#FFC107;
+  --orange:#F95738;
+  --orange-ink:#C4321A;
+  --gray:#5A6069;
+  --white:#FFFFFF;
+  --hair:rgba(41,41,41,.12);
+  --hair-inv:rgba(255,255,255,.16);
+  --pad:clamp(18px,4.6vw,72px);
+  --top:48px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  /* logo-blanco2.png incrustado: Chrome bloquea las mascaras CSS servidas por file://,
+     y el wordmark en tinta se hace por mascara (nunca por filter:invert, que daria #000). */
+  --wm:url("data:image/png;base64,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");
+}
+/* clip y NO hidden: overflow-x:hidden convierte a html en contenedor de scroll
+   y mata el position:sticky de la báscula. clip recorta sin crear scroll box. */
+html{overflow-x:clip}
+html,body{margin:0;padding:0;background:var(--paper)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-variation-settings:'wdth' 100,'wght' 400;
+  color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  font-synthesis:none;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote{margin:0}
+ul{margin:0;padding:0;list-style:none}
+::selection{background:var(--yellow);color:var(--ink)}
+:focus-visible{outline:3px solid var(--yellow-hot);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:8px;top:-60px;z-index:200;background:var(--ink);color:#fff;padding:10px 16px;font:700 .8rem "Space Mono",monospace;transition:top .2s}
+.skip:focus{top:8px}
+
+/* ---------- tipografía base ---------- */
+.kicker{
+  font-family:"Space Mono",monospace;font-weight:700;font-size:.72rem;
+  text-transform:uppercase;letter-spacing:.22em;color:var(--ink);
+}
+.kicker.soft{color:var(--gray)}
+.kicker::before{content:"— "}
+h1,.h1{
+  font-size:clamp(2.6rem,11vw,9rem);font-weight:900;font-variation-settings:'wdth' 110,'wght' 900;
+  line-height:.86;letter-spacing:-.03em;text-transform:uppercase;
+}
+h2,.h2{
+  font-size:clamp(1.9rem,7vw,5.5rem);font-weight:800;font-variation-settings:'wdth' 105,'wght' 800;
+  line-height:.9;letter-spacing:-.025em;text-transform:uppercase;
+}
+.lede{
+  font-weight:400;font-size:clamp(1.05rem,2.4vw,1.35rem);line-height:1.5;max-width:62ch;
+}
+.mono{font-family:"Space Mono",monospace;font-size:.78rem;letter-spacing:.06em}
+.fig{
+  font-weight:900;font-variation-settings:'wdth' 108,'wght' 900;
+  font-variant-numeric:tabular-nums;font-size:clamp(3rem,14vw,11rem);
+  line-height:.82;letter-spacing:-.045em;
+}
+.lnk{
+  text-decoration:none;border-bottom:1px solid var(--hair);
+  background-image:linear-gradient(var(--yellow-hot),var(--yellow-hot));
+  background-repeat:no-repeat;background-size:0% 3px;background-position:0 100%;
+  transition:background-size .38s var(--ease);
+  padding-bottom:2px;
+}
+.lnk:hover,.lnk:focus-visible{background-size:100% 3px}
+.hair{height:1px;background:var(--hair);border:0;margin:0}
+
+/* número de sección rotado en el margen (detalle de revista) */
+.snum{
+  position:absolute;left:10px;top:var(--pad);
+  writing-mode:vertical-rl;
+  font-family:"Space Mono",monospace;font-weight:700;font-size:.7rem;
+  letter-spacing:.34em;color:var(--gray);text-transform:uppercase;
+}
+@media (max-width:820px){.snum{display:none}}
+
+/* ============ 01 MASTHEAD ============ */
+.masthead{
+  position:fixed;inset:0 0 auto 0;height:var(--top);z-index:120;
+  display:flex;align-items:center;gap:14px;
+  padding:0 clamp(10px,3vw,26px);
+  background:var(--paper);color:var(--ink);
+  border-bottom:1px solid var(--hair);
+  transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease);
+}
+body.scrolled .masthead{background:var(--ink2);color:var(--white);border-bottom-color:var(--hair-inv)}
+/* sin mascara: se alternan los dos PNG de marca segun el estado del masthead */
+.mh-eleph{position:relative;width:32px;height:27px;flex:none}
+.mh-eleph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s var(--ease)}
+.mh-eleph .w{opacity:0}
+body.scrolled .mh-eleph .d{opacity:0}
+body.scrolled .mh-eleph .w{opacity:1}
+.mh-live{display:flex;align-items:center;gap:8px;font-family:"Space Mono",monospace;font-weight:700;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--orange-ink);animation:beat 1.6s infinite}
+body.scrolled .dot{background:var(--yellow-hot)}
+@keyframes beat{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.45);opacity:.55}}
+.mh-right{margin-left:auto;display:flex;align-items:center;gap:clamp(10px,2vw,22px);font-family:"Space Mono",monospace;font-weight:700;font-size:.66rem;letter-spacing:.1em}
+.mh-right a{text-decoration:none;white-space:nowrap}
+.mh-right a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.mh-wa{background:var(--yellow);color:var(--ink)!important;padding:7px 12px}
+body.scrolled .mh-wa{background:var(--yellow)}
+@media (max-width:620px){.mh-tel{display:none}.mh-live span{font-size:.6rem}}
+
+/* ============ 02 HERO ============ */
+.hero{
+  position:relative;min-height:100svh;padding:calc(var(--top) + clamp(22px,5vh,54px)) 0 0;
+  display:flex;flex-direction:column;overflow:hidden;isolation:isolate;
+}
+.hero-top{padding:0 var(--pad) clamp(14px,4vh,40px)}
+.hero-top .kicker{display:block;max-width:46ch;line-height:1.7}
+
+/* wordmark real (logo-blanco2.png) recoloreado a tinta con máscara */
+/* El PNG mide 1168x224 y el dibujo vive en (13,29)-(1166,173):
+   padding interno de 12.9% arriba y 22.8% abajo, que se compensa con márgenes negativos.
+   El ancho 102vw con -1vw a cada lado corta las L milimétricamente por los bordes,
+   sin comerse el asta (alineación de inicio, no centrada: un center asimetriza el corte). */
+.wordmark{
+  position:relative;flex:0 0 auto;   /* sin esto el flex-shrink lo aplasta a 0 de alto */
+  width:102vw;margin-left:-1vw;margin-right:-1vw;aspect-ratio:1168/224;
+  margin-top:calc(-102vw / 5.214 * .129);
+  margin-bottom:calc(-102vw / 5.214 * .228);
+}
+/* nueve copias completas superpuestas, cada una recortada a su banda vertical:
+   rebanar por geometría (width:900% + left) deja costuras visibles porque cada
+   rebanada rasteriza la máscara con un redondeo distinto. */
+.wm-slice{
+  position:absolute;inset:0;
+  clip-path:inset(0 calc((8 - var(--i)) * 11.1112%) 0 calc(var(--i) * 11.1112%));
+}
+.wm-slice i{
+  position:absolute;inset:0;
+  background:var(--ink);
+  -webkit-mask-image:var(--wm);-webkit-mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:left center;
+  mask-image:var(--wm);mask-size:contain;mask-repeat:no-repeat;mask-position:left center;
+  transform:translateY(-112%);
+  transition:transform .78s cubic-bezier(.22,1.42,.34,1);
+  transition-delay:calc(var(--i) * 40ms);
+}
+body.lit .wm-slice i{transform:translateY(0)}
+
+.hero-bottom{
+  position:relative;flex:1;display:grid;grid-template-columns:repeat(12,1fr);
+  align-items:end;gap:0;padding:clamp(26px,6vh,60px) var(--pad) clamp(28px,5vh,56px);
+}
+/* elefante recortado: sangra por IZQUIERDA + ABAJO, trompa libre hacia la derecha */
+.hero-eleph{
+  position:absolute;left:-7vw;bottom:0;z-index:-1;
+  height:clamp(30vh,44vw,56vh);aspect-ratio:2388/2015;
+  background:url(img/elefante.png) left bottom/contain no-repeat;
+  mix-blend-mode:multiply;
+  opacity:0;transform:translateY(26px);
+  transition:opacity 1.1s var(--ease) .5s,transform 1.2s var(--ease) .5s;
+}
+body.lit .hero-eleph{opacity:1;transform:none}
+.hero-txt{grid-column:5/13;display:flex;flex-direction:column;gap:clamp(14px,2.4vh,22px)}
+/* el H1 vive en media columna: 11vw se desbordaría, así que baja a 6vw */
+.hero-txt h1{font-size:clamp(2rem,6vw,5.6rem);max-width:18ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-family:"Space Mono",monospace;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--ink);color:var(--white);text-decoration:none;
+  padding:15px 22px;font-family:"Space Mono",monospace;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .3s var(--ease),transform .3s var(--ease);
+}
+.btn:hover{background:var(--orange-ink);transform:translateY(-2px)}
+.btn.y{background:var(--yellow);color:var(--ink)}
+.btn.y:hover{background:var(--yellow-hot)}
+.hero-scroll{
+  position:absolute;right:var(--pad);bottom:clamp(28px,5vh,56px);
+  font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gray);
+  writing-mode:vertical-rl;
+}
+@media (max-width:899px){
+  .hero-bottom{grid-template-columns:1fr;padding-bottom:34vh}
+  .hero-txt{grid-column:auto}
+  .hero-eleph{left:-14vw;height:31vh}
+  .hero-scroll{display:none}
+}
+
+/* ============ 03 MARQUESINA ============ */
+.marq{
+  position:relative;background:var(--ink2);color:var(--white);overflow:hidden;
+  height:clamp(66px,10vw,96px);
+}
+/* la inclinación va en un envoltorio más alto que la banda: si se inclinara .marq
+   se desbordaría el ancho del viewport y asomarían las esquinas de papel */
+.marq-rot{
+  position:absolute;inset:-45% 0;display:flex;align-items:center;
+  background:var(--ink2);transition:transform .5s var(--ease);
+}
+.marq.fast .marq-rot{transform:rotate(-1.5deg) scale(1.06)}
+.marq-track{display:flex;white-space:nowrap;will-change:transform}
+.marq-track b{
+  font-weight:900;font-variation-settings:'wdth' 96,'wght' 900;
+  font-size:clamp(1.5rem,4.6vw,3.1rem);text-transform:uppercase;letter-spacing:-.02em;
+  padding-right:.35em;
+}
+.marq-track s{text-decoration:none;color:var(--yellow);padding-right:.35em;font-size:clamp(1.5rem,4.6vw,3.1rem);font-weight:900}
+
+/* ============ 04 LA BÁSCULA ============ */
+.scale{position:relative;height:320vh;background:var(--paper)}
+.stage{
+  position:sticky;top:0;height:100svh;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,3vh,34px);
+  padding:calc(var(--top) + 20px) var(--pad) clamp(24px,5vh,54px);
+}
+.stage-head{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.state{
+  font-family:"Space Mono",monospace;font-weight:700;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  background:var(--ink);color:var(--white);padding:9px 14px;
+}
+.word-zone{position:relative;padding:clamp(10px,3vh,34px) 0}
+.surface{
+  position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:120vw;
+  background:var(--orange);opacity:0;transition:opacity .32s var(--ease);z-index:0;
+}
+.scale.max .surface{opacity:1}
+.word-wrap{position:relative;z-index:1;text-align:center}
+.word{
+  display:block;white-space:nowrap;
+  font-size:clamp(2.3rem,14vw,12rem);line-height:.9;text-transform:uppercase;
+  font-weight:900;letter-spacing:.06em;color:var(--ink);
+}
+.word span{display:inline-block;font-variation-settings:'wght' 200,'wdth' 62;will-change:transform,font-variation-settings}
+@keyframes crujido{
+  0%{transform:translate(0,0)}20%{transform:translate(2px,-2px)}45%{transform:translate(-2px,1px)}
+  70%{transform:translate(1px,2px)}100%{transform:translate(0,0)}
+}
+.stage.crack .word-wrap{animation:crujido 90ms linear 1}
+.scale-grid{
+  display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(16px,4vw,52px);align-items:end;
+  border-top:1px solid var(--hair);padding-top:clamp(14px,3vh,26px);
+}
+.spec{min-height:8.4em}
+.spec .t{
+  font-weight:900;font-variation-settings:'wdth' 96,'wght' 900;
+  font-size:clamp(1.25rem,3.4vw,2.1rem);line-height:.95;text-transform:uppercase;letter-spacing:-.02em;
+}
+.spec p{font-size:clamp(.92rem,1.6vw,1.05rem);line-height:1.45;color:var(--gray);max-width:34ch;margin-top:10px}
+.spec-item{display:none}
+.spec-item.on{display:block;animation:fadeup .4s var(--ease)}
+@keyframes fadeup{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.readout{display:flex;align-items:flex-end;justify-content:flex-end;gap:.2em;line-height:.8}
+.readout .num{font-size:clamp(3rem,13vw,9rem);font-weight:900;font-variation-settings:'wdth' 104,'wght' 900;font-variant-numeric:tabular-nums;letter-spacing:-.05em}
+.readout .u{font-family:"Space Mono",monospace;font-weight:700;font-size:clamp(1rem,2.6vw,1.8rem);padding-bottom:.35em;color:var(--gray)}
+.rail{
+  position:relative;margin-top:clamp(16px,3vh,28px);padding:26px 0 8px;cursor:grab;touch-action:pan-y;
+}
+.rail:active{cursor:grabbing}
+.rail .track{position:relative;height:2px;background:var(--hair)}
+.rail .fill{position:absolute;left:0;top:0;height:2px;width:0%;background:var(--yellow-hot)}
+.rail .thumb{
+  position:absolute;top:50%;left:0;width:16px;height:60px;
+  transform:translate(-50%,-50%);background:var(--ink);
+}
+.rail .thumb::after{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:4px;height:22px;background:var(--yellow);
+}
+.rail .ticks{display:flex;justify-content:space-between;margin-top:12px;font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.1em;color:var(--gray)}
+.rail-hint{font-family:"Space Mono",monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin-top:10px}
+@media (max-width:820px){
+  .scale{height:260vh}
+  .scale-grid{grid-template-columns:1fr;align-items:start;gap:18px}
+  .readout{justify-content:flex-start}
+  .spec{min-height:7.6em;order:2}
+  .gauge{order:1}
+}
+
+/* ============ 05 FICHA EDITORIAL ============ */
+.ficha{position:relative;padding:clamp(56px,12vh,140px) 0 0;background:var(--paper)}
+.ficha .head{padding:0 var(--pad) clamp(28px,6vh,64px)}
+.row{
+  position:relative;display:grid;grid-template-columns:repeat(12,1fr);
+  gap:0 clamp(8px,2vw,24px);align-items:baseline;
+  border-top:1px solid var(--hair);
+  padding:clamp(20px,4vh,42px) var(--pad);
+  cursor:pointer;isolation:isolate;
+}
+.row:last-of-type{border-bottom:1px solid var(--hair)}
+.row::before{
+  content:"";position:absolute;inset:0;background:var(--yellow);
+  transform:scaleX(0);transform-origin:left center;z-index:-1;
+  transition:transform .32s cubic-bezier(.7,0,.2,1);
+}
+.row:hover::before,.row:focus-visible::before,.row.open::before{transform:scaleX(1)}
+.row .n{grid-column:1/2;font-family:"Space Mono",monospace;font-weight:700;font-size:.7rem;letter-spacing:.18em;color:var(--gray);transition:color .3s}
+.row .t{
+  grid-column:2/7;font-weight:900;font-variation-settings:'wdth' 100,'wght' 900;
+  font-size:clamp(1.5rem,4.6vw,3.4rem);line-height:.92;text-transform:uppercase;letter-spacing:-.03em;
+}
+.row .d{grid-column:7/12;color:var(--gray);font-size:clamp(.95rem,1.5vw,1.1rem);line-height:1.5;max-width:44ch;transition:color .3s}
+.row .arw{grid-column:12/13;justify-self:end;font-family:"Space Mono",monospace;font-weight:700;opacity:.35;transition:opacity .3s,transform .3s}
+.row:hover .d,.row.open .d,.row:hover .n,.row.open .n{color:var(--ink)}
+.row:hover .arw,.row.open .arw{opacity:1;transform:translateX(6px)}
+@media (max-width:820px){
+  .row{grid-template-columns:1fr auto;padding-top:20px;padding-bottom:20px}
+  .row .n{grid-column:1/2;grid-row:1}
+  .row .arw{grid-column:2/3;grid-row:1;align-self:center}
+  .row .t{grid-column:1/3;grid-row:2;margin-top:6px}
+  .row .d{grid-column:1/3;grid-row:3;max-height:0;overflow:hidden;opacity:0;transition:max-height .4s var(--ease),opacity .3s,margin .4s}
+  .row.open .d{max-height:14em;opacity:1;margin-top:12px}
+}
+
+/* ============ 06 CIFRAS ============ */
+.cifras{position:relative;padding:clamp(56px,12vh,140px) 0 0}
+.cifras .head{padding:0 var(--pad) clamp(24px,5vh,54px)}
+.band{
+  border-top:1px solid var(--hair);
+  padding:clamp(26px,6vh,64px) var(--pad);
+  display:flex;flex-wrap:wrap;gap:clamp(10px,3vw,44px);align-items:flex-end;
+}
+.band.r{justify-content:flex-end;text-align:right}
+.band.r .band-txt{align-items:flex-end}
+.band-txt{display:flex;flex-direction:column;gap:6px;max-width:34ch}
+.band-txt .lbl{
+  font-weight:900;font-variation-settings:'wdth' 92,'wght' 900;
+  font-size:clamp(1.05rem,2.6vw,1.7rem);text-transform:uppercase;letter-spacing:-.01em;line-height:1;
+}
+.band-txt .sub{font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+.band .fig .sm{font-size:.4em;vertical-align:.35em;font-variation-settings:'wdth' 92,'wght' 900}
+.band.yell{background:var(--yellow);border-top-color:rgba(41,41,41,.25);flex-direction:column;align-items:flex-start;gap:14px}
+.band.yell .sub{color:var(--ink)}
+.tel-big{
+  display:inline-block;text-decoration:none;color:var(--ink);
+  font-weight:900;font-variation-settings:'wdth' 80,'wght' 900;font-variant-numeric:tabular-nums;
+  font-size:clamp(1.7rem,8.4vw,6.4rem);line-height:.85;letter-spacing:-.03em;white-space:nowrap;
+  border-bottom:4px solid transparent;transition:border-color .3s var(--ease),transform .3s var(--ease);
+}
+.tel-big:hover{border-bottom-color:var(--ink);transform:translateY(-3px)}
+@media (max-width:820px){.band,.band.r{justify-content:flex-start;text-align:left}.band.r .band-txt{align-items:flex-start}}
+
+/* ============ 07 ENSAYO FOTOGRÁFICO ============ */
+.essay{position:relative;padding:clamp(56px,12vh,140px) 0 clamp(40px,8vh,110px)}
+.essay .head{padding:0 var(--pad) clamp(24px,5vh,54px)}
+.ph{position:relative;overflow:hidden;background:var(--ink2)}
+.ph .box{position:relative;height:116%;top:-8%;will-change:transform}
+.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.42) contrast(1.06) brightness(.94);transition:filter .6s var(--ease)}
+.ph:hover img{filter:grayscale(.08) contrast(1.02) brightness(1)}
+.rv{clip-path:inset(100% 0 0 0);transition:clip-path 1.05s var(--ease)}
+.rv.in{clip-path:inset(0 0 0 0)}
+.cap{
+  overflow:hidden;margin-top:9px;
+  font-family:"Space Mono",monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);
+}
+.cap span{display:block;transform:translateY(115%);transition:transform .5s var(--ease)}
+figure:hover .cap span,.cap.show span{transform:none}
+.hero-ph{position:relative}
+.hero-ph .ph{aspect-ratio:21/9}
+.hero-ph .over{
+  position:absolute;left:var(--pad);bottom:clamp(16px,4vw,44px);right:var(--pad);
+  color:var(--white);font-weight:900;font-variation-settings:'wdth' 104,'wght' 900;
+  font-size:clamp(1.6rem,7vw,5.4rem);line-height:.9;text-transform:uppercase;letter-spacing:-.03em;
+  text-shadow:0 2px 30px rgba(0,0,0,.75);pointer-events:none;
+}
+.hero-ph .scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0) 62%);pointer-events:none}
+.hero-ph figcaption{padding:0 var(--pad)}
+.essay-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(14px,2.6vw,34px);margin-top:clamp(26px,6vh,70px);align-items:start}
+.e1{grid-column:1/4}
+.e1 .ph{aspect-ratio:3/5}
+.e2{grid-column:5/10;transform:translateY(120px)}
+.e2 .ph{aspect-ratio:4/5}
+.e3{grid-column:11/13;align-self:end}
+.e3 .ph{aspect-ratio:1/1}
+.e4{grid-column:1/9;margin-top:clamp(30px,8vh,120px)}
+.e4 .ph{aspect-ratio:16/9}
+.e5{grid-column:10/13;margin-top:clamp(30px,8vh,190px)}
+.e5 .ph{aspect-ratio:3/4}
+.e6{grid-column:3/8;margin-top:clamp(20px,4vh,60px);transform:translateY(-40px)}
+.e6 .ph{aspect-ratio:16/10}
+.e-note{grid-column:9/13;margin-top:clamp(20px,4vh,60px);color:var(--gray);font-size:.95rem;line-height:1.55;border-top:1px solid var(--hair);padding-top:14px}
+@media (max-width:820px){
+  .essay-grid{grid-template-columns:1fr;gap:26px;margin-top:26px;padding:0 var(--pad)}
+  .e1,.e2,.e3,.e4,.e5,.e6,.e-note{grid-column:auto;transform:none;margin-top:0}
+  .e2{margin-left:14%}
+  .e3{width:52%;margin-left:auto}
+  .e5{width:70%}
+  .e6{margin-right:16%}
+  .cap span{transform:none}
+}
+
+/* ============ 08 EL ELEFANTE ============ */
+.eleph{
+  position:relative;isolation:isolate;background:var(--paper);overflow:hidden;
+  min-height:100svh;display:flex;align-items:flex-end;
+  padding:clamp(60px,14vh,150px) 0 0;
+}
+.eleph .big{
+  position:absolute;left:-6vw;bottom:0;
+  height:80vh;aspect-ratio:2388/2015;
+  background:url(img/elefante.png) left bottom/contain no-repeat;
+  transform:scale(.92);transform-origin:left bottom;
+  will-change:transform;z-index:0;
+}
+/* sin z-index: un z-index != auto aislaría el grupo y anularía el mix-blend-mode del h2 */
+.eleph-in{position:relative;width:100%;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,3vw,40px);padding:0 var(--pad) clamp(40px,8vh,100px)}
+.eleph h2{
+  grid-column:1/9;mix-blend-mode:difference;color:var(--white);
+  font-size:clamp(2rem,12vw,10rem);font-variation-settings:'wdth' 100,'wght' 900;line-height:.84;
+}
+.eleph aside{grid-column:9/13;align-self:end;display:flex;flex-direction:column;gap:14px}
+.eleph aside p{font-size:clamp(.95rem,1.5vw,1.06rem);line-height:1.6;max-width:62ch;color:var(--ink)}
+.eleph aside .kicker{color:var(--gray)}
+.trunk{font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);border-top:1px solid var(--hair);padding-top:12px}
+@media (max-width:900px){
+  .eleph{padding-bottom:0;align-items:flex-start}
+  .eleph-in{grid-template-columns:1fr;padding-bottom:38vh}
+  .eleph h2,.eleph aside{grid-column:auto}
+  .eleph .big{height:36vh;left:-16vw}
+}
+
+/* ============ 09 ALIANZA ============ */
+.alianza{background:var(--orange);padding:clamp(56px,12vh,130px) var(--pad);position:relative}
+.alianza-in{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(18px,4vh,32px);align-items:flex-start}
+.chip{background:var(--ink);color:var(--white);font-family:"Space Mono",monospace;font-weight:700;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 14px}
+.alianza h2{color:var(--ink);font-variation-settings:'wdth' 62,'wght' 900;font-size:clamp(1.9rem,6.6vw,4.6rem);line-height:.94;letter-spacing:-.01em}
+/* #292929 sobre #F95738 = 4.47:1 → solo válido en texto grande: 700 y ≥19.2px */
+.alianza p{color:var(--ink);font-size:clamp(1.2rem,2.2vw,1.4rem);font-weight:700;line-height:1.45;max-width:52ch}
+
+/* ============ 10 PREGUNTAS ============ */
+.faq{padding:clamp(56px,12vh,140px) 0;position:relative}
+.faq .head{padding:0 var(--pad) clamp(24px,5vh,54px)}
+.q{border-top:1px solid var(--hair)}
+.q:last-of-type{border-bottom:1px solid var(--hair)}
+.q button{
+  all:unset;box-sizing:border-box;display:flex;width:100%;align-items:center;gap:18px;
+  padding:clamp(18px,3.6vh,34px) var(--pad);cursor:pointer;
+  font-family:"Archivo",sans-serif;font-weight:900;font-variation-settings:'wdth' 96,'wght' 900;
+  font-size:clamp(1.6rem,5vw,3rem);line-height:1;text-transform:uppercase;letter-spacing:-.03em;color:var(--ink);
+}
+.q button:hover{color:var(--orange-ink)}
+.q button:focus-visible{outline:3px solid var(--yellow-hot);outline-offset:-4px}
+.q .plus{margin-left:auto;flex:none;font-family:"Space Mono",monospace;font-weight:700;font-size:1.4rem;transition:transform .35s var(--ease)}
+.q.open .plus{transform:rotate(45deg)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.q.open .a{max-height:34em}
+.q .a-in{
+  padding:0 var(--pad) clamp(20px,4vh,34px);
+  border-left:6px solid transparent;margin-left:0;
+  transition:border-color .35s var(--ease),padding-left .35s var(--ease);
+}
+.q.open .a-in{border-left-color:var(--yellow)}
+.q .a-in p{color:var(--gray);font-size:clamp(1rem,1.7vw,1.15rem);line-height:1.6;max-width:58ch}
+.q .a-in p strong{color:var(--ink);font-weight:700}
+
+/* ============ 11 CTA FINAL ============ */
+.final{
+  background:var(--ink2);color:var(--white);min-height:100svh;
+  display:flex;flex-direction:column;justify-content:space-between;gap:clamp(24px,5vh,50px);
+  padding:clamp(50px,10vh,110px) 0 0;overflow:hidden;
+}
+.final-mark{padding:0 var(--pad)}
+.final-mark img{width:90%;max-width:1400px;margin:0 auto;display:block}
+.final-mid{padding:0 var(--pad);display:flex;flex-direction:column;gap:clamp(14px,3vh,26px)}
+.final-mid h2{color:var(--yellow);font-size:clamp(2.4rem,10vw,8rem);font-variation-settings:'wdth' 110,'wght' 900;line-height:.86}
+.final-mid p{color:rgba(255,255,255,.82);max-width:52ch;font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.5}
+.wa-bar{
+  display:flex;align-items:center;gap:clamp(12px,3vw,34px);flex-wrap:wrap;
+  min-height:120px;background:var(--yellow);color:var(--ink);text-decoration:none;
+  padding:20px var(--pad);transition:background .3s var(--ease),padding .3s var(--ease);
+}
+.wa-bar:hover{background:var(--yellow-hot);padding-left:calc(var(--pad) + 14px)}
+.wa-bar .k{font-family:"Space Mono",monospace;font-weight:700;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.wa-bar .num{
+  font-weight:900;font-variation-settings:'wdth' 86,'wght' 900;font-variant-numeric:tabular-nums;
+  font-size:clamp(1.5rem,6.4vw,4.6rem);line-height:.9;letter-spacing:-.03em;white-space:nowrap;
+}
+.wa-bar .arw{margin-left:auto;font-family:"Space Mono",monospace;font-weight:700;font-size:1.4rem}
+.final-cts{display:flex;flex-wrap:wrap;gap:8px clamp(18px,4vw,48px);padding:22px var(--pad);border-top:1px solid var(--hair-inv);font-family:"Space Mono",monospace;font-weight:700;font-size:clamp(.8rem,2.2vw,1.15rem);letter-spacing:.06em}
+.final-cts a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:3px}
+.final-cts a:hover{border-bottom-color:var(--yellow);color:var(--yellow)}
+
+/* ============ 12 FOOTER ============ */
+footer{background:var(--ink);color:var(--white);padding:clamp(34px,7vh,70px) var(--pad) 26px}
+.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,40px);border-top:1px solid var(--hair-inv);padding-top:26px}
+.foot-grid h3{font-family:"Space Mono",monospace;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
+.foot-grid p,.foot-grid a{font-size:.92rem;line-height:1.6;color:rgba(255,255,255,.92);text-decoration:none}
+.foot-grid a{display:block;border-bottom:1px solid transparent;width:fit-content}
+.foot-grid a:hover{border-bottom-color:var(--yellow);color:var(--yellow)}
+.foot-end{display:flex;align-items:flex-end;gap:20px;justify-content:space-between;margin-top:clamp(30px,6vh,60px);border-top:1px solid var(--hair-inv);padding-top:22px;flex-wrap:wrap}
+.foot-end p{font-weight:900;font-variation-settings:'wdth' 92,'wght' 900;font-size:clamp(1.05rem,3vw,2rem);text-transform:uppercase;line-height:1;max-width:26ch;letter-spacing:-.02em}
+.foot-eleph{width:clamp(70px,12vw,132px);flex:none}
+.legal{margin-top:22px;font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.12em;color:rgba(255,255,255,.62);text-transform:uppercase}
+@media (max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- reveals genéricos ---------- */
+.up{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .9s var(--ease)}
+.up.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv{clip-path:none}.up{opacity:1;transform:none}
+  .wm-slice i{transform:none}
+  .hero-eleph{opacity:1;transform:none}
+  .cap span{transform:none}
+  .e2,.e6{transform:none}
+  .marq.fast{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#hero">Saltar al contenido</a>
+
+<!-- ============ 01 MASTHEAD ============ -->
+<header class="masthead">
+  <span class="mh-eleph" role="img" aria-label="LUX-METAL"><img class="d" src="img/elefante.png" alt=""><img class="w" src="img/logo-blanco.png" alt=""></span>
+  <span class="mh-live"><span class="dot" aria-hidden="true"></span><span>Operando 24/7</span></span>
+  <nav class="mh-right" aria-label="Contacto directo">
+    <a class="mh-tel" href="tel:+56225529212">+56 2 2552 9212</a>
+    <a class="mh-wa" href="https://wa.me/56977458631" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+</header>
+
+<!-- ============ 02 HERO ============ -->
+<main id="hero">
+<section class="hero">
+  <div class="hero-top">
+    <span class="kicker">Arriendo de grúas horquillas · San Miguel, Santiago</span>
+  </div>
+
+  <div class="wordmark" id="wordmark" role="img" aria-label="LUX-METAL"></div>
+
+  <div class="hero-bottom">
+    <div class="hero-eleph" aria-hidden="true"></div>
+    <div class="hero-txt">
+      <h1>Usted produce.<br>Nosotros levantamos.</h1>
+      <p class="lede">Memoria de elefante, músculo de 7 toneladas. 30 años arrendando grúas horquillas en Santiago, con o sin operador, 24/7.</p>
+      <div class="hero-cta">
+        <a class="btn y" href="https://wa.me/56977458631" target="_blank" rel="noopener">Cotizar por WhatsApp <span aria-hidden="true">→</span></a>
+        <a class="lnk" href="tel:+56225529212">+56 2 2552 9212</a>
+      </div>
+    </div>
+  </div>
+  <span class="hero-scroll" aria-hidden="true">Baje · peso bruto</span>
+</section>
+
+<!-- ============ 03 MARQUESINA DE CARGA ============ -->
+<section class="marq" id="marq" aria-label="Servicios de arriendo">
+  <div class="marq-rot">
+    <div class="marq-track" id="marqTrack"></div>
+  </div>
+</section>
+
+<!-- ============ 04 LA BÁSCULA TIPOGRÁFICA ============ -->
+<section class="scale" id="scale" aria-labelledby="scaleTitle">
+  <span class="snum" aria-hidden="true">01 / Báscula</span>
+  <div class="stage" id="stage">
+    <div class="stage-head">
+      <span class="kicker" id="scaleTitle">Báscula tipográfica · cargue la letra</span>
+      <span class="state" id="state">En rango</span>
+    </div>
+
+    <div class="word-zone">
+      <div class="surface" aria-hidden="true"></div>
+      <div class="word-wrap">
+        <span class="word" id="word" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="scale-grid">
+      <div class="spec" id="spec">
+        <div class="spec-item on" data-lo>
+          <p class="t">3 toneladas</p>
+          <p>Perfectas para bodegas, centros logísticos y retail. Ágiles en pasillo angosto y livianas para piso terminado.</p>
+        </div>
+        <div class="spec-item" data-hi>
+          <p class="t">7 toneladas</p>
+          <p>Ideales para construcción, metalmecánica y materiales de gran volumen. Cuando el pallet ya no es un pallet.</p>
+        </div>
+      </div>
+
+      <div class="gauge">
+        <div class="readout"><span class="num" id="readout">0.0</span><span class="u">t</span></div>
+        <div class="rail" id="rail" role="slider" tabindex="0"
+             aria-labelledby="scaleTitle" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" aria-valuetext="0 toneladas">
+          <div class="track">
+            <div class="fill" id="fill"></div>
+            <div class="thumb" id="thumb"></div>
+          </div>
+          <div class="ticks" aria-hidden="true"><span>0.0</span><span>1.75</span><span>3.5</span><span>5.25</span><span>7.0</span></div>
+          <p class="rail-hint" id="railHint">Arrastre el riel o use las flechas del teclado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 FICHA EDITORIAL ============ -->
+<section class="ficha" aria-labelledby="fichaT">
+  <span class="snum" aria-hidden="true">02 / Ficha</span>
+  <div class="head">
+    <span class="kicker soft">Lo que hacemos, sin adornos</span>
+    <h2 id="fichaT" class="up" style="margin-top:14px">Cuatro maneras<br>de mover peso.</h2>
+  </div>
+
+  <div class="row" role="button" tabindex="0" aria-expanded="false">
+    <span class="n">01</span>
+    <p class="t">Carga y descarga</p>
+    <p class="d">Camión que llega, camión que sale. Bajamos y subimos con la máquina correcta para que el chofer no espere ni un minuto de más.</p>
+    <span class="arw" aria-hidden="true">→</span>
+  </div>
+  <div class="row" role="button" tabindex="0" aria-expanded="false">
+    <span class="n">02</span>
+    <p class="t">Transporte interno</p>
+    <p class="d">Movimiento dentro de la planta o la bodega: pasillos, racks, patio, zona de picking. Es nuestra especialidad de siempre.</p>
+    <span class="arw" aria-hidden="true">→</span>
+  </div>
+  <div class="row" role="button" tabindex="0" aria-expanded="false">
+    <span class="n">03</span>
+    <p class="t">Con o sin operador</p>
+    <p class="d">Si su gente ya está capacitada, le dejamos la grúa. Si no, va con operador nuestro: oficio de patio, no de manual.</p>
+    <span class="arw" aria-hidden="true">→</span>
+  </div>
+  <div class="row" role="button" tabindex="0" aria-expanded="false">
+    <span class="n">04</span>
+    <p class="t">Spot o contrato</p>
+    <p class="d">Un turno puntual, una semana de peak, o contrato a largo plazo con tarifa acordada y máquina asignada a su operación.</p>
+    <span class="arw" aria-hidden="true">→</span>
+  </div>
+</section>
+
+<!-- ============ 06 TREINTA AÑOS EN CIFRAS ============ -->
+<section class="cifras" aria-labelledby="cifrasT">
+  <span class="snum" aria-hidden="true">03 / Cifras</span>
+  <div class="head">
+    <span class="kicker soft">Peso bruto de la empresa</span>
+    <h2 id="cifrasT" class="up" style="margin-top:14px">Treinta años<br>en cifras.</h2>
+  </div>
+
+  <div class="band">
+    <span class="fig" data-count="30">0</span>
+    <span class="band-txt">
+      <span class="lbl">Años de oficio</span>
+      <span class="sub">Desde los noventa, en el mismo rubro</span>
+    </span>
+  </div>
+
+  <div class="band r">
+    <span class="fig"><span data-count="24">0</span>/7</span>
+    <span class="band-txt">
+      <span class="lbl">Disponibilidad real</span>
+      <span class="sub">Turno de noche, feriado y domingo incluidos</span>
+    </span>
+  </div>
+
+  <div class="band">
+    <span class="fig"><span data-count="3">0</span><span class="sm"> y </span><span data-count="7">0</span></span>
+    <span class="band-txt">
+      <span class="lbl">Toneladas de capacidad</span>
+      <span class="sub">Dos formatos, cero improvisación</span>
+    </span>
+  </div>
+
+  <div class="band yell">
+    <span class="sub" style="font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase">1 llamada para cotizar</span>
+    <a class="tel-big" href="tel:+56225529212">+56 2 2552 9212</a>
+    <span class="sub" style="font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase">Brigadier de La Cruz 682, San Miguel · ventas@luxmetal.cl</span>
+  </div>
+</section>
+
+<!-- ============ 07 ENSAYO FOTOGRÁFICO ============ -->
+<section class="essay" aria-labelledby="essayT">
+  <span class="snum" aria-hidden="true">04 / Ensayo</span>
+  <div class="head">
+    <span class="kicker soft">Ensayo fotográfico · patio San Miguel</span>
+    <h2 id="essayT" class="up" style="margin-top:14px">Fierro, casco<br>y hora exacta.</h2>
+  </div>
+
+  <figure class="hero-ph">
+    <div class="ph rv" data-par>
+      <div class="box"><img src="img/gal/nave-noche.jpg" alt="Grúa horquilla silueteada dentro de una nave industrial oscura con luz volumétrica"></div>
+      <div class="scrim" aria-hidden="true"></div>
+    </div>
+    <p class="over">A las 3 am también</p>
+    <figcaption class="cap"><span>Nave industrial · turno noche · Santiago</span></figcaption>
+  </figure>
+
+  <div class="essay-grid">
+    <figure class="e1">
+      <div class="ph rv" data-par><div class="box"><img src="img/real/g21.jpg" alt="Mástil de grúa horquilla Komatsu visto en contrapicado" loading="lazy"></div></div>
+      <figcaption class="cap"><span>Komatsu · mástil triplex · patio San Miguel</span></figcaption>
+    </figure>
+
+    <figure class="e2">
+      <div class="ph rv" data-par><div class="box"><img src="img/gal/horquillas-low.jpg" alt="Horquillas levantando un pallet vistas desde el suelo" loading="lazy"></div></div>
+      <figcaption class="cap"><span>Horquillas · carga paletizada · contrapicado</span></figcaption>
+    </figure>
+
+    <figure class="e3">
+      <div class="ph rv" data-par><div class="box"><img src="img/gal/neumatico.jpg" alt="Detalle macro del neumático macizo y el contrapeso de la grúa" loading="lazy"></div></div>
+      <figcaption class="cap"><span>Neumático macizo · contrapeso</span></figcaption>
+    </figure>
+
+    <figure class="e4">
+      <div class="ph rv" data-par><div class="box"><img src="img/real/g26.jpg" alt="Fila de grúas horquillas amarillas estacionadas en el patio de LUX-METAL" loading="lazy"></div></div>
+      <figcaption class="cap"><span>Flota en línea · revisión diaria · 07:00 hrs</span></figcaption>
+    </figure>
+
+    <figure class="e5">
+      <div class="ph rv" data-par><div class="box"><img src="img/gal/mastil-macro.jpg" alt="Macro de la cadena y el cilindro hidráulico del mástil" loading="lazy"></div></div>
+      <figcaption class="cap"><span>Cadena y cilindro · mantención preventiva</span></figcaption>
+    </figure>
+
+    <figure class="e6">
+      <div class="ph rv" data-par><div class="box"><img src="img/real/g28.jpg" alt="Detalle de las cadenas del mástil de una grúa horquilla" loading="lazy"></div></div>
+      <figcaption class="cap"><span>Cadenas de mástil · control semanal</span></figcaption>
+    </figure>
+
+    <p class="e-note up">Las fotos son de nuestro patio y de nuestras máquinas: no hay banco de imágenes acá. Las mismas grúas que ve, con los mismos operadores, son las que llegan a su bodega.</p>
+  </div>
+</section>
+
+<!-- ============ 08 EL ELEFANTE ============ -->
+<section class="eleph" id="elephSec" aria-labelledby="elephT">
+  <span class="snum" aria-hidden="true">05 / Manifiesto</span>
+  <div class="big" id="elephBig" aria-hidden="true"></div>
+  <div class="eleph-in">
+    <h2 id="elephT">Un elefante no olvida<br>una grúa nuestra tampoco</h2>
+    <aside>
+      <span class="kicker">Por qué un elefante</span>
+      <p>Porque el elefante es exactamente lo que usted necesita cuando hay que mover peso: fuerza que no se discute, memoria que no falla y una calma que no se altera aunque el camión llegue atrasado. Nuestras grúas se parecen a eso. Entran a mantención por calendario, no por susto; salen del patio revisadas y llegan a la hora que dijimos que iban a llegar. En 30 años aprendimos que en logística nadie aplaude la grúa que funciona: se nota la que no. Por eso la única promesa que hacemos es aburrida y difícil de cumplir — estar, levantar, y volver mañana.</p>
+      <p class="trunk">La trompa apunta a lo que sigue ↓</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ 09 ALIANZA ESTRATÉGICA ============ -->
+<section class="alianza" aria-labelledby="aliT">
+  <div class="alianza-in">
+    <span class="chip">Alianza estratégica</span>
+    <h2 id="aliT">Consulta por soluciones integrales para operaciones más complejas.</h2>
+    <p>Cuando el trabajo pide más de una máquina, más de un turno o equipos que no están en nuestra flota, lo armamos con nuestros socios y respondemos nosotros por el resultado.</p>
+    <a class="btn" href="mailto:ventas@luxmetal.cl?subject=Consulta%20por%20soluciones%20integrales">Escribir a ventas@luxmetal.cl <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- ============ 10 PREGUNTAS DIRECTAS ============ -->
+<section class="faq" aria-labelledby="faqT">
+  <span class="snum" aria-hidden="true">06 / Preguntas</span>
+  <div class="head">
+    <span class="kicker soft">Preguntas directas, respuestas directas</span>
+    <h2 id="faqT" class="up" style="margin-top:14px">Sin vueltas.</h2>
+  </div>
+
+  <div class="q">
+    <button type="button" aria-expanded="false"><span>¿Arriendan por un día?</span><span class="plus" aria-hidden="true">+</span></button>
+    <div class="a"><div class="a-in"><p>Sí. Trabajamos <strong>servicios spot</strong>: un turno, un día, una semana de peak. También contratos a largo plazo con máquina asignada. Díganos cuántos días y a qué hora entra la grúa y ahí estará.</p></div></div>
+  </div>
+  <div class="q">
+    <button type="button" aria-expanded="false"><span>¿Viene con operador?</span><span class="plus" aria-hidden="true">+</span></button>
+    <div class="a"><div class="a-in"><p>Como prefiera. <strong>Con operador nuestro</strong>, con experiencia real de patio y bodega, o <strong>sin operador</strong> si su equipo ya está capacitado y autorizado para manejarla.</p></div></div>
+  </div>
+  <div class="q">
+    <button type="button" aria-expanded="false"><span>¿Atienden fuera de horario?</span><span class="plus" aria-hidden="true">+</span></button>
+    <div class="a"><div class="a-in"><p><strong>24/7.</strong> Si la descarga llega a las tres de la mañana, ahí estamos. Escriba al WhatsApp <strong>+56 9 7745 8631</strong> a cualquier hora o llame al +56 2 2552 9212.</p></div></div>
+  </div>
+  <div class="q">
+    <button type="button" aria-expanded="false"><span>¿Dónde están?</span><span class="plus" aria-hidden="true">+</span></button>
+    <div class="a"><div class="a-in"><p><strong>Brigadier de La Cruz 682, San Miguel</strong>, Región Metropolitana, Santiago de Chile. Desde ahí despachamos a toda la Región Metropolitana.</p></div></div>
+  </div>
+</section>
+</main>
+
+<!-- ============ 11 CTA FINAL ============ -->
+<section class="final" aria-labelledby="finalT">
+  <div class="final-mark">
+    <img src="img/logo-blanco2.png" alt="LUX-METAL">
+  </div>
+  <div class="final-mid">
+    <h2 id="finalT">Hablemos ahora</h2>
+    <p>Nos dice qué hay que levantar, cuántos días y a qué hora. Le respondemos con máquina, operador y precio. Sin formularios eternos.</p>
+  </div>
+  <a class="wa-bar" href="https://wa.me/56977458631" target="_blank" rel="noopener">
+    <span class="k">WhatsApp directo</span>
+    <span class="num">+56 9 7745 8631</span>
+    <span class="arw" aria-hidden="true">→</span>
+  </a>
+  <div class="final-cts">
+    <a href="tel:+56225529212">Tel. +56 2 2552 9212</a>
+    <a href="mailto:ventas@luxmetal.cl">ventas@luxmetal.cl</a>
+    <span>Brigadier de La Cruz 682, San Miguel</span>
+  </div>
+</section>
+
+<!-- ============ 12 FOOTER TÉCNICO ============ -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <h3>Dirección</h3>
+      <p>Brigadier de La Cruz 682<br>San Miguel<br>Región Metropolitana<br>Santiago de Chile</p>
+    </div>
+    <div>
+      <h3>Horario</h3>
+      <p>24/7, los 365 días.<br>Turnos de noche, feriados y domingos.</p>
+    </div>
+    <div>
+      <h3>Contacto</h3>
+      <a href="https://wa.me/56977458631" target="_blank" rel="noopener">WhatsApp +56 9 7745 8631</a>
+      <a href="tel:+56225529212">+56 2 2552 9212</a>
+      <a href="mailto:ventas@luxmetal.cl">ventas@luxmetal.cl</a>
+    </div>
+    <div>
+      <h3>Servicio</h3>
+      <p>Arriendo de grúas horquillas de 3 y 7 toneladas. Con o sin operador. Spot o contrato. Carga, descarga y transporte interno.</p>
+    </div>
+  </div>
+  <div class="foot-end">
+    <p>30 años levantando lo que pesa. LUX-METAL, Santiago de Chile.</p>
+    <img class="foot-eleph" src="img/logo-blanco.png" alt="" aria-hidden="true">
+  </div>
+  <p class="legal">LUX-METAL · luxmetal.cl · Arriendo de grúas horquillas · Región Metropolitana</p>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var clamp = function(v,a,b){return v<a?a:(v>b?b:v);};
+
+/* ---------- 02 HERO: wordmark en 9 rebanadas que caen ---------- */
+var wm = document.getElementById('wordmark');
+if(wm){
+  var html='';
+  for(var s=0;s<9;s++){ html += '<span class="wm-slice" style="--i:'+s+'"><i></i></span>'; }
+  wm.innerHTML = html;
+}
+requestAnimationFrame(function(){
+  requestAnimationFrame(function(){ document.body.classList.add('lit'); });
+});
+
+/* ---------- 01 MASTHEAD: invierte al scrollear ---------- */
+var onScrollTop = function(){
+  document.body.classList.toggle('scrolled', window.scrollY > 40);
+};
+onScrollTop();
+
+/* ---------- 03 MARQUESINA acoplada al scroll ---------- */
+var marq = document.getElementById('marq');
+var track = document.getElementById('marqTrack');
+var WORDS = ['3 toneladas','7 toneladas','Con operador','Sin operador','Spot','Contrato largo plazo','24/7'];
+if(track){
+  var unit = '';
+  WORDS.forEach(function(w){ unit += '<b>'+w+'</b><s aria-hidden="true">·</s>'; });
+  track.innerHTML = '<span class="mq-set">'+unit+'</span>'+
+                    '<span class="mq-set" aria-hidden="true">'+unit+'</span>'+
+                    '<span class="mq-set" aria-hidden="true">'+unit+'</span>';
+}
+var mqX = 0, mqDir = -1, mqBoost = 0, setW = 0;
+var measure = function(){
+  var set = track && track.querySelector('.mq-set');
+  setW = set ? set.getBoundingClientRect().width : 0;
+};
+var lastY = window.scrollY, vel = 0, fastT = 0;
+
+function mqFrame(){
+  if(setW <= 0) measure();
+  var base = 0.9 + Math.min(Math.abs(vel)*0.16, 7);
+  mqX += mqDir * base;
+  if(setW > 0){
+    if(mqX <= -setW) mqX += setW;
+    if(mqX > 0) mqX -= setW;
+  }
+  if(track) track.style.transform = 'translate3d('+mqX+'px,0,0)';
+  vel *= 0.9;
+  if(marq){
+    var fast = Math.abs(vel) > 26;
+    marq.classList.toggle('fast', fast);
+  }
+  requestAnimationFrame(mqFrame);
+}
+
+/* ---------- 04 LA BÁSCULA TIPOGRÁFICA ---------- */
+var WORD = 'TONELADAS';
+var wordEl = document.getElementById('word');
+var letters = [];
+if(wordEl){
+  for(var i=0;i<WORD.length;i++){
+    var sp = document.createElement('span');
+    sp.textContent = WORD[i];
+    wordEl.appendChild(sp);
+    letters.push(sp);
+  }
+}
+var railEl   = document.getElementById('rail');
+var fillEl   = document.getElementById('fill');
+var thumbEl  = document.getElementById('thumb');
+var readEl   = document.getElementById('readout');
+var stateEl  = document.getElementById('state');
+var stageEl  = document.getElementById('stage');
+var scaleSec = document.getElementById('scale');
+var specLo   = document.querySelector('[data-lo]');
+var specHi   = document.querySelector('[data-hi]');
+var hintEl   = document.getElementById('railHint');
+var TON = 7, val = 0, wasMax = false, took = false;
+
+function setVal(v, fromUser){
+  v = clamp(v, 0, TON);
+  val = v;
+  var t = v / TON;
+  var wght = Math.round(200 + t*700);
+  var wdth = Math.round((62 + t*63)*10)/10;
+  var ls   = (0.06 - t*0.105).toFixed(4);
+
+  if(wordEl) wordEl.style.letterSpacing = ls + 'em';
+  var n = letters.length;
+  for(var i=0;i<n;i++){
+    var L = letters[i];
+    L.style.fontVariationSettings = "'wght' "+wght+", 'wdth' "+wdth;
+    if(!RM){
+      var p = n>1 ? i/(n-1) : .5;
+      var sag = Math.cos((p-0.5)*Math.PI) * 26 * t;  /* viga cargada: pandeo al centro */
+      L.style.transform = 'translateY('+sag.toFixed(2)+'px)';
+    }
+  }
+
+  if(readEl) readEl.textContent = v.toFixed(1);
+  if(fillEl) fillEl.style.width = (t*100).toFixed(2)+'%';
+  if(thumbEl) thumbEl.style.left = (t*100).toFixed(2)+'%';
+  if(railEl){
+    railEl.setAttribute('aria-valuenow', v.toFixed(1));
+    railEl.setAttribute('aria-valuetext', v.toFixed(1).replace('.',',')+' toneladas');
+  }
+
+  var isMax = v >= 6;
+  if(scaleSec) scaleSec.classList.toggle('max', isMax);
+  if(stateEl) stateEl.textContent = isMax ? 'Carga máxima' : (v < 0.05 ? 'Vacía' : 'En rango');
+  if(isMax && !wasMax && !RM && stageEl){
+    stageEl.classList.add('crack');
+    setTimeout(function(){ stageEl.classList.remove('crack'); }, 130);
+  }
+  wasMax = isMax;
+
+  if(specLo && specHi){
+    var hi = v > 3;
+    specHi.classList.toggle('on', hi);
+    specLo.classList.toggle('on', !hi);
+  }
+  if(fromUser && !took){
+    took = true;
+    if(hintEl) hintEl.textContent = 'Riel en control manual · 0.0 a 7.0 t';
+  }
+}
+
+function valFromX(clientX){
+  var r = railEl.getBoundingClientRect();
+  return clamp((clientX - r.left) / r.width, 0, 1) * TON;
+}
+if(railEl){
+  var dragging = false;
+  railEl.addEventListener('pointerdown', function(e){
+    dragging = true;
+    railEl.setPointerCapture(e.pointerId);
+    setVal(valFromX(e.clientX), true);
+    e.preventDefault();
+  });
+  railEl.addEventListener('pointermove', function(e){
+    if(dragging) setVal(valFromX(e.clientX), true);
+  });
+  var stop = function(){ dragging = false; };
+  railEl.addEventListener('pointerup', stop);
+  railEl.addEventListener('pointercancel', stop);
+  railEl.addEventListener('keydown', function(e){
+    var k = e.key, d = 0;
+    if(k==='ArrowRight'||k==='ArrowUp') d = .1;
+    else if(k==='ArrowLeft'||k==='ArrowDown') d = -.1;
+    else if(k==='PageUp') d = 1;
+    else if(k==='PageDown') d = -1;
+    else if(k==='Home'){ setVal(0,true); e.preventDefault(); return; }
+    else if(k==='End'){ setVal(TON,true); e.preventDefault(); return; }
+    else return;
+    setVal(Math.round((val+d)*10)/10, true);
+    e.preventDefault();
+  });
+}
+setVal(0,false);
+
+/* scrub por scroll: siempre en móvil, y en escritorio hasta que el usuario tome el riel */
+function scaleScrub(){
+  if(!scaleSec) return;
+  var mobile = window.innerWidth <= 820;
+  if(took && !mobile) return;
+  var r = scaleSec.getBoundingClientRect();
+  var total = r.height - window.innerHeight;
+  if(total <= 0) return;
+  var p = clamp(-r.top / total, 0, 1);
+  setVal(Math.round(p*TON*10)/10, false);
+}
+
+/* ---------- 06 CONTADORES ---------- */
+function runCount(el){
+  var target = parseInt(el.getAttribute('data-count'),10) || 0;
+  if(RM){ el.textContent = target; return; }
+  var dur = 1300, t0 = performance.now();
+  (function step(now){
+    var p = clamp((now - t0)/dur, 0, 1);
+    var e = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.round(target * e);
+    if(p < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  })(t0);
+}
+
+/* ---------- OBSERVERS: reveals, captions, contadores ---------- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(!en.isIntersecting) return;
+    var el = en.target;
+    el.classList.add('in');
+    if(el.hasAttribute('data-count')) runCount(el);
+    var fig = el.closest && el.closest('figure');
+    if(fig){
+      var cap = fig.querySelector('.cap');
+      if(cap && window.innerWidth <= 820) cap.classList.add('show');
+    }
+    io.unobserve(el);
+  });
+}, {threshold:.18, rootMargin:'0px 0px -8% 0px'});
+
+document.querySelectorAll('.rv, .up, [data-count]').forEach(function(el){ io.observe(el); });
+
+/* ---------- 07 PARALLAX + 08 escala del elefante ---------- */
+var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par] .box'));
+var elephBig = document.getElementById('elephBig');
+var elephSec = document.getElementById('elephSec');
+
+function paint(){
+  var vh = window.innerHeight;
+  if(!RM){
+    for(var i=0;i<pars.length;i++){
+      var box = pars[i], host = box.parentElement;
+      var r = host.getBoundingClientRect();
+      if(r.bottom < -80 || r.top > vh + 80) continue;
+      var rel = (r.top + r.height/2 - vh/2) / vh;         /* -1 .. 1 */
+      var shift = -rel * r.height * 0.06;                  /* parallax ~8% del alto */
+      box.style.transform = 'translate3d(0,'+shift.toFixed(2)+'px,0)';
+    }
+  }
+  if(elephBig && elephSec){
+    var er = elephSec.getBoundingClientRect();
+    if(er.top < vh && er.bottom > 0){
+      var p = clamp(1 - (er.top / vh), 0, 1);
+      var sc = RM ? 1 : (0.92 + p*0.08);
+      elephBig.style.transform = 'scale('+sc.toFixed(3)+')';
+    }
+  }
+}
+
+/* ---------- scroll maestro ---------- */
+var ticking = false;
+function onScroll(){
+  var y = window.scrollY;
+  var dy = y - lastY;
+  if(dy !== 0){
+    vel = vel*0.55 + dy*0.45;
+    mqDir = dy > 0 ? -1 : 1;   /* la marquesina se invierte al subir */
+  }
+  lastY = y;
+  if(!ticking){
+    ticking = true;
+    requestAnimationFrame(function(){
+      onScrollTop();
+      scaleScrub();
+      paint();
+      ticking = false;
+    });
+  }
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+window.addEventListener('resize', function(){ measure(); paint(); }, {passive:true});
+
+/* ---------- 05 FICHA: filas expandibles (tap en móvil) ---------- */
+document.querySelectorAll('.row').forEach(function(row){
+  var toggle = function(){
+    var open = row.classList.toggle('open');
+    row.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  row.addEventListener('click', toggle);
+  row.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+  });
+});
+
+/* ---------- 10 ACORDEÓN ---------- */
+document.querySelectorAll('.q button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.parentElement;
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.q.open').forEach(function(o){
+      o.classList.remove('open');
+      var b = o.querySelector('button');
+      if(b) b.setAttribute('aria-expanded','false');
+    });
+    if(!open){
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
+/* ---------- arranque ---------- */
+measure();
+paint();
+if(!RM) requestAnimationFrame(mqFrame);   /* con movimiento reducido la marquesina queda quieta */
+window.addEventListener('load', function(){ measure(); paint(); });
+})();
+</script>
+</body>
+</html>

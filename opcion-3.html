@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>LEVANTE — Lux-Metal · Arriendo de grúas horquillas</title>
+<meta name="description" content="Lux-Metal. Arriendo de grúas horquillas de 3 y 7 toneladas, con o sin operador, 24/7 en Santiago. Más de 30 años levantando peso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   LEVANTE — un instrumento de precisión
+   Lux-Metal · concepto Grupo Digitals
+   Regla de oro: el amarillo es el material, el naranja es la
+   señal, el gris es el aire.
+   ============================================================ */
+
+:root{
+  --ground:#FFFFFF;
+  --canvas:#F4F4F4;
+  --ink:#292929;
+  --ink-2:#333539;
+  --grey:#555A60;
+  --hair:rgba(41,41,41,.10);
+  --hair-2:rgba(41,41,41,.20);
+  --hair-w:rgba(255,255,255,.15);
+  --machine:#FFBD59;
+  --machine-hot:#F5B700;
+  --signal:#F95738;
+  --signal-txt:#C4321A;
+
+  /* estado del izaje (lo escribe el JS) */
+  --lift:0;
+  --rail:3;
+  --chain:0;
+  --shadow:1;
+  --shadow-o:.16;
+  --prog:0;
+  --lift-dur:780ms;
+  --lift-ease:cubic-bezier(.22,1,.36,1);
+
+  --pad:clamp(20px,5vw,88px);
+  --maxw:1580px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+body{
+  margin:0;background:var(--canvas);color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:clamp(1rem,1.05rem + .2vw,1.18rem);
+  line-height:1.6;font-weight:400;
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+::selection{background:var(--machine);color:var(--ink)}
+section[id],div[id="cotizador"]{scroll-margin-top:88px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+
+/* ---------- tipografía de herramienta ---------- */
+.lbl{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-weight:500;font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;
+}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.dsp{
+  font-family:'Archivo',system-ui,sans-serif;
+  font-variation-settings:'wdth' 112,'wght' 800;
+  line-height:.86;letter-spacing:-.03em;margin:0;
+}
+.h0{font-size:clamp(3.1rem,14vw,9.5rem)}
+.h1{font-size:clamp(2.3rem,7.2vw,5.3rem)}
+.lede{max-width:62ch;color:var(--grey)}
+.dark .lede,.band-7 .lede,.close .lede{color:rgba(255,255,255,.74)}
+
+/* ---------- retícula técnica ---------- */
+.grid-lines{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(to right,var(--hair-w) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--hair-w) 1px,transparent 1px);
+  background-size:clamp(64px,8vw,132px) clamp(64px,8vw,132px);
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 40%,#000 18%,transparent 76%);
+  mask-image:radial-gradient(120% 90% at 50% 40%,#000 18%,transparent 76%);
+  opacity:.8;
+}
+.grid-lines.light{
+  background-image:
+    linear-gradient(to right,var(--hair) 1px,transparent 1px),
+    linear-gradient(to bottom,var(--hair) 1px,transparent 1px);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  display:flex;align-items:center;gap:clamp(10px,2vw,26px);
+  padding:13px var(--pad);
+  transition:background .45s ease,box-shadow .45s ease;
+}
+.nav-mark{display:flex;align-items:flex-end;gap:10px;text-decoration:none;flex:0 0 auto}
+/* los PNG de marca son BLANCOS: para tenerlos en tinta usamos máscara */
+.nav-ele{
+  width:30px;aspect-ratio:1.185/1;background:#fff;
+  -webkit-mask:url(img/logo-blanco.png) bottom left/contain no-repeat;
+  mask:url(img/logo-blanco.png) bottom left/contain no-repeat;
+  transition:background .45s ease;
+}
+.nav-word{
+  width:clamp(84px,11vw,122px);aspect-ratio:5.214/1;background:#fff;
+  -webkit-mask:url(img/logo-blanco2.png) center/contain no-repeat;
+  mask:url(img/logo-blanco2.png) center/contain no-repeat;
+  transition:background .45s ease;
+}
+.nav-spacer{flex:1}
+.nav-tag,.nav-link{display:none}
+.nav-tag{color:rgba(255,255,255,.66);transition:color .45s ease}
+.nav-link{text-decoration:none;color:#fff;transition:color .45s ease}
+.nav-links{display:flex;gap:clamp(14px,2vw,30px)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--machine);color:var(--ink);
+  padding:10px 16px;border-radius:100px;text-decoration:none;
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.74rem;letter-spacing:.08em;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),background .3s;
+  white-space:nowrap;
+}
+.nav-cta:hover{transform:translateY(-2px);background:#fff}
+.nav.solid{background:rgba(255,255,255,.93);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--hair)}
+.nav.solid .nav-ele,.nav.solid .nav-word{background:var(--ink)}
+.nav.solid .nav-tag{color:var(--grey)}
+.nav.solid .nav-link{color:var(--ink)}
+@media(min-width:940px){.nav-tag,.nav-link{display:inline-block}}
+@media(max-width:939px){.nav-links{display:none}}
+
+/* ============================================================
+   1 · HERO
+   ============================================================ */
+.hero{
+  position:relative;z-index:1;background:var(--ink);color:#fff;
+  min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:clamp(104px,14vh,140px) 0 clamp(160px,18vh,230px);
+  overflow:hidden;isolation:isolate;
+}
+.hero-bg{position:absolute;inset:0;z-index:-3}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.25;filter:grayscale(.25) contrast(1.05)}
+.hero-glow{
+  position:absolute;z-index:-2;inset:auto -20% -30% -10%;height:82%;
+  background:radial-gradient(60% 70% at 30% 100%,rgba(255,189,89,.30),transparent 68%),
+             radial-gradient(46% 60% at 78% 84%,rgba(249,87,56,.20),transparent 70%);
+  pointer-events:none;
+}
+.hero .grid-lines{z-index:-1}
+/* el elefante está recortado: sangra por IZQUIERDA y ABAJO. Nunca por la derecha (amputa la trompa) */
+.hero-ele{
+  position:absolute;z-index:-1;left:-7vw;bottom:-6vh;
+  height:clamp(330px,66vh,760px);width:auto;
+  opacity:.30;pointer-events:none;
+  filter:drop-shadow(0 30px 70px rgba(0,0,0,.5));
+  animation:eleIn 1.5s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes eleIn{from{opacity:0;transform:translate3d(-40px,34px,0)}to{opacity:.30;transform:none}}
+.hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%;padding-inline:var(--pad)}
+.hero-cols{display:grid;gap:clamp(26px,3vw,48px)}
+@media(min-width:1080px){.hero-cols{grid-template-columns:minmax(0,1fr) minmax(300px,33%);align-items:end}}
+
+.pill{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--hair-w);border-radius:100px;
+  padding:8px 16px 8px 12px;background:rgba(255,255,255,.06);color:#fff;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--signal);position:relative;flex:0 0 auto}
+.dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid var(--signal);animation:ping 2.2s ease-out infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+
+.hero-word{
+  width:min(92vw,780px);margin:clamp(18px,3vh,34px) 0 clamp(6px,1.4vh,16px);
+  filter:drop-shadow(0 6px 24px rgba(0,0,0,.35));
+  animation:up 1.1s cubic-bezier(.16,1,.3,1) .1s both;
+}
+.hero h1{animation:up 1.1s cubic-bezier(.16,1,.3,1) .22s both}
+.hero h1 em{font-style:normal;display:block;color:var(--machine)}
+.hero-sub{margin:clamp(18px,2.4vh,30px) 0 0;max-width:46ch;color:rgba(255,255,255,.94);text-shadow:0 2px 18px rgba(0,0,0,.85);animation:up 1.1s cubic-bezier(.16,1,.3,1) .34s both}
+.hero-side{animation:up 1.1s cubic-bezier(.16,1,.3,1) .46s both}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+/* al terminar la entrada soltamos la animación para que el parallax pueda escribir transform */
+.hero.ready .hero-ele{animation:none;opacity:.30}
+.hero.ready .hero-word{animation:none;opacity:1}
+
+.spec{border-top:1px solid var(--hair-w);padding:13px 0 0;margin:0 0 16px;display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.spec:last-of-type{border-bottom:1px solid var(--hair-w);padding-bottom:13px}
+.spec b{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.05rem;color:var(--machine);font-variant-numeric:tabular-nums}
+.spec span{color:rgba(255,255,255,.6)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 26px;border-radius:100px;text-decoration:none;font-weight:600;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),background .3s,color .3s,box-shadow .3s,border-color .3s;
+}
+.btn-y{background:var(--machine);color:var(--ink)}
+.btn-y:hover{background:#fff;transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.btn-o{border:1px solid var(--hair-w);color:#fff}
+.btn-o:hover{border-color:#fff;transform:translateY(-3px)}
+.btn-k{background:var(--ink);color:#fff}
+.btn-k:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(41,41,41,.24)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+
+/* la losa clara entra en cuadro y se superpone al hero */
+.slab{
+  position:relative;z-index:3;background:var(--canvas);
+  border-radius:clamp(48px,11vw,120px) clamp(48px,11vw,120px) 0 0;
+  margin-top:clamp(-200px,-18vh,-110px);
+  padding-top:clamp(58px,9vw,150px);
+}
+.slab::before{
+  content:"";position:absolute;left:50%;top:18px;transform:translateX(-50%);
+  width:64px;height:4px;border-radius:100px;background:var(--hair-2);
+}
+
+/* ---------- marquesina ---------- */
+.mq{overflow:hidden;border-block:1px solid var(--hair);padding:13px 0;background:var(--ground)}
+.slab .mq{margin-top:clamp(20px,3vh,40px)}
+.mq-track{display:flex;width:max-content;animation:mqRun 36s linear infinite}
+.mq-track span{padding-inline:22px;color:var(--grey);white-space:nowrap}
+.mq-track span i{font-style:normal;color:var(--machine-hot)}
+@keyframes mqRun{to{transform:translateX(-50%)}}
+.mq.dark{background:var(--ink-2);border-color:var(--hair-w)}
+.mq.dark .mq-track span{color:rgba(255,255,255,.68)}
+
+/* ============================================================
+   2 · EL COTIZADOR
+   ============================================================ */
+.quoter{padding:clamp(44px,7vh,88px) 0 clamp(50px,8vh,110px)}
+.sec-head{display:flex;flex-wrap:wrap;gap:20px 44px;align-items:flex-end;justify-content:space-between;margin-bottom:clamp(28px,5vh,60px)}
+.sec-head .lbl{color:var(--grey);display:block;margin-bottom:12px}
+.sec-head p{margin:0;max-width:40ch;color:var(--grey)}
+
+.q-split{display:grid;gap:clamp(30px,4vw,58px)}
+@media(min-width:1024px){.q-split{grid-template-columns:55fr 45fr;align-items:start}}
+
+/* --- las tres preguntas como losas editoriales --- */
+.qz{padding:clamp(24px,3.4vw,42px) 0;border-top:1px solid var(--hair)}
+.qz:first-child{border-top:0;padding-top:0}
+.qz-meta{display:flex;align-items:center;gap:14px;margin-bottom:14px;color:var(--grey)}
+.qz-num{
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.72rem;letter-spacing:.06em;
+  width:30px;height:30px;border-radius:50%;border:1px solid var(--hair-2);
+  display:grid;place-items:center;color:var(--ink);flex:0 0 auto;
+  transition:background .4s,border-color .4s,color .4s;
+}
+.qz.answered .qz-num{background:var(--ink);color:#fff;border-color:var(--ink)}
+.qz-ask{
+  margin:0 0 clamp(18px,2.4vw,28px);font-size:clamp(1.35rem,2.9vw,2.15rem);
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 100,'wght' 700;
+  line-height:1.06;letter-spacing:-.02em;
+}
+.qz-opts{display:flex;flex-direction:column;gap:10px}
+
+.opt{
+  position:relative;display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;gap:clamp(13px,2vw,24px);
+  width:100%;text-align:left;
+  padding:clamp(16px,2.2vw,24px) clamp(15px,2.2vw,26px);
+  background:var(--ground);border:1px solid var(--hair);
+  border-radius:6px 6px 6px 26px;overflow:hidden;
+  transition:background .35s ease,border-color .35s ease,transform .35s cubic-bezier(.22,1,.36,1),color .3s;
+}
+.opt::after{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--machine-hot);
+  transform:scaleY(0);transform-origin:bottom;transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.opt:hover{transform:translateX(6px);border-color:var(--hair-2)}
+.opt:hover::after{transform:scaleY(1)}
+.opt:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.opt-num{
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-variant-numeric:tabular-nums;
+  font-size:clamp(1.45rem,3.4vw,2.1rem);letter-spacing:-.03em;line-height:1;min-width:2.5ch;
+}
+.opt-txt{display:block;font-weight:600;line-height:1.25}
+.opt-txt em{display:block;font-style:normal;font-weight:400;font-size:.88rem;color:var(--grey);margin-top:5px;line-height:1.45}
+.opt-tick{
+  width:22px;height:22px;border-radius:50%;border:1px solid var(--hair-2);flex:0 0 auto;
+  display:grid;place-items:center;transition:background .3s,border-color .3s;
+}
+.opt-tick::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink);transform:scale(0);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.opt[aria-checked="true"]{background:var(--machine-hot);border-color:var(--machine-hot);color:var(--ink)}
+.opt[aria-checked="true"]::after{transform:scaleY(1);background:var(--ink)}
+.opt[aria-checked="true"] .opt-txt em{color:rgba(41,41,41,.78)}
+.opt[aria-checked="true"] .opt-tick{background:var(--ink);border-color:var(--ink)}
+.opt[aria-checked="true"] .opt-tick::before{background:var(--machine-hot);transform:scale(1)}
+
+.urg{color:var(--signal-txt);margin-top:26px;display:block}
+
+/* --- panel derecho: el mástil en vivo --- */
+.q-right{position:relative}
+@media(min-width:1024px){.q-right{position:sticky;top:96px}}
+.mast-panel{
+  position:relative;background:var(--ground);border:1px solid var(--hair);
+  border-radius:8px 8px 8px clamp(40px,7vw,90px);
+  padding:clamp(16px,2vw,24px);overflow:hidden;
+}
+.mast-panel::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(to right,var(--hair) 1px,transparent 1px),linear-gradient(to bottom,var(--hair) 1px,transparent 1px);
+  background-size:34px 34px;opacity:.5;
+}
+.mp-top{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:4px}
+.mp-top .lbl{color:var(--grey);line-height:1.5}
+.readout{text-align:right;line-height:1}
+.readout b{
+  display:block;font-family:'JetBrains Mono',monospace;font-weight:700;
+  font-variant-numeric:tabular-nums;font-size:clamp(1.9rem,4.6vw,2.9rem);letter-spacing:-.04em;
+}
+.readout b u{font-size:.4em;letter-spacing:0;text-decoration:none;font-weight:500;color:var(--grey)}
+.readout .lbl{display:block;margin-top:6px}
+
+.mast-svg{position:relative;width:100%;height:auto;display:block}
+.rail{fill:none;stroke:#292929;stroke-width:var(--rail);transition:stroke-width var(--lift-dur) var(--lift-ease)}
+.rail-in{fill:none;stroke:#292929;stroke-width:calc(var(--rail) * .72);transition:stroke-width var(--lift-dur) var(--lift-ease)}
+.thin{fill:none;stroke:#292929;stroke-width:1.6;stroke-linecap:round}
+.tick{fill:none;stroke:rgba(41,41,41,.38);stroke-width:1}
+.tlabel{font-family:'JetBrains Mono',monospace;font-size:11px;fill:#555A60;font-variant-numeric:tabular-nums}
+.chain{fill:none;stroke:#292929;stroke-width:2;stroke-dasharray:7 6;stroke-dashoffset:calc(var(--chain) * 1px);transition:stroke-dashoffset var(--lift-dur) var(--lift-ease)}
+#carriage{transform:translateY(calc(var(--lift) * -1px));transition:transform var(--lift-dur) var(--lift-ease)}
+#innerMast{transform:translateY(calc(var(--lift) * -.45px));transition:transform var(--lift-dur) var(--lift-ease)}
+#cursor{transform:translateY(calc(var(--lift) * -1px));transition:transform var(--lift-dur) var(--lift-ease)}
+#rod{transform-origin:202px 430px;transform:scaleY(calc(1 + var(--lift) / 900));transition:transform var(--lift-dur) var(--lift-ease)}
+#loadShadow{
+  transform-origin:118px 452px;transform:scale(var(--shadow));opacity:var(--shadow-o);
+  transition:transform var(--lift-dur) var(--lift-ease),opacity var(--lift-dur) linear;
+}
+.load{transition:opacity .45s ease}
+.load.off{opacity:0}
+#operator{transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1);opacity:0;transform:translateY(8px)}
+#operator.on{opacity:1;transform:none}
+.seat-note{
+  position:absolute;right:clamp(14px,2vw,22px);top:clamp(100px,16%,158px);margin:0;
+  color:var(--grey);opacity:0;transform:translateX(8px);transition:opacity .4s,transform .4s;
+  border-left:1px solid var(--hair-2);padding-left:9px;line-height:1.5;
+}
+.seat-note.on{opacity:1;transform:none}
+
+/* el arco de la trompa ES el medidor */
+.gauge{position:relative;display:flex;align-items:center;gap:16px;margin-top:14px;padding-top:16px;border-top:1px solid var(--hair)}
+.gauge svg{width:clamp(62px,9vw,86px);height:auto;flex:0 0 auto;overflow:visible}
+.trunk-bg{fill:none;stroke:var(--hair-2);stroke-width:9;stroke-linecap:round}
+.trunk-fg{
+  fill:none;stroke:var(--machine-hot);stroke-width:9;stroke-linecap:round;
+  stroke-dasharray:100;stroke-dashoffset:calc(100 - var(--prog));
+  transition:stroke-dashoffset .7s cubic-bezier(.22,1,.36,1),stroke .4s;
+}
+.gauge.done .trunk-fg{stroke:var(--signal)}
+.gauge-txt{min-width:0}
+.gauge-txt .lbl{color:var(--grey);display:block}
+.gauge-txt strong{display:block;font-weight:600;margin-top:5px;line-height:1.3;font-size:.98rem}
+.gauge.done::after{
+  content:"";position:absolute;left:clamp(30px,4.4vw,43px);top:54%;width:14px;height:14px;border-radius:50%;
+  background:var(--signal);transform:translate(-50%,-50%);animation:pulse 1.1s ease-out 2;pointer-events:none;
+}
+@keyframes pulse{0%{transform:translate(-50%,-50%) scale(.4);opacity:.8}100%{transform:translate(-50%,-50%) scale(7);opacity:0}}
+
+/* el mensaje se teclea solo */
+.wa-prev{margin-top:16px;background:var(--canvas);border:1px solid var(--hair);border-radius:6px 6px 26px 6px;padding:clamp(14px,2vw,20px);position:relative}
+.wa-prev>.lbl{color:var(--grey);display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.wa-prev>.lbl s{width:6px;height:6px;border-radius:50%;background:var(--signal);text-decoration:none;flex:0 0 auto}
+.wa-line{
+  margin:0;font-family:'JetBrains Mono',monospace;font-size:clamp(.82rem,1.5vw,.95rem);
+  line-height:1.62;min-height:5em;color:var(--ink);overflow-wrap:anywhere;
+}
+.caret{display:inline-block;width:8px;height:1.05em;background:var(--ink);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.wa-btn{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin-top:14px;padding:18px 22px;border-radius:100px;text-decoration:none;
+  border:1px solid var(--ink);color:var(--ink);background:transparent;font-weight:600;
+  position:relative;overflow:hidden;
+  transition:color .4s ease,transform .35s cubic-bezier(.22,1,.36,1);
+}
+.wa-btn span{position:relative;z-index:2}
+.wa-btn::before{content:"";position:absolute;inset:0;background:var(--ink);z-index:1;transform:translateY(101%);transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.wa-btn.ready{color:#fff}
+.wa-btn.ready::before{transform:none}
+.wa-btn:hover{transform:translateY(-2px)}
+.wa-btn .arw{font-family:'JetBrains Mono',monospace}
+
+/* tira instrumental (mobile) */
+.strip{
+  position:fixed;right:0;top:50%;transform:translate(120%,-50%);
+  z-index:45;width:56px;background:var(--ground);pointer-events:none;
+  border:1px solid var(--hair);border-right:0;border-radius:14px 0 0 14px;
+  padding:8px 5px;box-shadow:-8px 0 26px rgba(41,41,41,.12);
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+.strip.on{transform:translate(0,-50%)}
+.strip svg{width:100%;height:auto;display:block}
+.s-rail{fill:none;stroke:#292929;stroke-width:calc(var(--rail) * .7);transition:stroke-width var(--lift-dur) var(--lift-ease)}
+.s-base{fill:none;stroke:#292929;stroke-width:2}
+.s-tick{fill:none;stroke:rgba(41,41,41,.32);stroke-width:1}
+#sBlock{transform:translateY(calc(var(--lift) * -1.18px));transition:transform var(--lift-dur) var(--lift-ease)}
+.s-num{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;fill:#292929}
+.strip-read{
+  display:block;text-align:center;font-family:'JetBrains Mono',monospace;font-weight:700;
+  font-size:.76rem;font-variant-numeric:tabular-nums;padding-top:5px;border-top:1px solid var(--hair);margin-top:5px;
+}
+@media(min-width:1024px){.strip{display:none}}
+
+/* ============================================================
+   3 · LA FLOTA · 3T / 7T
+   ============================================================ */
+.band{position:relative;overflow:hidden}
+.band-3{background:var(--ground);padding:clamp(56px,10vh,124px) 0 clamp(96px,15vh,180px)}
+.wm{
+  position:absolute;font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 125,'wght' 900;
+  font-size:22vw;line-height:.72;pointer-events:none;user-select:none;
+}
+.band-3 .wm{right:2vw;top:5%;color:rgba(41,41,41,.06)}
+.band-3-in{position:relative;display:grid;gap:clamp(30px,4vw,54px);align-items:center}
+@media(min-width:900px){.band-3-in{grid-template-columns:44% 1fr}}
+/* los cielos quemados se fusionan con el blanco: la grúa queda apoyada SOBRE la página.
+   OJO: nada de transform/opacity en .cut ni en sus padres — aislaría el grupo de mezcla
+   y el multiply pasaría a fondo negro. La entrada se hace con una cortina blanca. */
+.cut{position:relative;background:var(--ground)}
+.cut img{width:100%;mix-blend-mode:multiply;filter:contrast(1.06) saturate(1.05)}
+.cut::after{
+  content:"";position:absolute;inset:-24% -7%;background:var(--ground);
+  z-index:3;pointer-events:none;transition:opacity 1s cubic-bezier(.16,1,.3,1);
+}
+.cut.in::after{opacity:0}
+.cut-2{position:absolute;right:-4%;bottom:-18%;width:52%}
+@media(max-width:899px){.cut-2{position:relative;right:auto;bottom:auto;width:74%;margin-top:-6%}}
+.ton-key{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.78rem;letter-spacing:.2em;color:var(--grey);display:block;margin-bottom:16px;text-transform:uppercase}
+
+.curve{display:block;width:100%;height:clamp(60px,9vw,130px);margin-bottom:-1px}
+.band-7{background:var(--ink);color:#fff;padding:clamp(40px,7vh,90px) 0 clamp(70px,12vh,150px)}
+.band-7-in{position:relative;display:grid;gap:clamp(30px,4vw,54px);align-items:center}
+@media(min-width:900px){.band-7-in{grid-template-columns:1fr 46%}.band-7-txt{order:2}.band-7-img{order:1}}
+.band-7 .wm{left:2vw;bottom:-5%;color:rgba(255,255,255,.08)}
+.band-7 .ton-key{color:var(--machine)}
+.band-7-img img{width:100%;border-radius:4px 4px 4px clamp(40px,8vw,110px);filter:contrast(1.05)}
+
+.hair-list{list-style:none;margin:26px 0 0;padding:0}
+.hair-list li{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;padding:15px 0;border-top:1px solid var(--hair)}
+.hair-list li:last-child{border-bottom:1px solid var(--hair)}
+.hair-list b{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.7rem;letter-spacing:.16em;color:var(--grey);flex:0 0 auto;min-width:6ch}
+.hair-list span{flex:1 1 16ch}
+.dark .hair-list li,.band-7 .hair-list li{border-color:var(--hair-w)}
+.dark .hair-list b,.band-7 .hair-list b{color:var(--machine)}
+.dark .hair-list span,.band-7 .hair-list span{color:rgba(255,255,255,.76)}
+
+/* ============================================================
+   4 · CON O SIN OPERADOR
+   ============================================================ */
+.oper{background:var(--ink-2);color:#fff;padding:clamp(56px,10vh,124px) 0;position:relative;overflow:hidden}
+.oper-in{position:relative;display:grid;gap:clamp(30px,4vw,58px);align-items:center}
+@media(min-width:960px){.oper-in{grid-template-columns:46% 1fr}}
+.fader{position:relative;aspect-ratio:5/4;border-radius:clamp(40px,8vw,110px) 6px 6px 6px;overflow:hidden;background:#000}
+.fader img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s ease,transform 1.2s cubic-bezier(.22,1,.36,1)}
+.fader img.hide{opacity:0;transform:scale(1.05)}
+.fader-tag{position:absolute;left:16px;bottom:16px;z-index:3;background:rgba(41,41,41,.85);backdrop-filter:blur(8px);color:#fff;padding:9px 14px;border-radius:100px}
+.switch{display:inline-flex;padding:5px;border:1px solid var(--hair-w);border-radius:100px;background:rgba(255,255,255,.06);margin:22px 0 6px;flex-wrap:wrap}
+.switch button{padding:12px 20px;border-radius:100px;font-weight:600;color:rgba(255,255,255,.7);transition:background .4s,color .4s}
+.switch button[aria-pressed="true"]{background:var(--machine);color:var(--ink)}
+.switch button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.oper-pane{display:none}
+.oper-pane.on{display:block;animation:up .6s cubic-bezier(.16,1,.3,1) both}
+
+/* ============================================================
+   5 · POR QUÉ EL ELEFANTE
+   ============================================================ */
+.why{background:var(--canvas);padding:clamp(60px,11vh,140px) 0;position:relative;overflow:hidden}
+.why-gauge{display:flex;justify-content:center;margin-bottom:clamp(24px,4vh,46px)}
+.why-gauge svg{width:clamp(84px,12vw,130px);height:auto;overflow:visible}
+.why-gauge .trunk-fg{stroke:var(--ink);stroke-dashoffset:100;transition:stroke-dashoffset 1.7s cubic-bezier(.22,1,.36,1) .2s}
+.why-gauge.in .trunk-fg{stroke-dashoffset:0}
+.quote{
+  position:relative;max-width:20ch;margin:22px auto 0;
+  font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 96,'wght' 800;
+  font-size:clamp(1.85rem,6.1vw,4.4rem);line-height:1;letter-spacing:-.03em;text-align:center;
+}
+/* el amarillo nunca como texto sobre claro: aquí es CAMPO, con tinta encima */
+.quote em{font-style:normal;background:var(--machine-hot);color:var(--ink);padding:0 .1em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.quote-cite{display:block;text-align:center;margin-top:26px;color:var(--grey)}
+.insert{position:absolute;overflow:hidden;box-shadow:0 22px 54px rgba(41,41,41,.18);z-index:2;margin:0}
+.insert img{width:100%;height:100%;object-fit:cover}
+.ins-a{--rot:-5deg;width:clamp(104px,15vw,200px);aspect-ratio:3/4;left:2%;top:7%;border-radius:4px 4px 4px 44px}
+.ins-b{--rot:6deg;width:clamp(92px,13vw,176px);aspect-ratio:1/1;right:3%;top:30%;border-radius:50%}
+@media(max-width:820px){.ins-a{left:-5%;top:1%}.ins-b{right:-5%;top:auto;bottom:28%}}
+.counters{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);margin-top:clamp(46px,8vh,96px);position:relative;z-index:3}
+@media(min-width:860px){.counters{grid-template-columns:repeat(4,1fr)}}
+.ctr{background:var(--canvas);padding:clamp(22px,3vw,38px) clamp(14px,2vw,26px)}
+.ctr b{display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-variant-numeric:tabular-nums;font-size:clamp(2rem,5.2vw,3.4rem);line-height:1;letter-spacing:-.04em}
+.ctr .lbl{display:block;margin-top:12px;color:var(--grey)}
+
+/* ============================================================
+   6 · LA FAENA
+   ============================================================ */
+.faena{background:var(--ground);padding:clamp(56px,10vh,126px) 0}
+.steps{list-style:none;margin:clamp(32px,5vh,64px) 0 0;padding:0;counter-reset:s}
+.steps li{
+  counter-increment:s;position:relative;display:grid;gap:6px clamp(18px,3vw,44px);
+  padding:clamp(26px,3.4vw,40px) 0;border-top:1px solid var(--hair);
+}
+.steps li:last-child{border-bottom:1px solid var(--hair)}
+.steps li::before{
+  content:"0" counter(s);font-family:'JetBrains Mono',monospace;font-weight:700;
+  color:var(--ink);font-size:.8rem;letter-spacing:.18em;
+}
+.steps li::after{content:"";position:absolute;left:0;top:0;width:40px;height:2px;background:var(--machine-hot)}
+@media(min-width:820px){
+  .steps li{grid-template-columns:8ch 30% 1fr;align-items:baseline}
+  .steps li:nth-child(2){padding-left:6%}
+  .steps li:nth-child(3){padding-left:12%}
+}
+.steps h3{margin:0;font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 100,'wght' 700;font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.04;letter-spacing:-.02em}
+.steps p{margin:0;color:var(--grey);max-width:52ch}
+
+/* respiros cinematográficos a sangre */
+.breath{position:relative;width:100%;aspect-ratio:21/9;overflow:hidden;display:grid;place-items:center;background:var(--ink)}
+.breath img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.6;transform:scale(1.07);transition:transform 1.8s cubic-bezier(.22,1,.36,1)}
+.breath.in img{transform:none}
+.breath::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(41,41,41,.86),rgba(41,41,41,.14) 62%)}
+.breath-txt{position:relative;z-index:2;color:#fff;text-align:center;padding:0 var(--pad);max-width:26ch}
+.breath-txt .lbl{display:block;color:var(--machine);margin-bottom:14px}
+.breath-txt strong{font-family:'Archivo',sans-serif;font-variation-settings:'wdth' 108,'wght' 800;font-size:clamp(1.6rem,5.2vw,3.9rem);line-height:.98;letter-spacing:-.03em;display:block}
+.breath-txt small{display:block;margin-top:14px;color:rgba(255,255,255,.76);font-size:.95rem;line-height:1.5}
+@media(max-width:640px){.breath{aspect-ratio:4/5}}
+
+/* ============================================================
+   7 · LA FLOTA REAL
+   ============================================================ */
+.fleet{background:var(--canvas);padding:clamp(56px,10vh,126px) 0 clamp(46px,7vh,90px)}
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(10px,1.6vw,26px);margin-top:clamp(30px,5vh,60px)}
+.tile{position:relative;overflow:hidden;background:var(--ink);grid-column:span 12;display:block;text-decoration:none}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.22,1,.36,1)}
+.tile:hover img,.tile:focus-visible img{transform:scale(1.05)}
+.tile:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px;color:#fff;
+  background:linear-gradient(to top,rgba(41,41,41,.92),transparent);
+  opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s;
+}
+.tile:hover .cap,.tile:focus-within .cap{opacity:1;transform:none}
+@media(min-width:700px){
+  .t-a{grid-column:span 7;aspect-ratio:16/10;border-radius:4px 4px 4px clamp(50px,8vw,120px)}
+  .t-b{grid-column:span 5;aspect-ratio:4/5}
+  .t-c{grid-column:span 4;aspect-ratio:1/1;border-radius:50%}
+  .t-d{grid-column:span 8;aspect-ratio:21/9;border-radius:4px}
+  .t-e{grid-column:span 12;aspect-ratio:21/8;border-radius:0;margin-inline:calc(var(--pad) * -1);width:calc(100% + var(--pad) * 2)}
+  .t-f{grid-column:span 3;aspect-ratio:3/4;border-radius:clamp(40px,6vw,90px) 4px 4px 4px}
+  .t-g{grid-column:span 5;aspect-ratio:4/3;border-radius:4px}
+  .t-h{grid-column:span 4;aspect-ratio:5/6;border-radius:4px clamp(40px,6vw,90px) 4px 4px}
+  .t-i{grid-column:span 6;aspect-ratio:16/9;border-radius:4px}
+  .t-j{grid-column:span 6;aspect-ratio:16/9;border-radius:4px 4px clamp(50px,8vw,110px) 4px}
+}
+@media(max-width:699px){
+  .tile{aspect-ratio:4/3}
+  .t-b,.t-f,.t-h{aspect-ratio:4/5}
+  .t-c{aspect-ratio:1/1;border-radius:50%}
+  .t-a{border-radius:4px 4px 4px 46px}
+  .t-j{border-radius:4px 4px 60px 4px}
+  .t-e{margin-inline:calc(var(--pad) * -1);width:calc(100% + var(--pad) * 2)}
+}
+.drag{margin-top:clamp(26px,4vh,48px)}
+.drag-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;color:var(--grey);margin-bottom:14px}
+.drag-rail{display:flex;gap:clamp(10px,1.4vw,20px);overflow-x:auto;padding-bottom:10px;cursor:grab;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.drag-rail::-webkit-scrollbar{display:none}
+.drag-rail.grabbing{cursor:grabbing}
+.drag-rail figure{margin:0;flex:0 0 clamp(210px,26vw,340px)}
+.drag-rail img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:4px;pointer-events:none}
+.drag-rail figcaption{margin-top:9px;color:var(--grey)}
+
+/* ============================================================
+   8 · CIERRE Y CONTACTO
+   ============================================================ */
+.close{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding:clamp(80px,14vh,180px) 0 clamp(40px,6vh,70px);isolation:isolate}
+.close-bg{position:absolute;inset:0;z-index:-3}
+.close-bg img{width:100%;height:100%;object-fit:cover;opacity:.3;filter:grayscale(.2)}
+.close::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:radial-gradient(70% 80% at 12% 100%,rgba(255,189,89,.24),transparent 66%),
+             linear-gradient(to right,rgba(41,41,41,.95),rgba(41,41,41,.52));
+}
+/* mismo anclaje abajo-IZQUIERDA que el hero: el texto se espeja, el logo NO */
+.close-ele{position:absolute;z-index:-1;left:-8vw;bottom:-5vh;height:clamp(280px,60vh,690px);width:auto;opacity:.9;pointer-events:none;filter:drop-shadow(0 24px 60px rgba(0,0,0,.5))}
+.close-in{position:relative;display:grid;justify-items:end;text-align:right}
+.close-in>*{max-width:min(100%,660px)}
+.close h2 em{font-style:normal;display:block;color:var(--machine)}
+.contact{list-style:none;margin:clamp(30px,5vh,56px) 0 0;padding:0;width:min(100%,660px)}
+.contact li{border-top:1px solid var(--hair-w);padding:16px 0;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:baseline;gap:8px 18px}
+.contact li:last-child{border-bottom:1px solid var(--hair-w)}
+.contact .lbl{color:rgba(255,255,255,.56)}
+.contact a,.contact .val{text-decoration:none;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:clamp(.95rem,2.2vw,1.22rem);letter-spacing:-.01em;transition:color .3s}
+.contact a:hover{color:var(--machine)}
+.alianza{margin-top:clamp(30px,5vh,52px);border:1px solid var(--hair-w);border-radius:6px 6px 6px clamp(34px,6vw,70px);padding:clamp(20px,3vw,32px);text-align:left;justify-self:end;width:min(100%,660px)}
+.alianza .lbl{color:var(--machine);display:block;margin-bottom:10px}
+.alianza p{margin:0;color:rgba(255,255,255,.82)}
+.foot{position:relative;margin-top:clamp(56px,10vh,120px);padding-top:22px;border-top:1px solid var(--hair-w);display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;color:rgba(255,255,255,.55)}
+@media(max-width:880px){
+  .close-in{justify-items:start;text-align:left}
+  .contact li{justify-content:flex-start}
+  .alianza{justify-self:start}
+  .close .btn-row{justify-content:flex-start!important}
+  .close-ele{opacity:.32;height:clamp(240px,42vh,420px)}
+}
+
+/* ============================================================
+   PERSISTENTES
+   ============================================================ */
+.progress{position:fixed;top:74px;right:14px;z-index:55;width:44px;opacity:0;transform:translateY(-8px);transition:opacity .5s,transform .5s;pointer-events:none}
+.progress.on{opacity:1;transform:none}
+.progress svg{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 2px 6px rgba(41,41,41,.22))}
+.progress .trunk-bg{stroke:rgba(41,41,41,.16);stroke-width:11}
+.progress .trunk-fg{stroke:var(--machine-hot);stroke-width:11;transition:stroke-dashoffset .12s linear}
+@media(max-width:620px){.progress{width:34px;top:64px;right:10px}}
+
+.dockbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:58;
+  display:flex;align-items:center;gap:12px;
+  padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-top:1px solid var(--hair);
+  transform:translateY(130%);visibility:hidden;
+  transition:transform .5s cubic-bezier(.22,1,.36,1),visibility .5s;
+}
+.dockbar.on{transform:none;visibility:visible}
+.dock-txt{min-width:0;flex:1}
+.dock-txt .lbl{display:block;color:var(--grey);font-size:.62rem}
+.dock-txt b{display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+.dock-wa{flex:0 0 auto;background:var(--machine);color:var(--ink);padding:14px 20px;border-radius:100px;text-decoration:none;font-weight:600;font-size:.95rem}
+@media(min-width:1024px){.dockbar{display:none}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px) rotate(var(--rot,0deg));transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:translateY(0) rotate(var(--rot,0deg))}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ============ prefers-reduced-motion: el mástil salta a su estado final ============ */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv{opacity:1;transform:rotate(var(--rot,0deg))}
+  .hero-word,.hero h1,.hero-sub,.hero-side{animation:none;opacity:1;transform:none}
+  .hero-ele{animation:none;opacity:.30;transform:none}
+  .mq-track{animation:none}
+  .caret{display:none}
+  .breath img{transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav" aria-label="Navegación principal">
+  <a class="nav-mark" href="#top" aria-label="Lux-Metal · inicio">
+    <span class="nav-ele" aria-hidden="true"></span>
+    <span class="nav-word" aria-hidden="true"></span>
+  </a>
+  <span class="nav-tag lbl" aria-hidden="true">GRÚAS HORQUILLAS · 30 AÑOS</span>
+  <span class="nav-spacer"></span>
+  <span class="nav-links">
+    <a class="nav-link lbl" href="#cotizador">COTIZAR</a>
+    <a class="nav-link lbl" href="#flota">3T / 7T</a>
+    <a class="nav-link lbl" href="#operador">OPERADOR</a>
+    <a class="nav-link lbl" href="#contacto">CONTACTO</a>
+  </span>
+  <a class="nav-cta" href="tel:+56225529212">+56 2 2552 9212</a>
+</nav>
+
+<!-- ===================== 1 · HERO ===================== -->
+<header class="hero" id="top">
+  <div class="hero-bg"><img src="img/gal/nave-noche.jpg" alt="Grúa horquilla silueteada dentro de una nave industrial durante la noche"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="grid-lines" aria-hidden="true"></div>
+  <img class="hero-ele" src="img/logo-blanco.png" alt="" aria-hidden="true">
+
+  <div class="hero-inner">
+    <div class="hero-cols">
+      <div>
+        <p class="pill lbl" style="margin:0"><span class="dot" aria-hidden="true"></span>24/7 · SAN MIGUEL</p>
+        <img class="hero-word" src="img/logo-blanco2.png" alt="Lux-Metal">
+        <h1 class="dsp h0">Dígame<br>cuánto<br><em>pesa.</em></h1>
+        <p class="hero-sub">Arriendo de grúas horquillas de 3 y 7 toneladas en toda la Región Metropolitana. Con o sin operador, por un día o por un año. Más de 30 años levantando lo que otros no pueden mover.</p>
+      </div>
+
+      <div class="hero-side">
+        <p class="spec"><b class="mono">3T / 7T</b><span class="lbl">CAPACIDAD</span></p>
+        <p class="spec"><b class="mono">24/7</b><span class="lbl">DISPONIBILIDAD</span></p>
+        <p class="spec"><b class="mono">30+</b><span class="lbl">AÑOS EN LA CALLE</span></p>
+        <p class="spec"><b class="mono">SPOT / CONTRATO</b><span class="lbl">MODALIDAD</span></p>
+        <div class="btn-row">
+          <a class="btn btn-y" href="#cotizador">Cotizar en 3 respuestas</a>
+          <a class="btn btn-o" href="https://wa.me/56977458631?text=Hola%20Lux-Metal%2C%20quiero%20arrendar%20una%20gr%C3%BAa%20horquilla." target="_blank" rel="noopener">WhatsApp directo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- la losa clara sube y entra en cuadro -->
+<div class="slab">
+  <div class="mq" aria-hidden="true">
+    <div class="mq-track">
+      <span>CON O SIN OPERADOR <i>·</i> SPOT O CONTRATO <i>·</i> CARGA, DESCARGA Y TRANSPORTE INTERNO <i>·</i> 3 Y 7 TONELADAS <i>·</i> SAN MIGUEL, SANTIAGO <i>·</i>&nbsp;</span>
+      <span>CON O SIN OPERADOR <i>·</i> SPOT O CONTRATO <i>·</i> CARGA, DESCARGA Y TRANSPORTE INTERNO <i>·</i> 3 Y 7 TONELADAS <i>·</i> SAN MIGUEL, SANTIAGO <i>·</i>&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===================== 2 · EL COTIZADOR ===================== -->
+  <section class="quoter wrap" id="cotizador" aria-labelledby="cotTitle">
+    <div class="sec-head">
+      <div class="rv">
+        <span class="lbl">02 — EL COTIZADOR</span>
+        <h2 class="dsp h1" id="cotTitle">Tres respuestas<br>y listo.</h2>
+      </div>
+      <p class="rv rv-d1">No hay formulario largo ni espera. Elija tonelaje, operador y duración: la máquina de al lado se mueve con usted y el mensaje se escribe solo. Un toque y llega a nuestro WhatsApp.</p>
+    </div>
+
+    <div class="q-split">
+      <!-- ---------- izquierda: las tres preguntas ---------- -->
+      <div class="q-left">
+
+        <div class="qz" role="radiogroup" aria-labelledby="lb-ton">
+          <div class="qz-meta"><span class="qz-num" aria-hidden="true">01</span><span class="lbl" id="lb-ton">TONELAJE</span></div>
+          <h3 class="qz-ask">¿Cuánto pesa lo que hay que mover?</h3>
+          <div class="qz-opts">
+            <button class="opt" type="button" role="radio" aria-checked="false" tabindex="0" data-q="ton" data-v="3">
+              <span class="opt-num">3T</span>
+              <span class="opt-txt">Hasta 3 toneladas<em>Perfectas para bodegas, centros logísticos y retail.</em></span>
+              <span class="opt-tick" aria-hidden="true"></span>
+            </button>
+            <button class="opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-q="ton" data-v="7">
+              <span class="opt-num">7T</span>
+              <span class="opt-txt">Hasta 7 toneladas<em>Ideales para construcción, metalmecánica y materiales de gran volumen.</em></span>
+              <span class="opt-tick" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="qz" role="radiogroup" aria-labelledby="lb-op">
+          <div class="qz-meta"><span class="qz-num" aria-hidden="true">02</span><span class="lbl" id="lb-op">OPERADOR</span></div>
+          <h3 class="qz-ask">¿La maneja usted o le ponemos operador?</h3>
+          <div class="qz-opts">
+            <button class="opt" type="button" role="radio" aria-checked="false" tabindex="0" data-q="op" data-v="con">
+              <span class="opt-num" aria-hidden="true">01</span>
+              <span class="opt-txt">Con operador<em>Va nuestra gente, con casco y experiencia. Usted solo indica qué mover.</em></span>
+              <span class="opt-tick" aria-hidden="true"></span>
+            </button>
+            <button class="opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-q="op" data-v="sin">
+              <span class="opt-num" aria-hidden="true">02</span>
+              <span class="opt-txt">Sin operador<em>Le dejamos la máquina en faena. Conduce su equipo.</em></span>
+              <span class="opt-tick" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="qz" role="radiogroup" aria-labelledby="lb-dur">
+          <div class="qz-meta"><span class="qz-num" aria-hidden="true">03</span><span class="lbl" id="lb-dur">DURACIÓN</span></div>
+          <h3 class="qz-ask">¿Por cuánto tiempo la necesita?</h3>
+          <div class="qz-opts">
+            <button class="opt" type="button" role="radio" aria-checked="false" tabindex="0" data-q="dur" data-v="spot">
+              <span class="opt-num" aria-hidden="true">01</span>
+              <span class="opt-txt">Trabajo puntual (spot)<em>Una descarga, una mudanza de bodega, un fin de semana.</em></span>
+              <span class="opt-tick" aria-hidden="true"></span>
+            </button>
+            <button class="opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-q="dur" data-v="mes">
+              <span class="opt-num" aria-hidden="true">02</span>
+              <span class="opt-txt">Un mes<em>Temporada alta, inventario, obra corta.</em></span>
+              <span class="opt-tick" aria-hidden="true"></span>
+            </button>
+            <button class="opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-q="dur" data-v="largo">
+              <span class="opt-num" aria-hidden="true">03</span>
+              <span class="opt-txt">3 meses o más<em>Contrato largo, mejor tarifa y máquina asignada a su faena.</em></span>
+              <span class="opt-tick" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+
+        <span class="lbl urg">SI ES PARA HOY, LLAME: +56 2 2552 9212 — CONTESTAMOS A CUALQUIER HORA</span>
+      </div>
+
+      <!-- ---------- derecha: el mástil en vivo ---------- -->
+      <aside class="q-right" aria-label="Vista previa del izaje y del mensaje">
+        <div class="mast-panel">
+          <div class="mp-top">
+            <span class="lbl">MÁSTIL<br>EN VIVO</span>
+            <span class="readout"><b id="readout">0.0<u>&nbsp;m</u></b><span class="lbl">ALTURA DE IZAJE</span></span>
+          </div>
+
+          <svg class="mast-svg" viewBox="0 0 380 480" role="img" aria-labelledby="mastTitle">
+            <title id="mastTitle">Esquema técnico de una grúa horquilla que levanta la carga según las opciones que usted elige</title>
+
+            <!-- regla de altura: 0 a 5 metros -->
+            <g class="tick">
+              <line x1="44" y1="210" x2="44" y2="444"/>
+              <line x1="44" y1="440" x2="56" y2="440"/><line x1="44" y1="396" x2="56" y2="396"/>
+              <line x1="44" y1="351" x2="56" y2="351"/><line x1="44" y1="307" x2="56" y2="307"/>
+              <line x1="44" y1="262" x2="56" y2="262"/><line x1="44" y1="218" x2="56" y2="218"/>
+            </g>
+            <g class="tlabel" text-anchor="end">
+              <text x="37" y="444">0</text><text x="37" y="400">1</text><text x="37" y="355">2</text>
+              <text x="37" y="311">3</text><text x="37" y="266">4</text><text x="37" y="222">5</text>
+            </g>
+            <g id="cursor"><path d="M46 440 L62 433 L62 447 Z" fill="#F5B700"/></g>
+
+            <!-- suelo -->
+            <line class="thin" x1="30" y1="452" x2="374" y2="452"/>
+
+            <!-- cuerpo de la grúa -->
+            <path d="M232 366 h132 a8 8 0 0 1 8 8 v52 a8 8 0 0 1 -8 8 h-132 z" fill="#292929"/>
+            <path class="thin" d="M232 366 v-8 h20 v8"/>
+            <path class="thin" d="M236 366 V252 M356 366 V252 M226 252 H366"/>
+            <path class="thin" d="M240 262 H352 M240 243 H352" stroke-dasharray="4 6" opacity=".45"/>
+            <path class="thin" d="M262 344 h40 M266 344 v-26 a6 6 0 0 1 6 -6 h8"/>
+            <path class="thin" d="M300 322 l16 -15 M310 302 a7 7 0 1 0 12 8"/>
+            <circle cx="248" cy="434" r="21" fill="#292929"/><circle cx="248" cy="434" r="8" fill="#FFFFFF"/>
+            <circle cx="342" cy="436" r="15" fill="#292929"/><circle cx="342" cy="436" r="6" fill="#FFFFFF"/>
+
+            <!-- operador silueteado en la cabina -->
+            <g id="operator">
+              <circle cx="286" cy="288" r="14" fill="#292929"/>
+              <path d="M286 302 c-14 0 -22 10 -23 22 l-2 24 h27 l4 -20 14 6 4 -10 -18 -12 c-2 -6 -3 -10 -6 -10 z" fill="#292929"/>
+              <path d="M272 297 a15 10 0 0 1 28 0 z" fill="#FFBD59"/>
+            </g>
+
+            <!-- mástil exterior: engorda con 7T -->
+            <line class="rail" x1="188" y1="440" x2="188" y2="176"/>
+            <line class="rail" x1="216" y1="440" x2="216" y2="176"/>
+            <line class="thin" x1="184" y1="176" x2="220" y2="176"/>
+            <circle class="thin" cx="202" cy="176" r="9" fill="#FFFFFF"/>
+            <circle cx="202" cy="176" r="2.5" fill="#292929"/>
+
+            <!-- mástil interior telescópico + cilindro hidráulico -->
+            <g id="innerMast">
+              <line class="rail-in" x1="194" y1="436" x2="194" y2="188"/>
+              <line class="rail-in" x1="210" y1="436" x2="210" y2="188"/>
+              <rect id="rod" x="197" y="240" width="10" height="190" rx="5" fill="#FFBD59" stroke="#292929" stroke-width="1.4"/>
+            </g>
+
+            <!-- cadena: corre con stroke-dashoffset -->
+            <path class="chain" d="M202 182 V440"/>
+
+            <!-- carro + horquillas + carga -->
+            <g id="carriage">
+              <ellipse id="loadShadow" cx="118" cy="452" rx="56" ry="7" fill="#292929"/>
+              <rect x="180" y="386" width="26" height="52" rx="3" fill="#292929"/>
+              <path class="thin" d="M180 397 H206 M180 427 H206" stroke="#FFFFFF" opacity=".5"/>
+              <path d="M182 430 H70 v8 H182 z" fill="#292929"/>
+              <path d="M70 430 h8 v-16 h-8 z" fill="#292929"/>
+
+              <!-- carga A · torre de tres pallets (3T) -->
+              <g class="load" id="loadPallets">
+                <g fill="#FFBD59" stroke="#292929" stroke-width="2">
+                  <rect x="72" y="402" width="98" height="28" rx="2"/>
+                  <rect x="76" y="374" width="90" height="28" rx="2"/>
+                  <rect x="80" y="346" width="82" height="28" rx="2"/>
+                </g>
+                <path class="thin" d="M92 403 v26 M150 403 v26 M96 375 v26 M146 375 v26 M100 347 v26 M142 347 v26" opacity=".85"/>
+              </g>
+
+              <!-- carga B · bobina de acero (7T) -->
+              <g class="load off" id="loadCoil">
+                <rect x="66" y="422" width="108" height="9" rx="2" fill="#292929"/>
+                <circle cx="120" cy="380" r="42" fill="#FFBD59" stroke="#292929" stroke-width="2.4"/>
+                <circle cx="120" cy="380" r="15" fill="#FFFFFF" stroke="#292929" stroke-width="2.4"/>
+                <path class="thin" d="M120 338 v12 M120 410 v12 M78 380 h12 M150 380 h12" opacity=".65"/>
+                <path class="thin" d="M92 352 l9 9 M148 352 l-9 9 M92 408 l9 -9 M148 408 l-9 -9" opacity=".45"/>
+              </g>
+            </g>
+          </svg>
+
+          <p class="seat-note lbl" id="seatNote">USTED<br>CONDUCE</p>
+
+          <!-- el arco de la trompa ES el medidor -->
+          <div class="gauge" id="gauge">
+            <svg viewBox="0 0 194 132" aria-hidden="true">
+              <path class="trunk-bg" pathLength="100" d="M20 118 C20 52 60 14 108 14 C148 14 174 40 174 72 C174 98 154 114 132 114 C114 114 102 102 102 88"/>
+              <path class="trunk-fg" pathLength="100" d="M20 118 C20 52 60 14 108 14 C148 14 174 40 174 72 C174 98 154 114 132 114 C114 114 102 102 102 88"/>
+            </svg>
+            <span class="gauge-txt">
+              <span class="lbl" id="gaugeLbl">FALTAN 3 RESPUESTAS</span>
+              <strong id="gaugeMsg">La trompa se levanta cuando la cotización está lista.</strong>
+            </span>
+          </div>
+
+          <!-- el mensaje se teclea solo -->
+          <div class="wa-prev">
+            <span class="lbl"><s aria-hidden="true"></s>MENSAJE A LUX-METAL · EN VIVO</span>
+            <p class="wa-line" id="waLine" aria-live="polite"></p>
+            <a class="wa-btn" id="waBtn" href="https://wa.me/56977458631?text=Hola%20Lux-Metal%2C%20quiero%20arrendar%20una%20gr%C3%BAa%20horquilla." target="_blank" rel="noopener">
+              <span id="waBtnTxt">Complete las tres respuestas</span>
+              <span class="arw" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== 3 · LA FLOTA · 3T ===================== -->
+<section class="band band-3" id="flota" aria-labelledby="f3">
+  <span class="wm" aria-hidden="true">3</span>
+  <div class="wrap band-3-in">
+    <div class="cut">
+      <img src="img/real/g19.jpg" alt="Grúa horquilla Komatsu amarilla de 3 toneladas, vista lateral">
+      <img class="cut-2" src="img/real/g30.jpg" alt="Grúa horquilla operando dentro de una bodega">
+    </div>
+    <div class="rv rv-d1">
+      <span class="ton-key">Capacidad 01 — liviana y rápida</span>
+      <h2 class="dsp h1" id="f3">3 toneladas.<br>Pasillo angosto,<br>turno completo.</h2>
+      <p class="lede" style="margin-top:22px">Perfectas para bodegas, centros logísticos y retail. Giran donde otras no entran, no marcan el piso y aguantan el ritmo de un centro de distribución sin pedir permiso.</p>
+      <ul class="hair-list">
+        <li><b>USO</b><span>Picking, carga y descarga de camión, movimiento de pallets entre racks.</span></li>
+        <li><b>DÓNDE</b><span>Bodegas, centros logísticos, retail, plantas de alimentos.</span></li>
+        <li><b>MODO</b><span>Con o sin operador. Spot por el día o contrato mensual.</span></li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn-k" href="https://wa.me/56977458631?text=Hola%20Lux-Metal%2C%20necesito%20una%20gr%C3%BAa%20de%203%20toneladas." target="_blank" rel="noopener">Pedir una de 3T por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- separación por curva orgánica, nunca por línea recta -->
+<svg class="curve" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+  <rect width="1440" height="140" fill="#FFFFFF"/>
+  <path fill="#292929" d="M0,140 L0,72 C240,4 520,124 760,66 C1000,10 1220,92 1440,42 L1440,140 Z"/>
+</svg>
+
+<!-- ===================== 3b · LA FLOTA · 7T ===================== -->
+<section class="band band-7" aria-labelledby="f7">
+  <span class="wm" aria-hidden="true">7</span>
+  <div class="wrap band-7-in">
+    <div class="band-7-txt rv rv-d1">
+      <span class="ton-key">Capacidad 02 — fuerza bruta</span>
+      <h2 class="dsp h1" id="f7">7 toneladas.<br>Lo que no se<br>mueve a mano.</h2>
+      <p class="lede" style="margin-top:22px">Ideales para construcción, metalmecánica y materiales de gran volumen. Bobinas, vigas, maquinaria, estructuras: si tiene que subir y nadie más se atreve, esta es la máquina.</p>
+      <ul class="hair-list">
+        <li><b>USO</b><span>Descarga de camiones pesados, movimiento de estructuras y bobinas de acero.</span></li>
+        <li><b>DÓNDE</b><span>Obras, maestranzas, patios industriales, plantas de proceso.</span></li>
+        <li><b>MODO</b><span>Con operador de la casa o sin operador, según lo que pida su faena.</span></li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn-y" href="https://wa.me/56977458631?text=Hola%20Lux-Metal%2C%20necesito%20una%20gr%C3%BAa%20de%207%20toneladas." target="_blank" rel="noopener">Pedir una de 7T por WhatsApp</a>
+      </div>
+    </div>
+    <div class="band-7-img rv">
+      <img src="img/gal/horquillas-low.jpg" alt="Horquillas de una grúa levantando un pallet, vista en contrapicado">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4 · CON O SIN OPERADOR ===================== -->
+<section class="oper dark" id="operador" aria-labelledby="opT">
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="wrap oper-in">
+    <div class="fader rv">
+      <img id="imgCon" src="img/real/g15.jpg" alt="Operador de Lux-Metal sonriendo en la cabina de una grúa horquilla">
+      <img id="imgSin" class="hide" src="img/real/g19.jpg" alt="Grúa horquilla amarilla sola, impecable y lista para trabajar">
+      <span class="fader-tag lbl" id="faderTag">CON OPERADOR</span>
+    </div>
+    <div class="rv rv-d1">
+      <span class="lbl" style="color:var(--machine)">04 — MODALIDAD</span>
+      <h2 class="dsp h1" id="opT" style="margin-top:14px">¿Va con<br>o sin gente?</h2>
+      <p class="lede" style="margin-top:20px">Es la única decisión que suele costar. Mueva el control y vea la diferencia: la misma máquina, dos formas de trabajar.</p>
+
+      <div class="switch" role="group" aria-label="Elegir modalidad de arriendo">
+        <button type="button" id="swCon" aria-pressed="true">Con operador</button>
+        <button type="button" id="swSin" aria-pressed="false">Sin operador</button>
+      </div>
+
+      <div class="oper-pane on" id="paneCon">
+        <ul class="hair-list">
+          <li><b>INCLUYE</b><span>Operador con experiencia, casco y protocolo de faena. Sabe leer una carga antes de tocarla.</span></li>
+          <li><b>IDEAL SI</b><span>Su equipo no tiene operadores habilitados, hay rotación de turnos o la carga es delicada.</span></li>
+          <li><b>USTED</b><span>Solo indica qué mover y hacia dónde. Del resto nos preocupamos nosotros.</span></li>
+        </ul>
+      </div>
+      <div class="oper-pane" id="paneSin">
+        <ul class="hair-list">
+          <li><b>INCLUYE</b><span>La máquina revisada y puesta en faena, lista para trabajar el turno completo.</span></li>
+          <li><b>IDEAL SI</b><span>Ya tiene operadores propios y necesita capacidad extra por temporada u obra.</span></li>
+          <li><b>USTED</b><span>Conduce con su gente, sus tiempos y sus turnos. Nosotros mantenemos el equipo.</span></li>
+        </ul>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn btn-y" href="#cotizador">Definirlo en el cotizador</a>
+        <a class="btn btn-o" href="https://wa.me/56977458631?text=Hola%20Lux-Metal%2C%20tengo%20una%20duda%20sobre%20el%20arriendo%20con%20o%20sin%20operador." target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5 · POR QUÉ EL ELEFANTE ===================== -->
+<section class="why" aria-labelledby="whyT">
+  <div class="grid-lines light" aria-hidden="true"></div>
+  <figure class="insert ins-a rv"><img src="img/gal/mastil-macro.jpg" alt="Detalle macro de la cadena y el cilindro hidráulico de un mástil"></figure>
+  <figure class="insert ins-b rv rv-d2"><img src="img/real/g28.jpg" alt="Detalle de las cadenas del mástil de una grúa horquilla"></figure>
+
+  <div class="wrap">
+    <div class="why-gauge" id="whyGauge">
+      <svg viewBox="0 0 194 132" aria-hidden="true">
+        <path class="trunk-bg" pathLength="100" d="M20 118 C20 52 60 14 108 14 C148 14 174 40 174 72 C174 98 154 114 132 114 C114 114 102 102 102 88"/>
+        <path class="trunk-fg" pathLength="100" d="M20 118 C20 52 60 14 108 14 C148 14 174 40 174 72 C174 98 154 114 132 114 C114 114 102 102 102 88"/>
+      </svg>
+    </div>
+    <p class="lbl" id="whyT" style="text-align:center;color:var(--grey);margin:0">05 — POR QUÉ UN ELEFANTE</p>
+    <blockquote class="quote rv rv-d1">Un elefante levanta 300 kilos con la trompa. Nosotros levantamos <em>7 toneladas.</em> Y llevamos 30 años sin olvidar una entrega.</blockquote>
+    <p class="quote-cite lbl rv rv-d2">LUX-METAL · BRIGADIER DE LA CRUZ 682, SAN MIGUEL</p>
+
+    <div class="counters" id="counters">
+      <div class="ctr rv"><b class="mono" data-count="30" data-suffix="+">0</b><span class="lbl">Años de oficio</span></div>
+      <div class="ctr rv rv-d1"><b class="mono" data-text="24/7">0</b><span class="lbl">Disponibilidad real</span></div>
+      <div class="ctr rv rv-d2"><b class="mono" data-text="3 · 7">0</b><span class="lbl">Toneladas de capacidad</span></div>
+      <div class="ctr rv rv-d3"><b class="mono" data-text="RM">0</b><span class="lbl">San Miguel, Santiago</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6 · LA FAENA ===================== -->
+<section class="faena" aria-labelledby="faT">
+  <div class="wrap">
+    <span class="lbl rv" style="color:var(--grey)">06 — LA FAENA</span>
+    <h2 class="dsp h1 rv rv-d1" id="faT" style="margin-top:14px">De la llamada<br>a la grúa<br>en su patio.</h2>
+    <p class="lede rv rv-d2" style="margin-top:22px">Funciona igual para una descarga de un día que para un contrato de seis meses. La diferencia está en la tarifa, no en el trato.</p>
+
+    <ol class="steps">
+      <li class="rv"><h3>Nos llama o escribe</h3><p>WhatsApp al +56 9 7745 8631 o teléfono al +56 2 2552 9212. A cualquier hora: el 24/7 no es un adorno del sitio.</p></li>
+      <li class="rv rv-d1"><h3>Evaluamos la carga</h3><p>Peso, altura, ancho de pasillo, tipo de piso y si hay que trabajar de noche. Con eso definimos 3T o 7T, con o sin operador.</p></li>
+      <li class="rv rv-d2"><h3>La grúa llega a faena</h3><p>Equipo revisado y coordinado con su jefe de bodega. Spot por el día o contrato con máquina asignada, según le convenga.</p></li>
+    </ol>
+  </div>
+</section>
+
+<div class="breath rv">
+  <img src="img/gal/pasillo-3am.jpg" alt="Grúa horquilla sola en un pasillo de bodega durante la madrugada">
+  <div class="breath-txt">
+    <span class="lbl">DISPONIBILIDAD 24/7</span>
+    <strong>A las 3am también contestamos.</strong>
+    <small>Turnos de noche, descargas de emergencia y fines de semana largos. Si su operación no para, nosotros tampoco.</small>
+  </div>
+</div>
+
+<div class="mq dark" aria-hidden="true">
+  <div class="mq-track">
+    <span>SAN MIGUEL <i>·</i> SANTIAGO CENTRO <i>·</i> QUILICURA <i>·</i> PUDAHUEL <i>·</i> SAN BERNARDO <i>·</i> MAIPÚ <i>·</i> LA FLORIDA <i>·</i> RENCA <i>·</i> TODA LA REGIÓN METROPOLITANA <i>·</i>&nbsp;</span>
+    <span>SAN MIGUEL <i>·</i> SANTIAGO CENTRO <i>·</i> QUILICURA <i>·</i> PUDAHUEL <i>·</i> SAN BERNARDO <i>·</i> MAIPÚ <i>·</i> LA FLORIDA <i>·</i> RENCA <i>·</i> TODA LA REGIÓN METROPOLITANA <i>·</i>&nbsp;</span>
+  </div>
+</div>
+
+<div class="breath rv">
+  <img src="img/gal/santiago-alba.jpg" alt="Zona industrial de Santiago al amanecer">
+  <div class="breath-txt">
+    <span class="lbl">COBERTURA</span>
+    <strong>Salimos antes que el tráfico.</strong>
+    <small>Base en Brigadier de La Cruz 682, San Miguel. Desde ahí llegamos a toda la Región Metropolitana.</small>
+  </div>
+</div>
+
+<!-- ===================== 7 · LA FLOTA REAL ===================== -->
+<section class="fleet" aria-labelledby="flT">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <div class="rv">
+        <span class="lbl">07 — LA FLOTA REAL</span>
+        <h2 class="dsp h1" id="flT">Nuestras<br>máquinas,<br>sin retoques.</h2>
+      </div>
+      <p class="rv rv-d1">Estas son las grúas que van a llegar a su patio y la gente que las maneja. Nada de fotos de catálogo.</p>
+    </div>
+
+    <div class="mosaic">
+      <a class="tile t-a rv" href="#cotizador"><img src="img/real/g18.jpg" alt="Grúa horquilla amarilla en el patio de Lux-Metal, vista de tres cuartos"><span class="cap lbl">PATIO SAN MIGUEL · EQUIPO 3T LISTO PARA SALIR</span></a>
+      <a class="tile t-b rv rv-d1" href="#cotizador"><img src="img/real/g31.jpg" alt="Detalle de las horquillas de una grúa"><span class="cap lbl">HORQUILLAS · REVISIÓN ANTES DE CADA ARRIENDO</span></a>
+      <a class="tile t-c rv" href="#cotizador"><img src="img/real/g32.jpg" alt="Grúa horquilla con tanque de gas licuado"><span class="cap lbl">EQUIPOS GLP PARA TRABAJO EN INTERIOR</span></a>
+      <a class="tile t-d rv rv-d1" href="#cotizador"><img src="img/real/g20.jpg" alt="Dos grúas horquillas estacionadas en el patio"><span class="cap lbl">DOS EQUIPOS EN PARALELO PARA UNA MISMA FAENA</span></a>
+      <a class="tile t-e rv" href="#cotizador"><img src="img/real/g26.jpg" alt="Fila de grúas horquillas de la flota Lux-Metal"><span class="cap lbl">FLOTA COMPLETA · 3 Y 7 TONELADAS</span></a>
+      <a class="tile t-f rv" href="#cotizador"><img src="img/real/g34.jpg" alt="Grúa horquilla trabajando en una nave industrial"><span class="cap lbl">NAVE INDUSTRIAL · TRANSPORTE INTERNO</span></a>
+      <a class="tile t-g rv rv-d1" href="#cotizador"><img src="img/real/2.jpg" alt="Equipo de Lux-Metal junto a dos grúas horquillas"><span class="cap lbl">EL EQUIPO QUE LLEGA CON LA MÁQUINA</span></a>
+      <a class="tile t-h rv rv-d2" href="#cotizador"><img src="img/real/6.jpg" alt="Operador caminando entre dos grúas horquillas"><span class="cap lbl">OPERADORES CON AÑOS DE PATIO</span></a>
+      <a class="tile t-i rv" href="#cotizador"><img src="img/real/g35.jpg" alt="Nave industrial con pallets apilados"><span class="cap lbl">CARGA, DESCARGA Y ORDEN DE BODEGA</span></a>
+      <a class="tile t-j rv rv-d1" href="#cotizador"><img src="img/real/g38.jpg" alt="Bodega amplia lista para operar"><span class="cap lbl">BODEGAS AMPLIAS O PASILLOS ANGOSTOS</span></a>
+    </div>
+
+    <div class="drag">
+      <div class="drag-head">
+        <span class="lbl">MÁS DEL PATIO</span>
+        <span class="lbl">ARRASTRE PARA VER →</span>
+      </div>
+      <div class="drag-rail" id="dragRail">
+        <figure><img src="img/real/g22.jpg" alt="Grúa horquilla amarilla completa" draggable="false"><figcaption class="lbl">EQUIPO COMPLETO · 3T</figcaption></figure>
+        <figure><img src="img/real/g21.jpg" alt="Mástil Komatsu en contrapicado" draggable="false"><figcaption class="lbl">MÁSTIL KOMATSU</figcaption></figure>
+        <figure><img src="img/real/g27.jpg" alt="Detalle del volante de una grúa horquilla" draggable="false"><figcaption class="lbl">PUESTO DE MANDO</figcaption></figure>
+        <figure><img src="img/real/g29.jpg" alt="Detalle de las palancas de mando" draggable="false"><figcaption class="lbl">PALANCAS DE IZAJE</figcaption></figure>
+        <figure><img src="img/real/g24.jpg" alt="Operador conduciendo una grúa horquilla" draggable="false"><figcaption class="lbl">OPERADOR EN TURNO</figcaption></figure>
+        <figure><img src="img/real/g25.jpg" alt="Grúa horquilla en marcha" draggable="false"><figcaption class="lbl">EN MARCHA</figcaption></figure>
+        <figure><img src="img/real/g12.jpg" alt="Operador en una grúa horquilla verde" draggable="false"><figcaption class="lbl">EQUIPO 70 · SIEMPRE LISTO</figcaption></figure>
+        <figure><img src="img/real/1.jpg" alt="Operadores de Lux-Metal en la cabina" draggable="false"><figcaption class="lbl">TRASPASO DE TURNO</figcaption></figure>
+        <figure><img src="img/real/7-2.jpg" alt="Operador en movimiento en el patio" draggable="false"><figcaption class="lbl">COORDINACIÓN EN PATIO</figcaption></figure>
+        <figure><img src="img/gal/neumatico.jpg" alt="Detalle macro de neumático y contrapeso" draggable="false"><figcaption class="lbl">NEUMÁTICO Y CONTRAPESO</figcaption></figure>
+        <figure><img src="img/gal/cabina-manos.jpg" alt="Manos en el volante de una grúa durante la noche" draggable="false"><figcaption class="lbl">TURNO DE NOCHE</figcaption></figure>
+        <figure><img src="img/real/g17.jpg" alt="Operador manejando una grúa horquilla" draggable="false"><figcaption class="lbl">MANIOBRA FINA</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8 · CIERRE Y CONTACTO ===================== -->
+<section class="close" id="contacto" aria-labelledby="clT">
+  <div class="close-bg"><img src="img/gal/patio-aereo.jpg" alt="Vista aérea de un patio logístico al atardecer"></div>
+  <img class="close-ele" src="img/logo-blanco.png" alt="" aria-hidden="true">
+  <div class="wrap close-in">
+    <span class="lbl" style="color:var(--machine)">08 — HABLEMOS</span>
+    <h2 class="dsp h1" id="clT" style="margin-top:14px">¿Cuánto pesa<br><em>lo suyo?</em></h2>
+    <p class="lede" style="margin-top:20px">Dígalo en una línea y le decimos qué grúa necesita, con o sin operador, y para cuándo la tenemos en su patio. Sin cotizaciones eternas.</p>
+
+    <ul class="contact">
+      <li><span class="lbl">WHATSAPP</span><a href="https://wa.me/56977458631?text=Hola%20Lux-Metal%2C%20quiero%20arrendar%20una%20gr%C3%BAa%20horquilla." target="_blank" rel="noopener">+56 9 7745 8631</a></li>
+      <li><span class="lbl">TELÉFONO</span><a href="tel:+56225529212">+56 2 2552 9212</a></li>
+      <li><span class="lbl">CORREO</span><a href="mailto:ventas@luxmetal.cl">ventas@luxmetal.cl</a></li>
+      <li><span class="lbl">DIRECCIÓN</span><span class="val">Brigadier de La Cruz 682, San Miguel</span></li>
+      <li><span class="lbl">HORARIO</span><span class="val">24/7 · Región Metropolitana</span></li>
+    </ul>
+
+    <div class="alianza">
+      <span class="lbl">ALIANZA ESTRATÉGICA</span>
+      <p>Consulta por soluciones integrales para operaciones más complejas.</p>
+    </div>
+
+    <div class="btn-row" style="justify-content:flex-end">
+      <a class="btn btn-y" href="https://wa.me/56977458631?text=Hola%20Lux-Metal%2C%20quiero%20arrendar%20una%20gr%C3%BAa%20horquilla." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a class="btn btn-o" href="#cotizador">Volver al cotizador</a>
+    </div>
+  </div>
+
+  <div class="wrap foot">
+    <span class="lbl">LUX-METAL · ARRIENDO DE GRÚAS HORQUILLAS · 30+ AÑOS</span>
+    <span class="lbl">BRIGADIER DE LA CRUZ 682, SAN MIGUEL · SANTIAGO DE CHILE</span>
+    <span class="lbl">CONCEPTO «LEVANTE» · GRUPO DIGITALS</span>
+  </div>
+</section>
+
+<!-- ===================== PERSISTENTES ===================== -->
+<div class="progress" id="progress" aria-hidden="true">
+  <svg viewBox="0 0 194 132">
+    <path class="trunk-bg" pathLength="100" d="M20 118 C20 52 60 14 108 14 C148 14 174 40 174 72 C174 98 154 114 132 114 C114 114 102 102 102 88"/>
+    <path class="trunk-fg" id="progFg" pathLength="100" style="stroke-dasharray:100;stroke-dashoffset:100" d="M20 118 C20 52 60 14 108 14 C148 14 174 40 174 72 C174 98 154 114 132 114 C114 114 102 102 102 88"/>
+  </svg>
+</div>
+
+<div class="strip" id="strip" aria-hidden="true">
+  <svg viewBox="0 0 56 320">
+    <line class="s-rail" x1="18" y1="16" x2="18" y2="300"/>
+    <line class="s-rail" x1="38" y1="16" x2="38" y2="300"/>
+    <g class="s-tick">
+      <line x1="42" y1="300" x2="52" y2="300"/><line x1="42" y1="248" x2="52" y2="248"/>
+      <line x1="42" y1="195" x2="52" y2="195"/><line x1="42" y1="143" x2="52" y2="143"/>
+      <line x1="42" y1="91" x2="52" y2="91"/><line x1="42" y1="38" x2="52" y2="38"/>
+    </g>
+    <line class="s-base" x1="8" y1="307" x2="48" y2="307"/>
+    <g id="sBlock">
+      <rect x="8" y="262" width="40" height="38" rx="3" fill="#FFBD59" stroke="#292929" stroke-width="2"/>
+      <text class="s-num" id="sNum" x="28" y="287" text-anchor="middle">3T</text>
+    </g>
+  </svg>
+  <span class="strip-read" id="stripRead">0.0m</span>
+</div>
+
+<div class="dockbar" id="dock">
+  <span class="dock-txt">
+    <span class="lbl">SU CONFIGURACIÓN</span>
+    <b id="dockTxt">Grúa por definir · toque para cotizar</b>
+  </span>
+  <a class="dock-wa" id="dockWa" href="https://wa.me/56977458631?text=Hola%20Lux-Metal%2C%20quiero%20arrendar%20una%20gr%C3%BAa%20horquilla." target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  var $  = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+  var setVar = function(k,v){ root.style.setProperty(k, String(v)); };
+
+  /* ============ NAV · PROGRESO · DOCK ============ */
+  var nav = $('#nav'), progress = $('#progress'), progFg = $('#progFg'), dock = $('#dock');
+  function onScroll(){
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var vh = window.innerHeight;
+    nav.classList.toggle('solid', y > vh * .7);
+    progress.classList.toggle('on', y > vh * .5);
+    dock.classList.toggle('on', y > vh * .85);
+    var max = document.documentElement.scrollHeight - vh;
+    var p = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+    progFg.style.strokeDashoffset = (100 - p * 100).toFixed(2);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ============ REVEAL ON SCROLL ============ */
+  var revealables = $$('.rv, .breath, .cut');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    revealables.forEach(function(el){ io.observe(el); });
+  } else {
+    revealables.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ============ CONTADORES ============ */
+  var ctrDone = false;
+  function runCounters(){
+    if(ctrDone) return; ctrDone = true;
+    $$('#counters b').forEach(function(b){
+      var txt = b.getAttribute('data-text');
+      if(txt){ b.textContent = txt; return; }
+      var end = parseInt(b.getAttribute('data-count'), 10) || 0;
+      var suf = b.getAttribute('data-suffix') || '';
+      if(RM){ b.textContent = end + suf; return; }
+      var t0 = null, dur = 1500;
+      function step(t){
+        if(t0 === null) t0 = t;
+        var k = Math.min(1, (t - t0) / dur);
+        b.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + (k === 1 ? suf : '');
+        if(k < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var whyGauge = $('#whyGauge'), counters = $('#counters');
+  if('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(e.isIntersecting){ runCounters(); io2.disconnect(); } });
+    }, {threshold:.25});
+    io2.observe(counters);
+    var io3 = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(e.isIntersecting){ whyGauge.classList.add('in'); io3.disconnect(); } });
+    }, {threshold:.5});
+    io3.observe(whyGauge);
+  } else {
+    runCounters(); whyGauge.classList.add('in');
+  }
+
+  /* ============================================================
+     EL IZAJE — el cotizador es una máquina que levanta peso
+     ============================================================ */
+  var state = {ton:null, op:null, dur:null};
+
+  /* la regla del SVG mide 44.4px por metro desde y=440 */
+  var LIFT   = {spot:67,    mes:133,   largo:200};
+  var METERS = {spot:'1.5', mes:'3.0', largo:'4.5'};
+  /* 7T = easing más pesado y más largo: se SIENTE el peso */
+  var EASE   = {'3':'cubic-bezier(.22,1,.36,1)', '7':'cubic-bezier(.45,.03,.24,1)'};
+  var DUR_MS = {'3':780, '7':1480};
+
+  var readout  = $('#readout'),  stripRead = $('#stripRead'), sNum = $('#sNum');
+  var pallets  = $('#loadPallets'), coil = $('#loadCoil');
+  var operator = $('#operator'), seatNote = $('#seatNote');
+  var gauge    = $('#gauge'), gaugeLbl = $('#gaugeLbl'), gaugeMsg = $('#gaugeMsg');
+  var chainRun = 0;
+
+  function applyMachine(){
+    /* 1 · TONELAJE → grosor de riel, tipo de carga, peso del easing */
+    var t = state.ton;
+    setVar('--rail', t === '7' ? 4.6 : 3);
+    setVar('--lift-ease', EASE[t] || EASE['3']);
+    setVar('--lift-dur', (DUR_MS[t] || 780) + 'ms');
+    if(t === '7'){ pallets.classList.add('off');  coil.classList.remove('off'); }
+    else         { coil.classList.add('off');     pallets.classList.remove('off'); }
+    if(sNum) sNum.textContent = t ? t + 'T' : '—';
+
+    /* 2 · OPERADOR → silueta en la cabina o asiento vacío */
+    operator.classList.toggle('on', state.op === 'con');
+    seatNote.classList.toggle('on', state.op === 'sin');
+
+    /* 3 · DURACIÓN → altura del izaje */
+    var lift = state.dur ? LIFT[state.dur] : 0;
+    setVar('--lift', lift);
+    chainRun -= lift ? 34 : 0;
+    setVar('--chain', chainRun - lift * 1.2);
+    setVar('--shadow', (1 - (lift / 200) * .42).toFixed(3));
+    setVar('--shadow-o', (0.16 - (lift / 200) * .09).toFixed(3));
+
+    var m = state.dur ? METERS[state.dur] : '0.0';
+    readout.innerHTML = m + '<u>&nbsp;m</u>';
+    if(stripRead) stripRead.textContent = m + 'm';
+
+    /* GOLPE DE MARCA · el arco de la trompa se llena con las tres respuestas */
+    var n = (state.ton ? 1 : 0) + (state.op ? 1 : 0) + (state.dur ? 1 : 0);
+    setVar('--prog', (n / 3 * 100).toFixed(1));
+    if(n === 3){
+      gauge.classList.add('done');
+      gaugeLbl.textContent = 'COTIZACIÓN LISTA';
+      gaugeMsg.textContent = 'La trompa está arriba. Toque el botón y llega directo a nuestro WhatsApp.';
+    } else {
+      gauge.classList.remove('done');
+      gaugeLbl.textContent = (3 - n) === 1 ? 'FALTA 1 RESPUESTA' : 'FALTAN ' + (3 - n) + ' RESPUESTAS';
+      gaugeMsg.textContent = n === 0
+        ? 'La trompa se levanta cuando la cotización está lista.'
+        : 'Siga: la máquina ya está respondiendo.';
+    }
+
+    updateMessage();
+    updateDock();
+  }
+
+  /* ---------- el mensaje de WhatsApp se teclea solo ---------- */
+  var TON_TXT = {'3':'una grúa de 3 toneladas', '7':'una grúa de 7 toneladas'};
+  var OP_TXT  = {'con':'con operador', 'sin':'sin operador'};
+  var DUR_TXT = {'spot':'para un trabajo puntual', 'mes':'por un mes', 'largo':'por 3 meses o más'};
+
+  var waLine = $('#waLine'), waBtn = $('#waBtn'), waBtnTxt = $('#waBtnTxt'), dockWa = $('#dockWa');
+  var shown = [], timer = null;
+
+  function draft(){
+    return 'Hola Lux-Metal, necesito '
+      + (state.ton ? TON_TXT[state.ton] : '_____________')  + ', '
+      + (state.op  ? OP_TXT[state.op]   : '____________')   + ', '
+      + (state.dur ? DUR_TXT[state.dur] : '______________') + '.';
+  }
+  function finalMsg(){
+    if(!state.ton || !state.op || !state.dur) return 'Hola Lux-Metal, quiero arrendar una grúa horquilla.';
+    return 'Hola Lux-Metal, necesito ' + TON_TXT[state.ton] + ', ' + OP_TXT[state.op] + ', ' + DUR_TXT[state.dur] + '.';
+  }
+  function paint(words, caret){
+    waLine.textContent = words.join(' ');
+    if(caret && !RM){
+      var c = document.createElement('span');
+      c.className = 'caret';
+      waLine.appendChild(c);
+    }
+  }
+  function updateMessage(){
+    var target = draft().split(' ');
+    if(timer){ clearTimeout(timer); timer = null; }
+    updateHref();
+    if(RM){ shown = target.slice(); paint(shown, false); return; }
+    /* conservar el prefijo ya escrito y teclear sólo la cola */
+    var i = 0;
+    while(i < target.length && i < shown.length && target[i] === shown[i]) i++;
+    shown = target.slice(0, i);
+    paint(shown, true);
+    (function type(){
+      if(shown.length >= target.length){ paint(target, false); return; }
+      shown.push(target[shown.length]);
+      paint(shown, true);
+      timer = setTimeout(type, 55);
+    })();
+  }
+  function updateHref(){
+    var ready = !!(state.ton && state.op && state.dur);
+    var href = 'https://wa.me/56977458631?text=' + encodeURIComponent(finalMsg());
+    waBtn.href = href;
+    dockWa.href = href;
+    waBtn.classList.toggle('ready', ready);
+    waBtnTxt.textContent = ready ? 'Enviar por WhatsApp ahora' : 'Complete las tres respuestas';
+  }
+  function updateDock(){
+    var bits = [];
+    if(state.ton) bits.push(state.ton + 'T');
+    if(state.op)  bits.push(state.op === 'con' ? 'con operador' : 'sin operador');
+    if(state.dur) bits.push(state.dur === 'spot' ? 'spot' : (state.dur === 'mes' ? '1 mes' : '3+ meses'));
+    $('#dockTxt').textContent = bits.length ? bits.join(' · ') : 'Grúa por definir · toque para cotizar';
+  }
+
+  /* ---------- radiogroups accesibles (teclado incluido) ---------- */
+  $$('.qz').forEach(function(group){
+    var opts = $$('.opt', group);
+    function select(btn){
+      opts.forEach(function(o){
+        var on = (o === btn);
+        o.setAttribute('aria-checked', on ? 'true' : 'false');
+        o.tabIndex = on ? 0 : -1;
+      });
+      group.classList.add('answered');
+      state[btn.getAttribute('data-q')] = btn.getAttribute('data-v');
+      applyMachine();
+    }
+    opts.forEach(function(o, idx){
+      o.addEventListener('click', function(){ select(o); });
+      o.addEventListener('keydown', function(ev){
+        var k = ev.key, next = -1;
+        if(k === 'ArrowDown' || k === 'ArrowRight')     next = (idx + 1) % opts.length;
+        else if(k === 'ArrowUp' || k === 'ArrowLeft')   next = (idx - 1 + opts.length) % opts.length;
+        else if(k === 'Home')                          next = 0;
+        else if(k === 'End')                           next = opts.length - 1;
+        else if(k === ' ' || k === 'Enter'){ ev.preventDefault(); select(o); return; }
+        if(next >= 0){ ev.preventDefault(); opts[next].focus(); select(opts[next]); }
+      });
+    });
+  });
+
+  applyMachine();
+
+  /* la tira instrumental sólo aparece mientras el cotizador está en pantalla */
+  var strip = $('#strip'), cot = $('#cotizador');
+  if('IntersectionObserver' in window){
+    var io4 = new IntersectionObserver(function(en){
+      en.forEach(function(e){ strip.classList.toggle('on', e.isIntersecting); });
+    }, {threshold:0, rootMargin:'-12% 0px -14% 0px'});
+    io4.observe(cot);
+  }
+
+  /* ============ CON O SIN OPERADOR ============ */
+  var swCon = $('#swCon'), swSin = $('#swSin'),
+      imgCon = $('#imgCon'), imgSin = $('#imgSin'),
+      paneCon = $('#paneCon'), paneSin = $('#paneSin'), faderTag = $('#faderTag');
+  function setOper(withOp){
+    swCon.setAttribute('aria-pressed', withOp ? 'true' : 'false');
+    swSin.setAttribute('aria-pressed', withOp ? 'false' : 'true');
+    imgCon.classList.toggle('hide', !withOp);
+    imgSin.classList.toggle('hide', withOp);
+    paneCon.classList.toggle('on', withOp);
+    paneSin.classList.toggle('on', !withOp);
+    faderTag.textContent = withOp ? 'CON OPERADOR' : 'SIN OPERADOR';
+  }
+  swCon.addEventListener('click', function(){ setOper(true); });
+  swSin.addEventListener('click', function(){ setOper(false); });
+
+  /* ============ MARQUESINA ARRASTRABLE ============ */
+  var rail = $('#dragRail'), down = false, sx = 0, sl = 0, moved = 0;
+  rail.addEventListener('pointerdown', function(e){
+    down = true; moved = 0; sx = e.clientX; sl = rail.scrollLeft; rail.classList.add('grabbing');
+  });
+  rail.addEventListener('pointermove', function(e){
+    if(!down) return;
+    var d = e.clientX - sx;
+    moved = Math.max(moved, Math.abs(d));
+    if(e.pointerType === 'mouse'){ rail.scrollLeft = sl - d; }
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+    rail.addEventListener(ev, function(){ down = false; rail.classList.remove('grabbing'); });
+  });
+
+  /* ============ PARALLAX SUAVE DEL HERO ============ */
+  if(!RM){
+    var hero = $('.hero'), ele = $('.hero-ele'), word = $('.hero-word'), busy = false;
+    setTimeout(function(){ hero.classList.add('ready'); }, 1700);
+    window.addEventListener('scroll', function(){
+      if(busy) return; busy = true;
+      requestAnimationFrame(function(){
+        busy = false;
+        var y = window.pageYOffset;
+        if(y > window.innerHeight * 1.25) return;
+        ele.style.transform  = 'translate3d(0,' + (y * .12).toFixed(1) + 'px,0)';
+        word.style.transform = 'translate3d(0,' + (y * -.05).toFixed(1) + 'px,0)';
+      });
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>

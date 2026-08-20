@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lux-Metal · 3 propuestas de landing</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0B0B0C;--card:#141416;--amar:#FFBD59;--nar:#F95738;--tx:#9AA0A8;--wh:#FFFFFF}
+body{font-family:'Archivo',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:56px clamp(20px,4vw,50px) 80px}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;margin-bottom:clamp(38px,6vw,60px)}
+header img{height:62px}
+header h1{color:var(--wh);font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+header .tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:2.5px;color:var(--amar);text-transform:uppercase;width:100%}
+header p{width:100%;max-width:700px;font-size:.96rem}
+header p b{color:var(--wh)}
+.ops{display:flex;flex-direction:column;gap:24px}
+.op{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;min-height:340px;border-radius:26px;overflow:hidden;isolation:isolate;border:1px solid rgba(255,255,255,.1);transition:.4s}
+.op::before{content:'';position:absolute;inset:0;background-image:var(--bg2);background-size:cover;background-position:center;z-index:-2;transition:transform .9s ease}
+.op::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,11,12,.95) 28%,rgba(11,11,12,.35));z-index:-1}
+.op:hover{transform:translateY(-4px);border-color:rgba(255,189,89,.6);box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.op:hover::before{transform:scale(1.05)}
+.op .in{padding:clamp(26px,4vw,44px);max-width:680px}
+.op .n{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:2.5px;color:var(--amar);text-transform:uppercase;display:block;margin-bottom:10px}
+.op h2{color:var(--wh);font-size:clamp(1.6rem,4.2vw,2.7rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:12px}
+.op p{font-size:.94rem;max-width:560px;margin-bottom:18px}
+.op .go{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.84rem;color:#111;background:var(--amar);border-radius:100px;padding:13px 28px;transition:.3s}
+.op:hover .go{gap:16px;box-shadow:0 0 30px rgba(255,189,89,.4)}
+footer{margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,.09);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:1px;color:#5E6470;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="img/logo-blanco.png" alt="Lux-Metal">
+    <h1>Landings Lux-Metal<br>· 3 propuestas</h1>
+    <span class="tag">Digitals · dirección de arte web · agosto 2026</span>
+    <p>Tres universos distintos para el arriendo de grúas horquillas, todos construidos sobre la marca real: <b>el elefante</b> y la palabra <b>LUX-METAL</b> como protagonistas del hero, sus fotos reales de flota y operadores, y fotografía cinematográfica generada a medida.</p>
+  </header>
+
+  <div class="ops">
+    <a class="op" href="opcion-1.html" style="--bg2:url('img/gal/nave-noche.jpg')">
+      <div class="in">
+        <span class="n">Opción 01 · Cinematográfica</span>
+        <h2>«Manada Nocturna»</h2>
+        <p>La landing como turno de noche: reloj real corriendo en el hero, el elefante como sombra monumental, tipografía blanca gigantesca sobre nave oscura y ritmo de operación 24/7. Para el que necesita saber que a las 3am alguien contesta.</p>
+        <span class="go">Ver opción 1 →</span>
+      </div>
+    </a>
+    <a class="op" href="opcion-2.html" style="--bg2:url('img/real/g19.jpg')">
+      <div class="in">
+        <span class="n">Opción 02 · Editorial brutalista</span>
+        <h2>«Bruto»</h2>
+        <p>Fondo claro, tipografía brutal y el elefante a escala monumental: «USTED PRODUCE. NOSOTROS LEVANTAMOS». Amarillo maquinaria como único acento, hairlines editoriales y peso visual de revista suiza. Elegante y con músculo.</p>
+        <span class="go">Ver opción 2 →</span>
+      </div>
+    </a>
+    <a class="op" href="opcion-3.html" style="--bg2:url('img/gal/horquillas-low.jpg')">
+      <div class="in">
+        <span class="n">Opción 03 · Conversión</span>
+        <h2>«Levante»</h2>
+        <p>Vende desde el primer scroll: «Dígame cuánto pesa» y un cotizador de 3 respuestas (tonelaje · con o sin operador · duración) que arma el mensaje listo para WhatsApp. Dirección de arte premium sobre lógica comercial pura.</p>
+        <span class="go">Ver opción 3 →</span>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <span>Propuestas confidenciales · no indexadas</span>
+    <span>luxmetal.cl · digitals.cl</span>
+  </footer>
+</div>
+</body>
+</html>
